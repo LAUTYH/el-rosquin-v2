@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -10,6 +13,29 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
+  subsets: ["latin"],
+});
+
+const bodoni = localFont({
+  src: [
+    { path: "../fonts/BOD_R.ttf", weight: "400", style: "normal" },
+    { path: "../fonts/BOD_I.ttf", weight: "400", style: "italic" },
+    { path: "../fonts/BOD_B.ttf", weight: "700", style: "normal" },
+    { path: "../fonts/BOD_BI.ttf", weight: "700", style: "italic" },
+    { path: "../fonts/BOD_BLAR.ttf", weight: "900", style: "normal" },
+    { path: "../fonts/BOD_BLAI.ttf", weight: "900", style: "italic" },
+  ],
+  variable: "--font-bodoni",
+});
+
+const dirtyBrush = localFont({
+  src: "../fonts/Dirty Brush.ttf",
+  variable: "--font-dirty-brush",
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -25,9 +51,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${bodoni.variable} ${dirtyBrush.variable} ${montserrat.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
