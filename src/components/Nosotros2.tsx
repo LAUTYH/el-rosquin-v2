@@ -2,7 +2,7 @@ import React from 'react'
 
 const Nosotros2 = () => {
     return (
-        <section className='w-full min-h-[100vh] bg-[#fdf5cc] bg-[url("/fondos/SOLAPA-2.png")] bg-cover bg-center flex items-center justify-center relative overflow-hidden py-20'>
+        <section className='w-full min-h-[100vh] bg-[#fdf5cc] bg-[url("/fondos/SOLAPA-2.png")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-center justify-center relative overflow-hidden py-20'>
 
             {/* Capa de borde entre el background y el contenido */}
             <div className='absolute flex items-center justify-center inset-0 w-full h-full p-4 md:p-10 lg:p-16 pointer-events-none z-0 pb-10'>

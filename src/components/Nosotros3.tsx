@@ -2,7 +2,7 @@ import React from 'react'
 
 const Nosotros3 = () => {
     return (
-        <section className='w-full min-h-[100vh] bg-gray-500 bg-[url("/fondos/SOLAPA-3.png")] bg-cover bg-center flex items-center justify-center relative py-20 px-6'>
+        <section className='w-full min-h-[100vh] bg-gray-500 bg-[url("/fondos/SOLAPA-3.png")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-center justify-center relative py-20 px-6'>
             
             <div className='flex flex-col items-center justify-center w-full max-w-[850px] text-center space-y-12'>
                 

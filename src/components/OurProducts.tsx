@@ -20,7 +20,7 @@ const OurProducts = () => {
   };
 
   return (
-    <section className="w-full min-h-[100vh] bg-[#3a3528] bg-[url('/fondos/PRODUCTOS.png')] bg-cover bg-center flex flex-col items-center justify-center relative py-20 px-6 font-montserrat overflow-hidden">
+    <section className="w-full min-h-[100vh] bg-[#3a3528] bg-[url('/fondos/PRODUCTOS.png')] bg-[length:100%_100%] bg-no-repeat bg-center flex flex-col items-center justify-center relative py-20 px-6 font-montserrat overflow-hidden">
       
       {/* Título */}
       <div className="text-center mb-10 mt-8">
