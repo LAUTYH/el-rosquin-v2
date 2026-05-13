@@ -44,7 +44,8 @@ export default function HorizontalCarousel() {
   );
 
   return (
-    <section ref={containerRef} className="w-full h-screen bg-[#f4f4f4] overflow-hidden">
+    <section ref={containerRef} className="w-full h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
+      style={{ backgroundImage: "url('/fondos/CARROUSEL.png')" }}>
       {/* Contenedor que centra verticalmente el carrusel */}
       <div className="h-full flex flex-col justify-center px-4 md:px-10">
         {/* <h2 className="text-4xl md:text-5xl font-bold font-montserrat text-redros mb-12 pl-4">
@@ -54,15 +55,28 @@ export default function HorizontalCarousel() {
         {/* El div que realmente se desplazará en el eje X */}
         <div ref={scrollWrapperRef} className="flex gap-8 flex-nowrap w-max px-4">
 
-          {/* Tarjetas Placeholder 1:1 */}
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+          {/* Galería de Imágenes Reales */}
+          {[
+            "/products-onlys/imagenes-stock/picada-salame-queso-cerveza.jpg",
+            "/products-onlys/imagenes-stock/pizza-jamon-aceitunas-porcion.png",
+            "/products-onlys/imagenes-stock/chorizos-parrilla-fuego.jpg",
+            "/products-onlys/imagenes-stock/sandwich-jamon-queso-lechuga.jpg",
+            "/products-onlys/imagenes-stock/salame-tabla-queso-aceitunas.jpeg",
+            "/products-onlys/imagenes-stock/jamon-cocido-feteado-tabla.jpg",
+            "/products-onlys/imagenes-stock/bondiola-tabla-quesos-pan.jpg",
+            "/products-onlys/imagenes-stock/medialunas-jamon-queso-cafe.jpg",
+            "/products-onlys/imagenes-stock/tabla-fiambres-salame-nueces.jpg",
+            "/products-onlys/imagenes-stock/equipo-fabrica-embutidos.jpg"
+          ].map((src, index) => (
             <div
-              key={item}
-              className="w-[280px] h-[280px] md:w-[400px] md:h-[400px] flex-shrink-0 bg-[#e2e2e2] rounded-2xl flex items-center justify-center shadow-lg border-2 border-dashed border-[#b3b3b3] transition-transform hover:scale-[1.02]"
+              key={index}
+              className="w-[280px] md:w-[30vw] aspect-[9/16] md:aspect-[4/5] flex-shrink-0 overflow-hidden rounded-2xl shadow-lg border-2 border-white/20 transition-transform hover:scale-[1.02]"
             >
-              <span className="text-[#666] font-montserrat font-semibold text-lg">
-                Imagen {item} <br /> (1:1)
-              </span>
+              <img 
+                src={src} 
+                alt={`Galería El Rosquín ${index + 1}`} 
+                className="w-full h-full object-cover"
+              />
             </div>
           ))}
 

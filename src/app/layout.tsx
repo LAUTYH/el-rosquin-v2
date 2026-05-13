@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,9 +58,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${bodoni.variable} ${dirtyBrush.variable} ${montserrat.variable} h-full antialiased`}
     >
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <SmoothScrolling>
+          <Header />
+          {children}
+          <Footer />
+        </SmoothScrolling>
       </body>
     </html>
   );
