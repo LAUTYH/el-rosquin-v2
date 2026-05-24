@@ -2,10 +2,10 @@ import React from "react";
 
 export default function NutritionalBadge({ title }: { title: string }) {
   return (
-    <div className="relative inline-block px-10 py-3 bg-[#E5B55C] shadow-lg mb-6">
+    <div className="relative inline-block px-10 py-3 mb-6 drop-shadow-md">
       {/* Usamos el mismo clip-path / mask que el botón de descarga, pero como fondo sólido */}
       <div
-        className="absolute inset-0 bg-[#D4A373] md:bg-goldenros"
+        className="absolute inset-0"
         style={{
           backgroundColor: '#CC9933', // goldenros
           WebkitMaskImage:

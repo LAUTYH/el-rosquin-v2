@@ -1,5 +1,6 @@
 "use client"
 import React, { useState } from 'react'
+import BadgeButton from './BadgeButton'
 
 const productsData = [
   { id: 'secos', svg: '/elementos/linea-secos.svg', img: '/imgs-products/secos.png' },
@@ -27,18 +28,18 @@ const OurProducts = () => {
         <h2 className="font-bodoni font-bold text-white text-[24px] md:text-[32px] tracking-widest uppercase mb-[-15px] md:mb-[-20px] relative z-10">
           Nuestra Línea
         </h2>
-        <h3 className="font-dirty-brush text-goldenros text-[50px] md:text-[75px] tracking-wider transform -rotate-3 relative z-20">
+        <h3 className="font-dirty-brush text-goldenros text-[50px] md:text-[75px] tracking-wider relative z-20">
           DE PRODUCTOS
         </h3>
       </div>
 
       {/* Tabs / Botones SVG */}
-      <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8 mb-12 max-w-[1000px]">
+      <div className="grid grid-cols-2 gap-4 justify-items-center md:flex md:flex-wrap md:justify-center md:gap-8 mb-12 max-w-[1000px]">
         {productsData.map((item, index) => (
           <button
             key={item.id}
             onClick={() => setActiveIndex(index)}
-            className={`transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none 
+            className={`transition-all duration-300 ease-in-out hover:scale-105 focus:outline-none flex justify-center items-center
               ${activeIndex === index ? 'opacity-100 scale-105' : 'opacity-40 hover:opacity-80'}`}
           >
             <img
@@ -97,12 +98,12 @@ const OurProducts = () => {
 
       {/* Botones de Acción */}
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center">
-        <button className="bg-goldenros text-darkros font-bold py-3 md:py-4 px-8 md:px-10 rounded-sm text-sm md:text-base tracking-widest hover:bg-[#d6a848] transition-colors">
+        <BadgeButton>
           VER PRODUCTOS
-        </button>
-        <button className="bg-transparent border border-goldenros text-white font-bold py-3 md:py-4 px-8 md:px-10 rounded-sm text-sm md:text-base tracking-widest hover:bg-goldenros/10 transition-colors">
+        </BadgeButton>
+        <BadgeButton dark={true}>
           DESCARGAR CATÁLOGO
-        </button>
+        </BadgeButton>
       </div>
 
     </section>

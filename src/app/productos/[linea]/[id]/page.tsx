@@ -66,7 +66,7 @@ export default async function ProductoPage({
             {/* Columna Izquierda: Imagen del producto */}
             <div className="relative flex justify-center">
               {imgs?.product ? (
-                <div className="relative w-[80%] max-w-[300px] aspect-[1/3]">
+                <div className="relative w-[80%] max-w-[300px] h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
                   <Image
                     src={imgs.product}
                     alt={producto.nombre}
@@ -75,13 +75,13 @@ export default async function ProductoPage({
                     priority
                   />
                   {imgs?.seal && (
-                    <div className="absolute bottom-10 -right-8 md:-right-12 w-20 md:w-24">
+                    <div className="absolute bottom-4 -right-4 md:bottom-10 md:-right-12 w-16 md:w-24">
                       <Image src={imgs.seal} alt="Sello de producto" width={100} height={100} className="w-full h-auto" />
                     </div>
                   )}
                 </div>
               ) : (
-                <div className="w-[80%] max-w-[300px] aspect-[1/3] bg-darkros/20 rounded-xl" />
+                <div className="w-[80%] max-w-[300px] h-[400px] md:h-[600px] bg-darkros/20 rounded-xl" />
               )}
             </div>
 
@@ -137,7 +137,7 @@ export default async function ProductoPage({
 
                 {producto.codigo && (
                   <div className="flex flex-col items-center mt-2">
-                    <span className="font-montserrat text-redros text-sm font-bold">
+                    <span className="font-montserrat text-gray-800 text-sm">
                       Código {producto.codigo}
                     </span>
                   </div>
@@ -161,24 +161,24 @@ export default async function ProductoPage({
       <section className="bg-[url('/fondos-productos/fondo%20info.png')] bg-cover bg-center py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-start">
-            
+
             {/* Columna Izquierda: Nutricional */}
             <div className="flex flex-col items-center">
               <NutritionalBadge title="INFORMACIÓN NUTRICIONAL" />
-              
+
               {producto.informacionNutricional && (
                 <div className="mt-4 text-center w-full max-w-md">
                   <p className="font-montserrat text-darkros text-sm md:text-base font-bold mb-6">
-                    Porción: {producto.informacionNutricional.porcion}
+                    Porción: {producto.informacionNutricional.porcion.split('|')[0].trim()} | Medida Casera
                   </p>
-                  
+
                   <div className="w-full border-t-[3px] border-darkros pt-2">
                     {/* Header tabla */}
                     <div className="flex justify-between items-end pb-2 border-b-[3px] border-darkros font-montserrat text-darkros font-bold text-sm md:text-base">
                       <span className="text-left flex-1">Cantidad por porción</span>
                       <span className="w-24 text-right">% VD (*)</span>
                     </div>
-                    
+
                     {/* Filas tabla */}
                     <div className="flex flex-col">
                       {Object.entries(producto.informacionNutricional.valores).map(([key, value]) => (
@@ -204,7 +204,7 @@ export default async function ProductoPage({
             {/* Columna Derecha: Ingredientes */}
             <div className="flex flex-col items-center">
               <NutritionalBadge title="INGREDIENTES" />
-              
+
               <div className="mt-4 max-w-md">
                 <p className="font-montserrat text-darkros text-sm md:text-base leading-relaxed text-center font-medium">
                   {producto.ingredientes}

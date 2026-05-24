@@ -101,16 +101,44 @@ export default async function LineaPage({
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12 md:gap-y-16">
           {lineaProductos.map((producto) => {
             const imgs = productImages[producto.id];
-            const [mainName, subtitle] = producto.nombre.split(' - ');
+            
+            const nameParts = producto.nombre.split(' - ');
+            const mainName = nameParts[0];
+            
+            const isEnvasadoVacio = producto.nombre.toLowerCase().includes('vacío') || producto.id.includes('vacio');
+            const isAtadoMano = producto.id.includes('mano') || producto.nombre.toLowerCase().includes('mano');
+
+            const sellos: { url: string; alt: string }[] = [];
+            if (isEnvasadoVacio) sellos.push({ url: '/name-with-styles/sello-envasado-al-vacio-chico.png', alt: 'Envasado al vacío' });
+            if (isAtadoMano) sellos.push({ url: '/name-with-styles/sello-atado-a-mano-chico.png', alt: 'Atado a mano' });
+
+            let subtitle = nameParts.length > 1 ? nameParts[1] : undefined;
+            if (subtitle && subtitle.toLowerCase().includes('vacío')) {
+              subtitle = undefined; // Hide subtitle if it's just "Envasado al Vacío"
+            }
             
             return (
               <Link
                 key={producto.id}
                 href={`/productos/${slug}/${producto.id}`}
-                className="group cursor-pointer flex flex-col items-center text-center transition-all duration-300"
+                className="group cursor-pointer flex flex-col items-center text-center transition-all duration-300 relative"
               >
                 {/* Imagen */}
                 <div className="w-full h-48 md:h-64 flex items-center justify-center mb-4 relative">
+                  {/* Sellos */}
+                  {sellos.length > 0 && (
+                    <div className="absolute top-2 right-2 flex flex-col gap-2 z-10 items-end">
+                      {sellos.map((sello, idx) => (
+                        <img 
+                          key={idx} 
+                          src={sello.url} 
+                          alt={sello.alt} 
+                          className="w-10 h-10 md:w-14 md:h-14 object-contain drop-shadow-sm transition-transform group-hover:scale-105" 
+                        />
+                      ))}
+                    </div>
+                  )}
+
                   {imgs?.product ? (
                     <Image
                       src={imgs.product}

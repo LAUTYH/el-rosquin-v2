@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import BadgeButton from './BadgeButton';
 
 const ContactHome = () => {
   return (
@@ -46,14 +47,7 @@ const ContactHome = () => {
         </p>
 
         {/* Button */}
-        <button 
-          className="bg-[#CC9933] text-[#453D2D] font-bold py-3 md:py-4 px-12 md:px-16 text-sm md:text-[15px] tracking-widest hover:bg-[#d6a848] transition-colors relative"
-          style={{
-            clipPath: 'polygon(12px 0, calc(100% - 12px) 0, 100% 12px, 100% calc(100% - 12px), calc(100% - 12px) 100%, 12px 100%, 0 calc(100% - 12px), 0 12px)'
-          }}
-        >
-          CONTACTANOS
-        </button>
+        <BadgeButton>CONTACTANOS</BadgeButton>
       </div>
 
     </section>

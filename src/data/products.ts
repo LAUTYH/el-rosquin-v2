@@ -27,11 +27,11 @@ export const productos: Producto[] = [
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '100',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -63,11 +63,11 @@ export const productos: Producto[] = [
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '101',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -99,11 +99,11 @@ export const productos: Producto[] = [
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '102',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -135,11 +135,11 @@ export const productos: Producto[] = [
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '103',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -171,11 +171,11 @@ export const productos: Producto[] = [
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '104',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -207,11 +207,11 @@ export const productos: Producto[] = [
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '105',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -243,11 +243,11 @@ export const productos: Producto[] = [
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '107',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -279,11 +279,11 @@ export const productos: Producto[] = [
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '108',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -319,7 +319,7 @@ export const productos: Producto[] = [
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -351,11 +351,11 @@ export const productos: Producto[] = [
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '110',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -387,11 +387,11 @@ export const productos: Producto[] = [
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '111',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -423,11 +423,11 @@ export const productos: Producto[] = [
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '201',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -459,11 +459,11 @@ export const productos: Producto[] = [
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '202',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -495,11 +495,11 @@ export const productos: Producto[] = [
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '205',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -531,11 +531,11 @@ export const productos: Producto[] = [
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '203',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -567,11 +567,11 @@ export const productos: Producto[] = [
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '204',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -603,11 +603,11 @@ export const productos: Producto[] = [
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '206',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -639,11 +639,11 @@ export const productos: Producto[] = [
         linea: 'Fiambres',
         lineaDescripcion: 'Fiambres cocidos orientados a la versatilidad diaria, elaborados con materia prima de alta calidad para sándwiches y preparaciones frías.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '300',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -675,11 +675,11 @@ export const productos: Producto[] = [
         linea: 'Fiambres',
         lineaDescripcion: 'Fiambres cocidos orientados a la versatilidad diaria, elaborados con materia prima de alta calidad para sándwiches y preparaciones frías.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '302',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -711,11 +711,11 @@ export const productos: Producto[] = [
         linea: 'Fiambres',
         lineaDescripcion: 'Fiambres cocidos orientados a la versatilidad diaria, elaborados con materia prima de alta calidad para sándwiches y preparaciones frías.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '303',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -747,11 +747,11 @@ export const productos: Producto[] = [
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '306',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -783,11 +783,11 @@ export const productos: Producto[] = [
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '304',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -819,11 +819,11 @@ export const productos: Producto[] = [
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
         venta: 'Elaboración a pedido / Venta al peso',
-        codigo: '--',
+        codigo: '401',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -855,11 +855,11 @@ export const productos: Producto[] = [
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '402',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -891,11 +891,11 @@ export const productos: Producto[] = [
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '402',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -927,11 +927,11 @@ export const productos: Producto[] = [
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
         venta: 'Elaboración a pedido / Venta al peso',
-        codigo: '--',
+        codigo: '403',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -963,11 +963,11 @@ export const productos: Producto[] = [
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
         venta: 'Elaboración a pedido / Venta al peso',
-        codigo: '--',
+        codigo: '404',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
@@ -999,11 +999,11 @@ export const productos: Producto[] = [
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
         venta: 'Venta al peso',
-        codigo: '--',
+        codigo: '405',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
         ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
         informacionNutricional: {
-            porcion: '40 grs = 2 Fetas | Medida Casera',
+            porcion: '-- -- | Medida Casera',
             valores: {
                 'Valor Energético (Kcal = Kj)': '--',
                 'Carbohidratos (gr)': '--',
