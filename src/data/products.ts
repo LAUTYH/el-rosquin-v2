@@ -7,6 +7,14 @@ export interface Producto {
     linea: 'Secos' | 'Maduración' | 'Fiambres' | 'Tradición';
     lineaDescripcion: string;
     venta: string;
+    codigo: string;
+    banner: string;
+    ingredientes: string;
+    informacionNutricional: {
+        porcion: string;
+        valores: Record<string, string>;
+        porcentajes: Record<string, string>;
+    };
 }
 
 export const productos: Producto[] = [
@@ -18,7 +26,33 @@ export const productos: Producto[] = [
         caja: '5 tiras apróx. 11 kg.',
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'salame-colono-mano-grueso',
@@ -28,7 +62,33 @@ export const productos: Producto[] = [
         caja: '5 tiras apróx. 11 kg.',
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'salame-metro-grueso',
@@ -38,7 +98,33 @@ export const productos: Producto[] = [
         caja: '7 unidades apróx. 14 kg.',
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'salame-baston-grueso',
@@ -48,7 +134,33 @@ export const productos: Producto[] = [
         caja: '26 unidades apróx. 15 kg.',
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'salame-crespon-grueso',
@@ -58,7 +170,33 @@ export const productos: Producto[] = [
         caja: '10 unidades apróx. 15 kg.',
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'salame-queso-grueso',
@@ -68,7 +206,33 @@ export const productos: Producto[] = [
         caja: '8 tiras apróx. 11 kg.',
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'salame-baston-queso-grueso',
@@ -78,7 +242,33 @@ export const productos: Producto[] = [
         caja: '26 unidades apróx. 15 kg.',
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'salame-milan-fino',
@@ -88,7 +278,33 @@ export const productos: Producto[] = [
         caja: '6 unidades apróx. 14 kg.',
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'salamin-fino',
@@ -98,7 +314,33 @@ export const productos: Producto[] = [
         caja: '12 tiras apróx. 12 kg.',
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'salame-grasa-grueso-vacio',
@@ -108,7 +350,33 @@ export const productos: Producto[] = [
         caja: '50 unidades apróx. 12 kg.',
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'salame-colono-grueso-vacio',
@@ -118,7 +386,33 @@ export const productos: Producto[] = [
         caja: '60 unidades apróx. 10 kg.',
         linea: 'Secos',
         lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'panceta-salada-arrollada',
@@ -128,7 +422,33 @@ export const productos: Producto[] = [
         caja: '15 unidades apróx. 12 kg.',
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'panceta-plancha-vacio',
@@ -138,7 +458,33 @@ export const productos: Producto[] = [
         caja: '20 unidades apróx. 18 kg.',
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'dados-panceta-bacon-vacio',
@@ -148,7 +494,33 @@ export const productos: Producto[] = [
         caja: '15 bolsitas apróx. 15 kg.',
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'jamon-crudo-vacio',
@@ -158,7 +530,33 @@ export const productos: Producto[] = [
         caja: '7 unidades apróx. 15 kg.',
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'bondiola-premium-vacio',
@@ -168,7 +566,33 @@ export const productos: Producto[] = [
         caja: '12 unidades apróx. 12 kg.',
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'bondiola-arrollada-premium-vacio',
@@ -178,7 +602,33 @@ export const productos: Producto[] = [
         caja: '12 unidades apróx. 12 kg.',
         linea: 'Maduración',
         lineaDescripcion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'jamon-cocido-tradicion',
@@ -188,7 +638,33 @@ export const productos: Producto[] = [
         caja: '4 unidades apróx. 15 kg.',
         linea: 'Fiambres',
         lineaDescripcion: 'Fiambres cocidos orientados a la versatilidad diaria, elaborados con materia prima de alta calidad para sándwiches y preparaciones frías.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'fiambre-pata-cerdo',
@@ -198,7 +674,33 @@ export const productos: Producto[] = [
         caja: '4 unidades apróx. 20 kg.',
         linea: 'Fiambres',
         lineaDescripcion: 'Fiambres cocidos orientados a la versatilidad diaria, elaborados con materia prima de alta calidad para sándwiches y preparaciones frías.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'fiambre-pollo-cerdo',
@@ -208,7 +710,33 @@ export const productos: Producto[] = [
         caja: '4 unidades apróx. 16 kg.',
         linea: 'Fiambres',
         lineaDescripcion: 'Fiambres cocidos orientados a la versatilidad diaria, elaborados con materia prima de alta calidad para sándwiches y preparaciones frías.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'queso-cerdo-tradicion-vacio',
@@ -218,7 +746,33 @@ export const productos: Producto[] = [
         caja: '10 unidades apróx. 18 kg.',
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'queso-cerdo-familiar',
@@ -228,7 +782,33 @@ export const productos: Producto[] = [
         caja: '15 unidades apróx. 18 kg.',
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'chorizo-parrillero',
@@ -238,7 +818,33 @@ export const productos: Producto[] = [
         caja: 'No se especifica',
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
-        venta: 'Elaboración a pedido / Venta al peso'
+        venta: 'Elaboración a pedido / Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'chorizos-frescos-1kg-vacio',
@@ -248,7 +854,33 @@ export const productos: Producto[] = [
         caja: '12 packs apróx. 12 kg.',
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'chorizos-frescos-400gr-vacio',
@@ -258,7 +890,33 @@ export const productos: Producto[] = [
         caja: '24 packs apróx. 12 kg.',
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'morcilla-rosca',
@@ -268,7 +926,33 @@ export const productos: Producto[] = [
         caja: 'No se especifica',
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
-        venta: 'Elaboración a pedido / Venta al peso'
+        venta: 'Elaboración a pedido / Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'morcilla-parrillera',
@@ -278,7 +962,33 @@ export const productos: Producto[] = [
         caja: 'No se especifica',
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
-        venta: 'Elaboración a pedido / Venta al peso'
+        venta: 'Elaboración a pedido / Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     },
     {
         id: 'morcilla-parrillera-vacio',
@@ -288,6 +998,32 @@ export const productos: Producto[] = [
         caja: '24 packs apróx. 10 kg.',
         linea: 'Tradición',
         lineaDescripcion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
-        venta: 'Venta al peso'
+        venta: 'Venta al peso',
+        codigo: '--',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas | Medida Casera',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '--',
+                'Carbohidratos (gr)': '--',
+                'Proteínas (gr)': '--',
+                'Grasas Totales (gr)': '--',
+                'Grasas Saturadas (gr)': '--',
+                'Grasas Trans (gr)': '--',
+                'Fibra Alimentaria (gr)': '--',
+                'Sodio (mg)': '--'
+            }
+        }
     }
 ];
