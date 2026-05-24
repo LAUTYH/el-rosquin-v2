@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
 import BackButton from "@/components/BackButton";
 import { productos } from "@/data/products";
@@ -65,10 +66,13 @@ export default async function ProductoPage({
           <div className="relative">
             <div className="rounded-2xl bg-darkros/20 border border-white/5 aspect-square flex items-center justify-center p-8 md:p-12">
               {imgs?.product ? (
-                <img
+                <Image
                   src={imgs.product}
                   alt={producto.nombre}
-                  className="w-full h-full object-contain"
+                  width={1000}
+                  height={1000}
+                  className="w-full h-full object-contain drop-shadow-2xl"
+                  priority
                 />
               ) : (
                 <div className="w-full h-full bg-darkros/40 rounded-xl" />
@@ -77,7 +81,7 @@ export default async function ProductoPage({
             {/* Sello (al vacío / atado a mano) */}
             {imgs?.seal && (
               <div className="absolute bottom-4 right-4 w-20 md:w-24">
-                <img src={imgs.seal} alt="Sello de producto" className="w-full h-auto" />
+                <Image src={imgs.seal} alt="Sello de producto" width={100} height={100} className="w-full h-auto" />
               </div>
             )}
           </div>
@@ -95,10 +99,12 @@ export default async function ProductoPage({
             {/* Nombre con estilo */}
             {imgs?.nameWithStyle ? (
               <div className="w-full max-w-sm">
-                <img
+                <Image
                   src={imgs.nameWithStyle}
                   alt={producto.nombre}
-                  className="w-full h-auto object-contain"
+                  width={600}
+                  height={200}
+                  className="w-full h-auto object-contain object-left"
                 />
               </div>
             ) : (

@@ -59,7 +59,7 @@ export default function Header() {
                 {/* EL LOGO QUEDA A LA IZQUIERDA EN MOBILE Y EN SU POSICIÓN ORIGINAL EN DESKTOP */}
                 <div id="logo" className="lg:mr-10">
                     <Link href="/">
-                        <img className="size-42 absolute left-4 md:left-6 lg:left-auto translate-x-0 my-[-66px] cursor-pointer" src="temporal/logo-er.svg" alt="El Rosquin" />
+                        <img className="size-42 absolute left-4 md:left-6 lg:left-auto translate-x-0 my-[-66px] cursor-pointer" src="/temporal/logo-er.svg" alt="El Rosquin" />
                     </Link>
                 </div>
 

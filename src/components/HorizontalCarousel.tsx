@@ -3,6 +3,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -70,12 +71,14 @@ export default function HorizontalCarousel() {
           ].map((src, index) => (
             <div
               key={index}
-              className="w-[280px] md:w-[30vw] aspect-[9/16] md:aspect-[4/5] flex-shrink-0 overflow-hidden rounded-2xl shadow-lg border-2 border-white/20 transition-transform hover:scale-[1.02]"
+              className="relative w-[280px] md:w-[30vw] aspect-[9/16] md:aspect-[4/5] flex-shrink-0 overflow-hidden rounded-2xl shadow-lg border-2 border-white/20 transition-transform hover:scale-[1.02]"
             >
-              <img
+              <Image
                 src={src}
                 alt={`Galería El Rosquín ${index + 1}`}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
           ))}

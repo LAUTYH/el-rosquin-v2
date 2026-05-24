@@ -1,5 +1,6 @@
 import DownloadButton from "@/components/DownloadButton";
 import { ZoomParallax } from "@/components/ui/zoom-parallax";
+import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { lineaBgImages, lineaDescripciones, type LineaSlug } from "@/data/product-images";
@@ -97,10 +98,12 @@ export default function ProductosPage() {
                 href={`/productos/${slug}`}
                 className="group relative overflow-hidden h-80 md:h-96 cursor-pointer block"
               >
-                <img
+                <Image
                   src={lineaBgImages[slug]}
                   alt={`Línea ${nombre}`}
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/10" />
                 <div className="absolute inset-0 flex flex-col justify-center items-center p-8">

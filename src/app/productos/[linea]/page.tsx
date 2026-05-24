@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
 import BackButton from "@/components/BackButton";
 import { productos } from "@/data/products";
@@ -61,10 +62,12 @@ export default async function LineaPage({
 
       {/* ── Banner de línea ── */}
       <div className="relative h-64 md:h-80 overflow-hidden">
-        <img
+        <Image
           src={lineaBgImages[slug]}
           alt={`Línea ${lineaNombre}`}
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-black/30" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
@@ -109,10 +112,12 @@ export default async function LineaPage({
                 {/* Imagen */}
                 <div className="w-full h-48 md:h-64 flex items-center justify-center mb-4 relative">
                   {imgs?.product ? (
-                    <img
+                    <Image
                       src={imgs.product}
                       alt={producto.nombre}
-                      className="w-full h-full object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                      fill
+                      className="object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 50vw, 25vw"
                     />
                   ) : (
                     <div className="w-2/3 h-2/3 bg-darkros/10 rounded-lg" />
