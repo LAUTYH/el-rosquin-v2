@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ChevronLeft } from "lucide-react";
+import BackButton from "@/components/BackButton";
 import { productos } from "@/data/products";
 import {
   productImages,
@@ -36,20 +37,23 @@ export default async function ProductoPage({
   ];
 
   return (
-    <main className="bg-background min-h-screen">
+    <main className="bg-[url('/fondos-productos/fondo-2.png')] min-h-screen">
 
-      {/* ── Breadcrumb ── */}
+      {/* ── Navegación ── */}
       <div className="max-w-6xl mx-auto px-4 pt-8 pb-0">
-        <nav className="flex items-center gap-2 font-montserrat text-xs text-gray-500">
-          <Link href="/productos" className="hover:text-goldenros transition-colors duration-200 cursor-pointer">
-            Productos
-          </Link>
-          <span>/</span>
-          <Link href={`/productos/${slug}`} className="hover:text-goldenros transition-colors duration-200 cursor-pointer capitalize">
-            {lineaSlugToName[slug]}
-          </Link>
-          <span>/</span>
-          <span className="text-gray-400 line-clamp-1">{producto.nombre}</span>
+        <nav className="flex flex-wrap items-center justify-between gap-4 md:gap-6">
+          <div className="flex items-center gap-2 font-montserrat text-goldenros text-sm">
+            <Link href="/productos#lineas" className="hover:underline cursor-pointer">
+              Productos
+            </Link>
+            <span>/</span>
+            <Link href={`/productos/${slug}`} className="hover:underline cursor-pointer capitalize">
+              {lineaSlugToName[slug]}
+            </Link>
+            <span>/</span>
+            <span className="font-bold line-clamp-1">{producto.nombre.split(' - ')[0]}</span>
+          </div>
+          <BackButton />
         </nav>
       </div>
 

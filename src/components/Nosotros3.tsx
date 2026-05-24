@@ -1,15 +1,20 @@
 import React from 'react'
 
 const Nosotros3 = () => {
+    const backgroundOpacity = 0.6;
+    // bg-[length:100%_100%]
     return (
-        <section className='w-full min-h-[100vh] bg-gray-500 bg-[url("/fondos/SOLAPA-3.png")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-center justify-center relative py-20 px-6'>
-            
+        <section className={`w-full min-h-[100vh] bg-cover bg-center bg-no-repeat relative py-20 px-6 flex items-center justify-center`}
+            style={{
+                backgroundImage: `linear-gradient(rgba(0,0,0,${backgroundOpacity}), rgba(0,0,0,${backgroundOpacity})), url("/temporal/foto-equipo-1.png")`,
+            }}>
+
             <div className='flex flex-col items-center justify-center w-full max-w-[850px] text-center space-y-12'>
-                
+
                 {/* Logo Superior */}
-                <img 
-                    src="/elementos/logo-nosotros.svg" 
-                    alt="Logo Nosotros" 
+                <img
+                    src="/elementos/logo-nosotros.svg"
+                    alt="Logo Nosotros"
                     className='w-full max-w-[400px] md:max-w-[450px] h-auto object-contain'
                 />
 
@@ -19,9 +24,9 @@ const Nosotros3 = () => {
                 </p>
 
                 {/* Línea Inferior */}
-                <img 
-                    src="/elementos/line-nosotros-low.svg" 
-                    alt="Línea Decorativa Inferior" 
+                <img
+                    src="/elementos/line-nosotros-low.svg"
+                    alt="Línea Decorativa Inferior"
                     className='w-full max-w-[400px] md:max-w-[450px] h-auto object-contain'
                 />
 

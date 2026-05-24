@@ -22,7 +22,7 @@ export const productos: Producto[] = [
     },
     {
         id: 'salame-colono-mano-grueso',
-        nombre: 'Salame Tipo Colono Atado a Mano - Picado Grueso',
+        nombre: 'Salame Tipo Colono Tradición - Picado Grueso',
         descripcion: 'Rellenar',
         presentacion: 'Tiras de 12 unidades apróx. 2,2 kg.',
         caja: '5 tiras apróx. 11 kg.',

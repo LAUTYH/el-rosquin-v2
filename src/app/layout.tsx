@@ -55,7 +55,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${bodoni.variable} ${dirtyBrush.variable} ${montserrat.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${bodoni.variable} ${dirtyBrush.variable} ${montserrat.variable} antialiased`}
     >
       <body>
         <SmoothScrolling>

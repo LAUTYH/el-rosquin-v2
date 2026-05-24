@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { usePathname } from "next/navigation";
 
 // Registrar ScrollTrigger en caso de que no esté registrado
 if (typeof window !== "undefined") {
@@ -11,6 +12,8 @@ if (typeof window !== "undefined") {
 }
 
 export default function SmoothScrolling({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+
   useEffect(() => {
     // Inicializar Lenis para smooth scroll global
     const lenis = new Lenis({
@@ -25,17 +28,27 @@ export default function SmoothScrolling({ children }: { children: React.ReactNod
     // Sincronizar Lenis con GSAP ScrollTrigger
     lenis.on("scroll", ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    const raf = (time: number) => {
       lenis.raf(time * 1000);
-    });
+    };
 
+    gsap.ticker.add(raf);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
+      gsap.ticker.remove(raf);
     };
   }, []);
+
+  // Resetear el scroll cuando cambia la ruta
+  useEffect(() => {
+    // @ts-ignore
+    if (window.lenis) {
+      // @ts-ignore
+      window.lenis.scrollTo(0, { immediate: true });
+    }
+  }, [pathname]);
 
   return <>{children}</>;
 }
