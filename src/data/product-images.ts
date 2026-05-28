@@ -103,10 +103,9 @@ export const productImages: Record<string, ProductImages> = {
     nameWithStyle: '/name-with-styles/jamon-crudo.png',
     seal: '/name-with-styles/sello-envasado-al-vacio-grande.png',
   },
-  'bondiola-premium-vacio': {
+  'bondiola-premium': {
     product: '/products-onlys/maduracion/bondiola-de-cerdo.png',
     nameWithStyle: '/name-with-styles/bondiola-cerdo-premium.png',
-    seal: '/name-with-styles/sello-envasado-al-vacio-grande.png',
   },
   'bondiola-arrollada-premium-vacio': {
     product: '/products-onlys/maduracion/bondiola-al-vac%C3%ADo.png',

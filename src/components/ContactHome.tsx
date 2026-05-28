@@ -1,19 +1,20 @@
 import React from 'react';
 import BadgeButton from './BadgeButton';
+import FadeIn from './FadeIn';
 
 const ContactHome = () => {
   return (
     <section className="w-full bg-[#D1070A] py-20 px-6 flex flex-col items-center justify-center text-white text-center">
-      
+
       {/* SEGUINOS EN NUESTRAS REDES */}
-      <div className="flex flex-col items-center mb-6">
-        <h3 className="font-dirty-brush text-[45px] md:text-[55px] leading-none mb-1 transform -rotate-3 relative top-3">
+      <FadeIn className="flex flex-col items-center mb-6">
+        <h3 className="font-dirty-brush text-[45px] md:text-[55px] leading-none mb-1 transform relative top-3">
           SEGUINOS
         </h3>
         <h2 className="font-bodoni font-bold text-[24px] md:text-[32px] tracking-widest uppercase mb-6 z-10">
           EN NUESTRAS REDES
         </h2>
-        
+
         {/* Social Icons */}
         <div className="flex gap-4 md:gap-5 mt-2">
           <a href="#" className="hover:scale-110 transition-transform">
@@ -26,19 +27,19 @@ const ContactHome = () => {
             <img src="/elementos/icon-linkedin.svg" alt="LinkedIn" className="w-[50px] md:w-[60px] h-auto object-contain" />
           </a>
         </div>
-      </div>
+      </FadeIn>
 
       {/* Divider */}
-      <div className="w-full max-w-[500px] my-10 flex justify-center">
-        <img 
-          src="/elementos/line-nosotros-low.svg" 
-          alt="Línea Separadora" 
-          className="w-[80%] max-w-[400px] h-auto object-contain opacity-80" 
+      <FadeIn className="w-full max-w-[500px] my-10 flex justify-center" delay={0.2}>
+        <img
+          src="/elementos/line-nosotros-low.svg"
+          alt="Línea Separadora"
+          className="w-[80%] max-w-[400px] h-auto object-contain opacity-80"
         />
-      </div>
+      </FadeIn>
 
       {/* ¿QUERÉS CONSULTARNOS ALGO? */}
-      <div className="flex flex-col items-center max-w-[600px] mt-2">
+      <FadeIn className="flex flex-col items-center max-w-[600px] mt-2" delay={0.3}>
         <h2 className="font-bodoni font-bold text-[22px] md:text-[30px] tracking-wider uppercase mb-3">
           ¿QUERÉS CONSULTARNOS ALGO?
         </h2>
@@ -48,7 +49,7 @@ const ContactHome = () => {
 
         {/* Button */}
         <BadgeButton>CONTACTANOS</BadgeButton>
-      </div>
+      </FadeIn>
 
     </section>
   )

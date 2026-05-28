@@ -16,11 +16,11 @@ const Footer = () => {
                 </div>
 
                 {/* Menú de Navegación Rápido */}
-                <nav className="flex flex-wrap justify-center gap-6 md:gap-12 text-white text-sm md:text-base font-bold tracking-wider mb-10">
-                    <Link href="#" className="hover:text-goldenros transition-colors">INICIO</Link>
-                    <Link href="#" className="hover:text-goldenros transition-colors">NOSOTROS</Link>
-                    <Link href="#" className="hover:text-goldenros transition-colors">PRODUCTOS</Link>
-                    <Link href="#" className="hover:text-goldenros transition-colors">CONTACTO</Link>
+                <nav className="grid grid-cols-2 gap-x-8 gap-y-4 max-w-[280px] w-full text-center md:flex md:flex-row md:max-w-none md:justify-center md:gap-12 text-white text-sm md:text-base font-bold tracking-wider mb-10">
+                    <Link href="/" className="hover:text-goldenros transition-colors">INICIO</Link>
+                    <Link href="/#nosotros" className="hover:text-goldenros transition-colors">NOSOTROS</Link>
+                    <Link href="/productos" className="hover:text-goldenros transition-colors">PRODUCTOS</Link>
+                    <Link href="/contacto" className="hover:text-goldenros transition-colors">CONTACTO</Link>
                 </nav>
 
                 {/* Línea Divisoria */}

@@ -2,6 +2,7 @@
 import React from "react";
 import { Mail, MapPin, Phone, Upload, Send } from "lucide-react";
 import BadgeButton from "@/components/BadgeButton";
+import FadeIn from "@/components/FadeIn";
 
 export default function ContactoPage() {
   return (
@@ -9,17 +10,17 @@ export default function ContactoPage() {
       <div className="container mx-auto max-w-6xl">
 
         {/* ENCABEZADO */}
-        <div className="text-center mb-20">
+        <FadeIn className="text-center mb-20" delay={0.1}>
           <h1 className="font-bodoni font-bold text-4xl md:text-6xl text-goldenros tracking-widest uppercase mb-2">
             Contactate
           </h1>
           <h2 className="font-dirty-brush text-5xl md:text-8xl text-redros leading-none">
             con nosotros
           </h2>
-        </div>
+        </FadeIn>
 
         {/* MEDIOS DE CONTACTO - GRID SUPERIOR */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
+        <FadeIn className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24" delay={0.2}>
           <ContactInfoCard
             icon={<Mail className="w-8 h-8 text-goldenros" />}
             title="Correo electrónico"
@@ -38,13 +39,13 @@ export default function ContactoPage() {
             value="+54 (3492) 15 664-568"
             link="tel:+54349215664568"
           />
-        </div>
+        </FadeIn>
 
         {/* SECCIÓN DE FORMULARIOS */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
 
           {/* FORMULARIO COMERCIAL */}
-          <section className="space-y-8">
+          <FadeIn className="space-y-8" delay={0.3}>
             <div className="space-y-4">
               <h3 className="font-bodoni font-bold text-3xl text-redros uppercase tracking-wider text-center">
                 Comercial y <br /> Atención al Cliente
@@ -54,7 +55,7 @@ export default function ContactoPage() {
               </p>
             </div>
 
-            <form className="space-y-5 bg-redros/5 p-8 border border-darkros/20 backdrop-blur-sm">
+            <form className="space-y-5 bg-redros p-8 border border-darkros/20 backdrop-blur-sm">
               <InputField label="Nombre Completo" placeholder="Ej: Juan Pérez" />
               <div className="grid grid-cols-2 gap-4">
                 <InputField label="Provincia" placeholder="Ej: Santa Fe" />
@@ -64,10 +65,10 @@ export default function ContactoPage() {
               <TextAreaField label="Mensaje" placeholder="Escribí tu consulta aquí..." />
               <SubmitButton label="ENVIAR CONSULTA" />
             </form>
-          </section>
+          </FadeIn>
 
           {/* FORMULARIO TRABAJÁ CON NOSOTROS */}
-          <section className="space-y-8">
+          <FadeIn className="space-y-8" delay={0.4}>
             <div className="space-y-4">
               <h3 className="font-bodoni font-bold text-3xl text-darkros text-center uppercase tracking-wider">
                 Trabajá <br />con nosotros
@@ -77,24 +78,24 @@ export default function ContactoPage() {
               </p>
             </div>
 
-            <form className="space-y-5 bg-darkros/5 p-8 border border-redros/20 backdrop-blur-sm">
+            <form className="space-y-5 bg-darkros p-8 border border-redros/20 backdrop-blur-sm">
               <InputField label="Nombre Completo" placeholder="Ej: Maria García" />
               <InputField label="Localidad" placeholder="Ej: Rosario" />
               <InputField label="Correo Electrónico" type="email" placeholder="maria@ejemplo.com" />
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-goldenros/80 ml-1">Adjuntar CV</label>
-                <div className="relative group cursor-pointer border-2 border-dashed border-darkros/30 hover:border-goldenros/50 rounded-none p-6 transition-colors flex flex-col items-center justify-center space-y-2 bg-white/20">
-                  <Upload className="w-6 h-6 text-goldenros/80 group-hover:text-goldenros" />
-                  <span className="text-sm text-darkros/60 group-hover:text-darkros/80">Archivos .pdf o .doc (menores a 5MB)</span>
+                <label className="text-xs font-bold uppercase tracking-widest text-white ml-1">Adjuntar CV</label>
+                <div className="relative group cursor-pointer border-2 border-dashed border-darkros/30 hover:border-white/50 rounded-none p-6 transition-colors flex flex-col items-center justify-center space-y-2 bg-white/20">
+                  <Upload className="w-6 h-6 text-white/80 group-hover:text-white" />
+                  <span className="text-sm text-white/60 group-hover:text-white">Archivos .pdf o .doc (menores a 5MB)</span>
                   <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" accept=".pdf,.doc,.docx" />
                 </div>
               </div>
 
               <TextAreaField label="Mensaje" placeholder="Contanos sobre vos..." />
-              <SubmitButton label="POSTULARME" variant="red" />
+              <SubmitButton label="POSTULARME" />
             </form>
-          </section>
+          </FadeIn>
 
         </div>
       </div>
@@ -145,11 +146,11 @@ interface InputFieldProps {
 
 const InputField = ({ label, type = "text", placeholder }: InputFieldProps) => (
   <div className="flex flex-col space-y-2">
-    <label className="text-xs font-bold uppercase tracking-widest text-goldenros/80 ml-1">{label}</label>
+    <label className="text-xs font-bold uppercase tracking-widest text-white ml-1">{label}</label>
     <input
       type={type}
       placeholder={placeholder}
-      className="bg-white/50 border border-darkros/30 px-4 py-3 text-darkros font-montserrat focus:outline-none focus:border-goldenros/60 transition-colors placeholder:text-darkros/50"
+      className="bg-white border border-darkros/30 px-4 py-3 text-darkros font-montserrat focus:outline-none focus:border-goldenros/60 transition-colors placeholder:text-darkros/50"
     />
   </div>
 );
@@ -161,11 +162,11 @@ interface TextAreaFieldProps {
 
 const TextAreaField = ({ label, placeholder }: TextAreaFieldProps) => (
   <div className="flex flex-col space-y-2">
-    <label className="text-xs font-bold uppercase tracking-widest text-goldenros/80 ml-1">{label}</label>
+    <label className="text-xs font-bold uppercase tracking-widest text-white ml-1">{label}</label>
     <textarea
       rows={4}
       placeholder={placeholder}
-      className="bg-white/50 border border-darkros/30 px-4 py-3 text-darkros font-montserrat focus:outline-none focus:border-goldenros/60 transition-colors resize-none placeholder:text-darkros/50"
+      className="bg-white border border-darkros/30 px-4 py-3 text-darkros font-montserrat focus:outline-none focus:border-goldenros/60 transition-colors resize-none placeholder:text-darkros/50"
     />
   </div>
 );

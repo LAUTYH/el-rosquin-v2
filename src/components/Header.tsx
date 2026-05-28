@@ -65,20 +65,20 @@ export default function Header() {
 
                 {/* Desktop Navigation */}
                 <div className="hidden lg:flex ml-58 justify-between items-center gap-10">
-                    <nav id="nav-header" className="font-montserrat font-medium flex gap-16 w-full justify-center text-sm list-none text-white">
+                    <nav id="nav-header" className="font-montserrat font-medium flex gap-16 w-full justify-center text-sm list-none text-white hover:text-goldenros">
                         {navItems.map((item) => (
                             <li key={item.href}>
-                                <Link 
-                                    href={item.href} 
+                                <Link
+                                    href={item.href}
                                     onClick={item.label === "Nosotros" ? handleNosotrosClick : undefined}
-                                    className={`cursor-pointer transition-all duration-300 ${isActive(item.href) ? "font-bold" : "font-normal"}`}
+                                    className={`cursor-pointer transition-all duration-300 ${isActive(item.href) ? "font-bold text-white" : "font-normal text-white hover:text-goldenros"}`}
                                 >
                                     {item.label}
                                 </Link>
                             </li>
                         ))}
                     </nav>
-                    <div>
+                    <div className="shrink-0">
                         <DownloadButton />
                     </div>
                 </div>
@@ -103,12 +103,12 @@ export default function Header() {
             >
                 <nav className="font-montserrat font-medium flex flex-col gap-10 items-center text-2xl list-none text-white mb-12">
                     {navItems.map((item) => (
-                        <li 
+                        <li
                             key={item.href}
-                            className={`mobile-nav-item cursor-pointer hover:text-[#fdf5cc] transition-colors ${isActive(item.href) ? "font-bold" : "font-normal"}`} 
+                            className={`mobile-nav-item cursor-pointer hover:text-white transition-colors ${isActive(item.href) ? "font-bold text-white" : "font-normal text-white"}`}
                             onClick={() => setIsMenuOpen(false)}
                         >
-                            <Link 
+                            <Link
                                 href={item.href}
                                 onClick={item.label === "Nosotros" ? handleNosotrosClick : undefined}
                             >

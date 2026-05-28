@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Montserrat } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import SplashScreen from "@/components/SplashScreen";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,11 +56,10 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${bodoni.variable} ${dirtyBrush.variable} ${montserrat.variable} antialiased`}
     >
-      <body>
+      <body className="overflow-x-hidden">
+        <SplashScreen />
         <SmoothScrolling>
-          <Header />
           {children}
-          <Footer />
         </SmoothScrolling>
       </body>
     </html>

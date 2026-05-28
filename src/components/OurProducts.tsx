@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 import BadgeButton from './BadgeButton'
 
 const productsData = [
-  { id: 'secos', svg: '/elementos/linea-secos.svg', img: '/imgs-products/secos.png' },
-  { id: 'maduracion', svg: '/elementos/linea-maduracion.svg', img: '/imgs-products/maduracion.png' },
-  { id: 'fiambres', svg: '/elementos/linea-fiabres.svg', img: '/imgs-products/fiambres.png' },
-  { id: 'tradicion', svg: '/elementos/linea-tradicion.svg', img: '/imgs-products/tradicion.png' },
+  { id: 'secos', svg: '/sellos/sello-secos.svg', img: '/imgs-products/secos.png' },
+  { id: 'maduracion', svg: '/sellos/sello-maduración.svg', img: '/imgs-products/maduracion.png' },
+  { id: 'fiambres', svg: '/sellos/sello-fiambres.svg', img: '/imgs-products/fiambres.png' },
+  { id: 'tradicion', svg: '/sellos/sello-tradición.svg', img: '/imgs-products/tradicion.png' },
 ];
 
 const OurProducts = () => {

@@ -58,20 +58,20 @@ export default function HorizontalCarousel() {
 
           {/* Galería de Imágenes Reales */}
           {[
-            "/products-onlys/imagenes-stock/picada-salame-queso-cervezaC.jpg",
-            "/products-onlys/imagenes-stock/pizza-jamon-aceitunas-porcionC.png",
-            "/products-onlys/imagenes-stock/chorizos-parrilla-fuegoC.jpg",
-            "/products-onlys/imagenes-stock/sandwich-jamon-queso-lechugaC.jpg",
-            "/products-onlys/imagenes-stock/salame-tabla-queso-aceitunasC.jpeg",
-            "/products-onlys/imagenes-stock/jamon-cocido-feteado-tablaC.jpg",
-            "/products-onlys/imagenes-stock/bondiola-tabla-quesos-panC.jpg",
-            "/products-onlys/imagenes-stock/medialunas-jamon-queso-cafeC.jpg",
-            "/products-onlys/imagenes-stock/tabla-fiambres-salame-nuecesC.jpg",
-            "/products-onlys/imagenes-stock/equipo-fabrica-embutidosC.jpg"
+            "/products-onlys/imagenes-stock/picada-salame-queso-cerveza.jpg",
+            "/products-onlys/imagenes-stock/pizza-jamon-aceitunas-porcion.png",
+            "/products-onlys/imagenes-stock/chorizos-parrilla-fuego.jpg",
+            "/products-onlys/imagenes-stock/sandwich-jamon-queso-lechuga.jpg",
+            "/products-onlys/imagenes-stock/salame-tabla-queso-aceitunas.jpeg",
+            "/products-onlys/imagenes-stock/jamon-cocido-feteado-tabla.jpg",
+            "/products-onlys/imagenes-stock/bondiola-tabla-quesos-pan.jpg",
+            "/products-onlys/imagenes-stock/medialunas-jamon-queso-cafe.jpg",
+            "/products-onlys/imagenes-stock/tabla-fiambres-salame-nueces.jpg",
+            "/products-onlys/imagenes-stock/equipo-fabrica-embutidos.jpg"
           ].map((src, index) => (
             <div
               key={index}
-              className="relative w-[280px] md:w-[30vw] aspect-[9/16] md:aspect-[4/5] flex-shrink-0 overflow-hidden rounded-2xl shadow-lg border-2 border-white/20 transition-transform hover:scale-[1.02]"
+              className="relative w-[280px] md:w-[30vw] aspect-[9/16] md:aspect-[4/5] flex-shrink-0 overflow-hidden shadow-lg border-2 border-white/20 transition-transform hover:scale-[1.02]"
             >
               <Image
                 src={src}

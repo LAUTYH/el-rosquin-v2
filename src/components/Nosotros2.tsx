@@ -1,4 +1,5 @@
 import React from 'react'
+import FadeIn from './FadeIn'
 
 const Nosotros2 = () => {
     return (
@@ -23,16 +24,16 @@ const Nosotros2 = () => {
             <div className='w-full max-w-[1300px] px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center relative z-10'>
 
                 {/* Columna Izquierda: Imagen Picada */}
-                <div className='flex justify-center md:justify-end items-center w-full'>
+                <FadeIn className='flex justify-center md:justify-end items-center w-full' delay={0.2}>
                     <img
                         src="/fondos/nosotros2-columna-left.png"
                         alt="Tabla de Fiambres"
                         className='w-[75%] md:w-[90%] max-w-[550px] h-auto object-contain'
                     />
-                </div>
+                </FadeIn>
 
                 {/* Columna Derecha: Texto */}
-                <div className='flex flex-col items-center md:items-start text-center md:text-left px-2 md:px-0'>
+                <FadeIn className='flex flex-col items-center md:items-start text-center md:text-left px-2 md:px-0' delay={0.4}>
                     <h2 className='font-bodoni font-bold text-[22px] md:text-3xl lg:text-[38px] text-redros leading-tight max-w-[580px]'>
                         Hoy, treinta años después, llegamos a todo el país y nuestra filosofía sigue intacta.
                     </h2>
@@ -40,7 +41,7 @@ const Nosotros2 = () => {
                     <p className='font-montserrat text-[#453D2D] text-base md:text-xl lg:text-[24px] leading-relaxed max-w-[580px] mt-6 md:mt-8'>
                         Seguimos elaborando cada producto de manera artesanal, respetando los tiempos que exige la tradición, utilizando especias naturales y seleccionando cuidadosamente nuestra materia prima. Porque entendemos que un buen fiambre no se fabrica, se elabora.
                     </p>
-                </div>
+                </FadeIn>
 
             </div>
         </section>

@@ -1,37 +1,40 @@
 import React from "react";
 
 const DownloadButton = () => (
-    <button className="group relative px-10 py-5 text-white font-bold tracking-widest text-lg transition-all duration-500 hover:scale-105 hover:drop-shadow-[0_0_15px_rgba(255,255,255,0.6)] cursor-pointer">
-        {/* Fondo animado que respeta las esquinas invertidas (scalloped corners) con CSS masks */}
-        <div
-            className="absolute top-2 left-2 right-2 bottom-2 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0"
-            style={{
-                WebkitMaskImage: 'radial-gradient(circle at 0 0, transparent 14px, black 15px), radial-gradient(circle at 100% 0, transparent 14px, black 15px), radial-gradient(circle at 0 100%, transparent 14px, black 15px), radial-gradient(circle at 100% 100%, transparent 14px, black 15px)',
-                WebkitMaskSize: '51% 51%',
-                WebkitMaskRepeat: 'no-repeat',
-                WebkitMaskPosition: 'top left, top right, bottom left, bottom right',
-                maskImage: 'radial-gradient(circle at 0 0, transparent 14px, black 15px), radial-gradient(circle at 100% 0, transparent 14px, black 15px), radial-gradient(circle at 0 100%, transparent 14px, black 15px), radial-gradient(circle at 100% 100%, transparent 14px, black 15px)',
-                maskSize: '51% 51%',
-                maskRepeat: 'no-repeat',
-                maskPosition: 'top left, top right, bottom left, bottom right'
-            }}
-        ></div>
+  <button className="relative inline-block whitespace-nowrap px-8 md:px-10 py-3 md:py-4 drop-shadow-md group cursor-pointer hover:scale-105 transition-transform duration-300">
+    {/* Fondo dorado */}
+    <div
+      className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-90"
+      style={{
+        backgroundColor: '#CC9933',
+        WebkitMaskImage:
+          'radial-gradient(circle at 0 0, transparent 10px, black 11px), radial-gradient(circle at 100% 0, transparent 10px, black 11px), radial-gradient(circle at 0 100%, transparent 10px, black 11px), radial-gradient(circle at 100% 100%, transparent 10px, black 11px)',
+        WebkitMaskSize: '51% 51%',
+        WebkitMaskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'top left, top right, bottom left, bottom right',
+        maskImage:
+          'radial-gradient(circle at 0 0, transparent 10px, black 11px), radial-gradient(circle at 100% 0, transparent 10px, black 11px), radial-gradient(circle at 0 100%, transparent 10px, black 11px), radial-gradient(circle at 100% 100%, transparent 10px, black 11px)',
+        maskSize: '51% 51%',
+        maskRepeat: 'no-repeat',
+        maskPosition: 'top left, top right, bottom left, bottom right',
+      }}
+    />
 
-        {/* Líneas rectas de 3px, iniciando a 23px para empalmar perfecto */}
-        <div className="absolute top-2 left-[23px] right-[23px] h-[3px] bg-white z-10"></div>
-        <div className="absolute bottom-2 left-[23px] right-[23px] h-[3px] bg-white z-10"></div>
-        <div className="absolute left-2 top-[23px] bottom-[23px] w-[3px] bg-white z-10"></div>
-        <div className="absolute right-2 top-[23px] bottom-[23px] w-[3px] bg-white z-10"></div>
+    {/* Bordes decorativos finos blancos adentro */}
+    <div className="absolute top-1 left-[14px] right-[14px] h-[1px] bg-white/30 z-10"></div>
+    <div className="absolute bottom-1 left-[14px] right-[14px] h-[1px] bg-white/30 z-10"></div>
+    <div className="absolute left-1 top-[14px] bottom-[14px] w-[1px] bg-white/30 z-10"></div>
+    <div className="absolute right-1 top-[14px] bottom-[14px] w-[1px] bg-white/30 z-10"></div>
 
-        {/* Esquinas reducidas a 15px con grosor de 3px */}
-        <div className="absolute top-2 left-2 w-[15px] h-[15px] border-b-[3px] border-r-[3px] border-white rounded-br-full z-10"></div>
-        <div className="absolute top-2 right-2 w-[15px] h-[15px] border-b-[3px] border-l-[3px] border-white rounded-bl-full z-10"></div>
-        <div className="absolute bottom-2 left-2 w-[15px] h-[15px] border-t-[3px] border-r-[3px] border-white rounded-tr-full z-10"></div>
-        <div className="absolute bottom-2 right-2 w-[15px] h-[15px] border-t-[3px] border-l-[3px] border-white rounded-tl-full z-10"></div>
+    <div className="absolute top-1 left-1 w-[10px] h-[10px] border-b-[1px] border-r-[1px] border-white/30 rounded-br-full z-10"></div>
+    <div className="absolute top-1 right-1 w-[10px] h-[10px] border-b-[1px] border-l-[1px] border-white/30 rounded-bl-full z-10"></div>
+    <div className="absolute bottom-1 left-1 w-[10px] h-[10px] border-t-[1px] border-r-[1px] border-white/30 rounded-tr-full z-10"></div>
+    <div className="absolute bottom-1 right-1 w-[10px] h-[10px] border-t-[1px] border-l-[1px] border-white/30 rounded-tl-full z-10"></div>
 
-        {/* Texto */}
-        <span className="relative text-nowrap z-10 group-hover:text-redros transition-colors duration-500">DESCARGAR CATÁLOGO</span>
-    </button>
+    <span className="relative z-10 font-montserrat text-white text-sm md:text-base font-bold tracking-widest uppercase">
+      DESCARGAR CATÁLOGO
+    </span>
+  </button>
 );
 
 export default DownloadButton;

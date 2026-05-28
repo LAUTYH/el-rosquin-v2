@@ -10,7 +10,7 @@ interface BadgeButtonProps {
 }
 
 export default function BadgeButton({ children, onClick, href, className = '', dark = false }: BadgeButtonProps) {
-  
+
   const bgColor = dark ? '#453D2D' : '#CC9933';
   const textColor = dark ? 'text-white' : 'text-darkros';
   const bgLineClass = dark ? 'bg-white/30' : 'bg-darkros/30';
@@ -34,7 +34,7 @@ export default function BadgeButton({ children, onClick, href, className = '', d
           maskPosition: 'top left, top right, bottom left, bottom right',
         }}
       />
-      
+
       {/* Bordes decorativos finos oscuros adentro */}
       <div className={`absolute top-1 left-[14px] right-[14px] h-[1px] ${bgLineClass} z-10`}></div>
       <div className={`absolute bottom-1 left-[14px] right-[14px] h-[1px] ${bgLineClass} z-10`}></div>
@@ -52,7 +52,7 @@ export default function BadgeButton({ children, onClick, href, className = '', d
     </>
   );
 
-  const containerClasses = `relative inline-block px-8 md:px-10 py-3 md:py-4 drop-shadow-md group cursor-pointer hover:scale-105 transition-transform duration-300 ${className}`;
+  const containerClasses = `relative inline-block whitespace-nowrap px-8 md:px-10 py-3 md:py-4 drop-shadow-md group cursor-pointer hover:scale-105 transition-transform duration-300 ${className}`;
 
   if (href) {
     return (

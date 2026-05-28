@@ -559,8 +559,8 @@ export const productos: Producto[] = [
         }
     },
     {
-        id: 'bondiola-premium-vacio',
-        nombre: 'Bondiola de Cerdo Premium - Envasado al Vacío',
+        id: 'bondiola-premium',
+        nombre: 'Bondiola de Cerdo Premium',
         descripcion: 'Rellenar',
         presentacion: '1 unidad apróx. 1,1 kg.',
         caja: '12 unidades apróx. 12 kg.',
