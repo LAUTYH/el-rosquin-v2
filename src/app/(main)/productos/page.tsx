@@ -24,7 +24,7 @@ export default function ProductosPage() {
     <>
       <ScrollExpandMedia
         mediaType="video"
-        mediaSrc="/videos/video-scroll-productos.mp4"
+        mediaSrc="/"
         bgImageSrc="/products-onlys/imagenes-stock/picada-fiambres-cerveza-nachos.jpg"
         titleLeft="NUESTRA LÍNEA"
         titleRight="DE PRODUCTOS"
