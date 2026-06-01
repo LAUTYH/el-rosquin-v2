@@ -4,10 +4,10 @@ import { ChevronLeft } from "lucide-react";
 import BackButton from "@/components/BackButton";
 import { productos } from "@/data/products";
 import {
-  productImages,
   lineaSlugToName,
   lineaDescripciones,
-  lineaBgImages,
+  lineaBannerImages,
+  getProductGridImage,
   type LineaSlug,
 } from "@/data/product-images";
 
@@ -58,12 +58,12 @@ export default async function LineaPage({
   const lineaProductos = productos.filter((p) => p.linea === lineaNombre);
 
   return (
-    <main className="bg-[url('/fondos-productos/grilla.png')] min-h-screen">
+    <main className="bg-[url('/material-definitivo/productos-seccion/fondos/linea-grid-productos/fondo-grid-productos-mobile.png')] md:bg-[url('/material-definitivo/productos-seccion/fondos/linea-grid-productos/fondo-grid-productos.png')] bg-cover bg-center bg-no-repeat min-h-screen">
 
       {/* ── Banner de línea ── */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <Image
-          src={lineaBgImages[slug]}
+          src={lineaBannerImages[slug]}
           alt={`Línea ${lineaNombre}`}
           fill
           className="object-cover"
@@ -100,8 +100,8 @@ export default async function LineaPage({
       <div className="max-w-6xl mx-auto px-4 py-10">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-12 md:gap-y-16">
           {lineaProductos.map((producto) => {
-            const imgs = productImages[producto.id];
-            
+            const gridImg = getProductGridImage(producto.id);
+
             const nameParts = producto.nombre.split(' - ');
             const mainName = nameParts[0];
             
@@ -139,9 +139,9 @@ export default async function LineaPage({
                     </div>
                   )}
 
-                  {imgs?.product ? (
+                  {gridImg ? (
                     <Image
-                      src={imgs.product}
+                      src={gridImg}
                       alt={producto.nombre}
                       fill
                       className="object-contain drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"

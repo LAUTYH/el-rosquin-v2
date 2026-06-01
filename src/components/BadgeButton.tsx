@@ -7,9 +7,13 @@ interface BadgeButtonProps {
   href?: string;
   className?: string;
   dark?: boolean;
+  download?: boolean | string;
+  target?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
-export default function BadgeButton({ children, onClick, href, className = '', dark = false }: BadgeButtonProps) {
+export default function BadgeButton({ children, onClick, href, className = '', dark = false, download, target, type, disabled }: BadgeButtonProps) {
 
   const bgColor = dark ? '#453D2D' : '#CC9933';
   const textColor = dark ? 'text-white' : 'text-darkros';
@@ -55,6 +59,20 @@ export default function BadgeButton({ children, onClick, href, className = '', d
   const containerClasses = `relative inline-block whitespace-nowrap px-8 md:px-10 py-3 md:py-4 drop-shadow-md group cursor-pointer hover:scale-105 transition-transform duration-300 ${className}`;
 
   if (href) {
+    // Descargas y enlaces externos usan <a> nativo: next/link no fuerza la descarga.
+    if (download !== undefined || target) {
+      return (
+        <a
+          href={href}
+          download={download}
+          target={target}
+          rel={target === '_blank' ? 'noopener noreferrer' : undefined}
+          className={containerClasses}
+        >
+          {innerContent}
+        </a>
+      );
+    }
     return (
       <Link href={href} className={containerClasses}>
         {innerContent}
@@ -63,7 +81,12 @@ export default function BadgeButton({ children, onClick, href, className = '', d
   }
 
   return (
-    <button onClick={onClick} className={containerClasses}>
+    <button
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+      className={`${containerClasses} disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100`}
+    >
       {innerContent}
     </button>
   );

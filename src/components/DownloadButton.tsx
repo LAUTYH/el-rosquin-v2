@@ -1,7 +1,11 @@
 import React from "react";
 
 const DownloadButton = () => (
-  <button className="relative inline-block whitespace-nowrap px-8 md:px-10 py-3 md:py-4 drop-shadow-md group cursor-pointer hover:scale-105 transition-transform duration-300">
+  <a
+    href="/material-definitivo/catalogo-descarga/catalogo-comp.pdf"
+    download="Catalogo-El-Rosquin.pdf"
+    className="relative inline-block whitespace-nowrap px-8 md:px-10 py-3 md:py-4 drop-shadow-md group cursor-pointer hover:scale-105 transition-transform duration-300"
+  >
     {/* Fondo dorado */}
     <div
       className="absolute inset-0 transition-opacity duration-300 group-hover:opacity-90"
@@ -34,7 +38,7 @@ const DownloadButton = () => (
     <span className="relative z-10 font-montserrat text-white text-sm md:text-base font-bold tracking-widest uppercase">
       DESCARGAR CATÁLOGO
     </span>
-  </button>
+  </a>
 );
 
 export default DownloadButton;

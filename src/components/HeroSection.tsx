@@ -1,21 +1,45 @@
-import React from 'react'
+'use client';
+import React, { useState, useEffect } from 'react'
 import { ChevronDown } from 'lucide-react'
 import FadeIn from './FadeIn'
 
 const HeroSection = () => {
+    const [videoSrc, setVideoSrc] = useState<string | null>(null);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 768) {
+                setVideoSrc('/videos/video-banner-mobile-opaco.mp4');
+            } else {
+                setVideoSrc('/videos/video-banner-opaco.mp4');
+            }
+        };
+
+        // Set initial value
+        handleResize();
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     // Podés regular la oscuridad ajustando el valor de 'opacity' (0.1 es muy oscuro, 1.0 es la imagen original)
-    const backgroundOpacity = 0.6; 
+    const backgroundOpacity = 0.6;
 
     return (
         <section className="relative h-[100vh] w-full flex items-center justify-center overflow-hidden bg-black">
             {/* Capa de Fondo con Opacidad Regulable */}
-            <div 
-                className="absolute inset-0 bg-cover bg-center transition-opacity duration-700"
-                style={{ 
-                    backgroundImage: "url('/fondos/fondo-prueba-1.jpg')",
-                    opacity: backgroundOpacity 
-                }}
-            />
+            {videoSrc && (
+                <video
+                    key={videoSrc}
+                    src={videoSrc}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
+                    style={{ opacity: backgroundOpacity }}
+                />
+            )}
 
             {/* Contenido (Eslogan) */}
             <FadeIn className='relative z-10 w-full max-w-[800px] px-6 -translate-y-16' delay={0.2} duration={1.2}>

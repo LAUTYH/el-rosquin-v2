@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,9 +9,22 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, useGSAP);
 }
 
+const BASE = "/material-definitivo/img-horizontal-carrousel";
+const TOTAL_IMAGENES = 8;
+
 export default function HorizontalCarousel() {
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollWrapperRef = useRef<HTMLDivElement>(null);
+
+  // null mientras no se conoce el viewport: evita descargar el set equivocado
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useGSAP(
     () => {
@@ -46,7 +59,7 @@ export default function HorizontalCarousel() {
 
   return (
     <section ref={containerRef} className="w-full h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: "url('/fondos/CARROUSEL.png')" }}>
+      style={{ backgroundImage: `url('${BASE}/fondo-horizontal-carrousel${isMobile ? "-mobile" : ""}.png')` }}>
       {/* Contenedor que centra verticalmente el carrusel */}
       <div className="h-full flex flex-col justify-center px-4 md:px-10">
         {/* <h2 className="text-4xl md:text-5xl font-bold font-montserrat text-redros mb-12 pl-4">
@@ -56,30 +69,21 @@ export default function HorizontalCarousel() {
         {/* El div que realmente se desplazará en el eje X */}
         <div ref={scrollWrapperRef} className="flex gap-8 flex-nowrap w-max px-4">
 
-          {/* Galería de Imágenes Reales */}
-          {[
-            "/products-onlys/imagenes-stock/picada-salame-queso-cerveza.jpg",
-            "/products-onlys/imagenes-stock/pizza-jamon-aceitunas-porcion.png",
-            "/products-onlys/imagenes-stock/chorizos-parrilla-fuego.jpg",
-            "/products-onlys/imagenes-stock/sandwich-jamon-queso-lechuga.jpg",
-            "/products-onlys/imagenes-stock/salame-tabla-queso-aceitunas.jpeg",
-            "/products-onlys/imagenes-stock/jamon-cocido-feteado-tabla.jpg",
-            "/products-onlys/imagenes-stock/bondiola-tabla-quesos-pan.jpg",
-            "/products-onlys/imagenes-stock/medialunas-jamon-queso-cafe.jpg",
-            "/products-onlys/imagenes-stock/tabla-fiambres-salame-nueces.jpg",
-            "/products-onlys/imagenes-stock/equipo-fabrica-embutidos.jpg"
-          ].map((src, index) => (
+          {/* Galería de Imágenes (material-definitivo, responsive mobile/escritorio) */}
+          {Array.from({ length: TOTAL_IMAGENES }, (_, i) => i + 1).map((n) => (
             <div
-              key={index}
+              key={n}
               className="relative w-[280px] md:w-[30vw] aspect-[9/16] md:aspect-[4/5] flex-shrink-0 overflow-hidden shadow-lg border-2 border-white/20 transition-transform hover:scale-[1.02]"
             >
-              <Image
-                src={src}
-                alt={`Galería El Rosquín ${index + 1}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 33vw"
-              />
+              {isMobile !== null && (
+                <Image
+                  src={`${BASE}/${isMobile ? `${n}-mobile` : n}.png`}
+                  alt={`Galería El Rosquín ${n}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                />
+              )}
             </div>
           ))}
 

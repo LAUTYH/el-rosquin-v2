@@ -1,9 +1,8 @@
-import React from 'react'
 import FadeIn from './FadeIn'
 
 const NosotrosSection = () => {
     return (
-        <section id="nosotros" className='w-full min-h-[100vh] bg-[#f4f4f4] bg-[url("/fondos/SOLAPA%201.png")] md:bg-[url("/fondos/SOLAPA%201.png")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-center justify-center relative overflow-hidden py-8 md:py-20'>
+        <section id="nosotros" className='w-full min-h-[100vh] bg-[#f4f4f4] bg-[url("/material-definitivo/home-imagenes/nosotros-fondo-mobile.png")] md:bg-[url("/material-definitivo/home-imagenes/nosotros-fondo.png")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-start md:items-center justify-center relative overflow-hidden pt-16 pb-8 md:py-20'>
             <div className='w-full max-w-[1300px] px-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 lg:gap-20 items-center'>
 
                 {/* Columna Izquierda: Texto */}
@@ -19,7 +18,7 @@ const NosotrosSection = () => {
 
                     <div className='space-y-3 md:space-y-6 max-w-[1020px]'>
                         <p className='font-bodoni font-bold text-lg md:text-3xl lg:text-[38px] text-darkros leading-snug'>
-                            Todo empezó en 1994, en el corazón de Cañada Rosquín, Santa Fe.
+                            Todo empezó en 1994, en el corazón de <br className="block sm:hidden" /> Cañada Rosquín, Santa Fe.
                         </p>
 
                         <p className='font-montserrat text-[#5c5c5c] text-sm md:text-xl lg:text-[24px] leading-relaxed'>
@@ -30,14 +29,11 @@ const NosotrosSection = () => {
 
                 {/* Columna Derecha: Placeholder Gris de Imagen */}
                 <FadeIn className='flex justify-center items-center w-full' delay={0.4}>
-                    <div className='relative w-[50%] md:w-[80%] max-w-[620px] aspect-[4/4.5] bg-[#838383] -rotate-2 flex items-center justify-center shadow-[15px_20px_30px_rgba(0,0,0,0.25)]'>
-                        {/* Overlay de las esquinas doradas */}
-                        <img
-                            src="/elementos/borde-nosotros.svg"
-                            alt=""
-                            className='absolute inset-0 w-full h-full object-fill pointer-events-none'
-                        />
-                    </div>
+                    <img
+                        src="/material-definitivo/home-imagenes/foto-nosotros.png"
+                        alt="Familia El Rosquín"
+                        className='w-[80%] md:w-[90%] max-w-[620px] h-auto object-contain pointer-events-none drop-shadow-[0_6px_12px_rgba(0,0,0,0.2)]'
+                    />
                 </FadeIn>
 
             </div>

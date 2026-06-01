@@ -3,10 +3,10 @@ import React, { useState } from 'react'
 import BadgeButton from './BadgeButton'
 
 const productsData = [
-  { id: 'secos', svg: '/sellos/sello-secos.svg', img: '/imgs-products/secos.png' },
-  { id: 'maduracion', svg: '/sellos/sello-maduración.svg', img: '/imgs-products/maduracion.png' },
-  { id: 'fiambres', svg: '/sellos/sello-fiambres.svg', img: '/imgs-products/fiambres.png' },
-  { id: 'tradicion', svg: '/sellos/sello-tradición.svg', img: '/imgs-products/tradicion.png' },
+  { id: 'secos', svg: '/sellos/sello-secos.svg', img: '/material-definitivo/home-productos-img/secos.png' },
+  { id: 'maduracion', svg: '/sellos/sello-maduracion.svg', img: '/material-definitivo/home-productos-img/maduracion.png' },
+  { id: 'fiambres', svg: '/sellos/sello-fiambres.svg', img: '/material-definitivo/home-productos-img/fiambres.png' },
+  { id: 'tradicion', svg: '/sellos/sello-tradicion.svg', img: '/material-definitivo/home-productos-img/tradicion.png' },
 ];
 
 const OurProducts = () => {
@@ -89,19 +89,23 @@ const OurProducts = () => {
       {/* Texto Descriptivo */}
       <div className="text-center max-w-[850px] mb-12 px-4 space-y-3">
         <p className="text-white font-bold text-lg md:text-[22px] leading-snug">
-          Producimos alimentos para ser los protagonistas de tus mejores momentos.
+          Producimos alimentos para ser los  protagonistas <br className="hidden md:block" />de tus mejores momentos.
         </p>
         <p className="text-[#d1d1d1] text-sm md:text-[18px] font-normal leading-relaxed">
-          Trabajamos con dedicación y pasión para ofrecer chacinados de alta calidad<br className="hidden md:block" /> y un sabor único.
+          Trabajamos con dedicación y pasión para ofrecer <br className="hidden md:block" /> chacinados de alta calidad y un sabor único.
         </p>
       </div>
 
       {/* Botones de Acción */}
       <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 items-center justify-center">
-        <BadgeButton>
+        <BadgeButton href="/productos#lineas">
           VER PRODUCTOS
         </BadgeButton>
-        <BadgeButton dark={true}>
+        <BadgeButton
+          dark={true}
+          href="/material-definitivo/catalogo-descarga/catalogo-comp.pdf"
+          download="Catalogo-El-Rosquin.pdf"
+        >
           DESCARGAR CATÁLOGO
         </BadgeButton>
       </div>

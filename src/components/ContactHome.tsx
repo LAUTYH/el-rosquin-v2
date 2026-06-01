@@ -17,13 +17,13 @@ const ContactHome = () => {
 
         {/* Social Icons */}
         <div className="flex gap-4 md:gap-5 mt-2">
-          <a href="#" className="hover:scale-110 transition-transform">
+          <a href="https://www.instagram.com/elrosquin/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
             <img src="/elementos/icon-instagram.svg" alt="Instagram" className="w-[50px] md:w-[60px] h-auto object-contain" />
           </a>
-          <a href="#" className="hover:scale-110 transition-transform">
+          <a href="https://www.facebook.com/elrosquin" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
             <img src="/elementos/icon-facebook.svg" alt="Facebook" className="w-[50px] md:w-[60px] h-auto object-contain" />
           </a>
-          <a href="#" className="hover:scale-110 transition-transform">
+          <a href="https://www.linkedin.com/company/el-rosquin-sa/" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
             <img src="/elementos/icon-linkedin.svg" alt="LinkedIn" className="w-[50px] md:w-[60px] h-auto object-contain" />
           </a>
         </div>
@@ -44,11 +44,12 @@ const ContactHome = () => {
           ¿QUERÉS CONSULTARNOS ALGO?
         </h2>
         <p className="font-montserrat font-light text-[15px] md:text-[18px] text-white/90 mb-10 leading-relaxed">
-          Acá va una frase previa al botón<br className="hidden md:block" /> sobre ponerse en contacto con la empresa.
+          Ya sea una consulta o para sumar nuestros productos a
+          tu negocio, escribinos y nos ponemos en contacto a la brevedad.
         </p>
 
         {/* Button */}
-        <BadgeButton>CONTACTANOS</BadgeButton>
+        <BadgeButton href="/contacto">CONTACTANOS</BadgeButton>
       </FadeIn>
 
     </section>

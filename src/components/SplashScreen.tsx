@@ -55,7 +55,7 @@ export default function SplashScreen() {
 
             {/* Anillo dorado de carga rápida */}
             <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] h-[240px] md:w-[340px] md:h-[340px] rounded-full border-[3px] border-transparent border-t-goldenros border-r-goldenros z-0"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[420px] md:h-[420px] rounded-full border-[3px] border-transparent border-t-goldenros border-r-goldenros z-0"
               initial={{ rotate: 0 }}
               animate={{ rotate: 360 }}
               transition={{ duration: 1.2, ease: "linear", repeat: Infinity }}
@@ -63,7 +63,7 @@ export default function SplashScreen() {
 
             {/* Anillo de fondo suave que se expande */}
             <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[260px] h-[260px] md:w-[380px] md:h-[380px] rounded-full border-[1px] border-goldenros/30 z-0"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] md:w-[480px] md:h-[480px] rounded-full border-[1px] border-goldenros/30 z-0"
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}

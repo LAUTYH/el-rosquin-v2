@@ -8,6 +8,8 @@ import {
   productImages,
   lineaSlugToName,
   lineaNameToSlug,
+  getProductDetailImage,
+  getProductBannerImage,
   type LineaSlug,
 } from "@/data/product-images";
 
@@ -27,6 +29,8 @@ export default async function ProductoPage({
   const slug = linea as LineaSlug;
   const producto = productos.find((p) => p.id === id);
   const imgs = productImages[id];
+  const detailImg = getProductDetailImage(id);
+  const bannerImg = getProductBannerImage(id);
 
   if (!producto) return null;
 
@@ -65,10 +69,10 @@ export default async function ProductoPage({
           <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Columna Izquierda: Imagen del producto */}
             <div className="relative flex justify-center">
-              {imgs?.product ? (
+              {detailImg ? (
                 <div className="relative w-[80%] max-w-[300px] h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
                   <Image
-                    src={imgs.product}
+                    src={detailImg}
                     alt={producto.nombre}
                     fill
                     className="object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
@@ -149,10 +153,10 @@ export default async function ProductoPage({
       </section>
 
       {/* ── SECCIÓN 2: Banner Parallax ── */}
-      {producto.banner && (
+      {bannerImg && (
         <section
           className="w-full h-[300px] md:h-[500px] bg-fixed bg-center bg-cover relative"
-          style={{ backgroundImage: `url('${producto.banner}')` }}
+          style={{ backgroundImage: `url('${bannerImg}')` }}
         >
         </section>
       )}

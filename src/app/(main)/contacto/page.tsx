@@ -1,12 +1,25 @@
 "use client";
-import React from "react";
-import { Mail, MapPin, Phone, Upload, Send } from "lucide-react";
+import React, { useState, useRef } from "react";
+import Script from "next/script";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import BadgeButton from "@/components/BadgeButton";
 import FadeIn from "@/components/FadeIn";
 
+// Site Key pública de Cloudflare Turnstile (se usa para mostrar el captcha en el navegador).
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
+
+// Tipado mínimo del objeto global que inyecta el script de Turnstile.
+declare global {
+  interface Window {
+    turnstile?: {
+      reset: (container?: HTMLElement | string) => void;
+    };
+  }
+}
+
 export default function ContactoPage() {
   return (
-    <div className="min-h-screen bg-[url('/fondos-productos/fondo%20info.png')] bg-cover bg-center pt-32 pb-20 px-6">
+    <div className="min-h-screen bg-[#0a0a0a] bg-[url('/material-definitivo/fondos-contacto-opciones/fondo-contacto-3.png')] bg-cover bg-center bg-no-repeat pt-32 pb-20 px-6">
       <div className="container mx-auto max-w-6xl">
 
         {/* ENCABEZADO */}
@@ -31,13 +44,13 @@ export default function ContactoPage() {
             icon={<MapPin className="w-8 h-8 text-goldenros" />}
             title="Ubicación"
             value="Chacabuco 700, Cañada Rosquín, Santa Fe."
-            link="https://maps.google.com/?q=Chacabuco+700,+Cañada+Rosquín,+Santa+Fe"
+            link="https://www.google.com/maps/place/EL+ROSQUIN+S.A./@-32.0561866,-61.6004609,933m/data=!3m2!1e3!4b1!4m6!3m5!1s0x95ca6edab01a72d1:0x6f2f1fb5bcd4380b!8m2!3d-32.0561912!4d-61.597886!16s%2Fg%2F11bymtfq3l?entry=ttu&g_ep=EgoyMDI2MDUyNS4wIKXMDSoASAFQAw%3D%3D"
           />
           <ContactInfoCard
             icon={<Phone className="w-8 h-8 text-goldenros" />}
             title="Teléfono Oficial"
             value="+54 (3492) 15 664-568"
-            link="tel:+54349215664568"
+            link="https://wa.link/6uhiwy"
           />
         </FadeIn>
 
@@ -48,62 +61,128 @@ export default function ContactoPage() {
           <FadeIn className="space-y-8" delay={0.3}>
             <div className="space-y-4">
               <h3 className="font-bodoni font-bold text-3xl text-redros uppercase tracking-wider text-center">
-                Comercial y <br /> Atención al Cliente
+                Atención <br />Comercial
               </h3>
-              <p className="font-montserrat text-center text-darkros/80 leading-relaxed italic">
-                Si tenés una consulta o te interesa comercializar nuestros productos comunicate con nosotros.
+              <p className="font-montserrat text-center text-white/70 leading-relaxed italic">
+                Te interesa comercializar nuestros productos <br />comunicate con nosotros.
               </p>
             </div>
 
-            <form className="space-y-5 bg-redros p-8 border border-darkros/20 backdrop-blur-sm">
-              <InputField label="Nombre Completo" placeholder="Ej: Juan Pérez" />
-              <div className="grid grid-cols-2 gap-4">
-                <InputField label="Provincia" placeholder="Ej: Santa Fe" />
-                <InputField label="Localidad" placeholder="Ej: Cañada Rosquín" />
-              </div>
-              <InputField label="Correo Electrónico" type="email" placeholder="juan@ejemplo.com" />
-              <TextAreaField label="Mensaje" placeholder="Escribí tu consulta aquí..." />
-              <SubmitButton label="ENVIAR CONSULTA" />
-            </form>
+            <ContactForm
+              subject="Consulta Comercial - Web El Rosquín"
+              formClassName="space-y-5 bg-redros p-8 border border-darkros/20 backdrop-blur-sm"
+            />
           </FadeIn>
 
-          {/* FORMULARIO TRABAJÁ CON NOSOTROS */}
+          {/* FORMULARIO ATENCIÓN AL CLIENTE */}
           <FadeIn className="space-y-8" delay={0.4}>
             <div className="space-y-4">
-              <h3 className="font-bodoni font-bold text-3xl text-darkros text-center uppercase tracking-wider">
-                Trabajá <br />con nosotros
+              <h3 className="font-bodoni font-bold text-3xl text-goldenros text-center uppercase tracking-wider">
+                Atención <br />al Cliente
               </h3>
-              <p className="font-montserrat text-center text-darkros/80 leading-relaxed italic">
-                ¡Sumate a nuestro equipo! Envianos tus datos y <br />adjuntá tu CV para futuras búsquedas.
+              <p className="font-montserrat text-center text-white/70 leading-relaxed italic">
+                Si tenés una consulta <br />comunicate con nosotros.
               </p>
             </div>
 
-            <form className="space-y-5 bg-darkros p-8 border border-redros/20 backdrop-blur-sm">
-              <InputField label="Nombre Completo" placeholder="Ej: Maria García" />
-              <InputField label="Localidad" placeholder="Ej: Rosario" />
-              <InputField label="Correo Electrónico" type="email" placeholder="maria@ejemplo.com" />
-
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-white ml-1">Adjuntar CV</label>
-                <div className="relative group cursor-pointer border-2 border-dashed border-darkros/30 hover:border-white/50 rounded-none p-6 transition-colors flex flex-col items-center justify-center space-y-2 bg-white/20">
-                  <Upload className="w-6 h-6 text-white/80 group-hover:text-white" />
-                  <span className="text-sm text-white/60 group-hover:text-white">Archivos .pdf o .doc (menores a 5MB)</span>
-                  <input type="file" className="absolute inset-0 opacity-0 cursor-pointer" accept=".pdf,.doc,.docx" />
-                </div>
-              </div>
-
-              <TextAreaField label="Mensaje" placeholder="Contanos sobre vos..." />
-              <SubmitButton label="POSTULARME" />
-            </form>
+            <ContactForm
+              subject="Atención al Cliente - Web El Rosquín"
+              formClassName="space-y-5 bg-darkros p-8 border border-goldenros/20 backdrop-blur-sm"
+            />
           </FadeIn>
 
         </div>
       </div>
+
+      {/* Script de Cloudflare Turnstile: se carga una vez para toda la página */}
+      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
     </div>
   );
 }
 
 // COMPONENTES AUXILIARES PARA ESTA PÁGINA
+
+interface ContactFormProps {
+  subject: string;
+  formClassName: string;
+}
+
+const ContactForm = ({ subject, formClassName }: ContactFormProps) => {
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+  const widgetRef = useRef<HTMLDivElement>(null);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    // El widget de Turnstile inyecta este campo cuando el captcha se resuelve.
+    const token = formData.get("cf-turnstile-response");
+    if (!token) {
+      setStatus("error");
+      setErrorMsg("Completá la verificación de seguridad antes de enviar.");
+      return;
+    }
+
+    setStatus("submitting");
+    try {
+      const res = await fetch("/api/contacto", { method: "POST", body: formData });
+      const data = await res.json();
+      if (data.success) {
+        setStatus("success");
+        form.reset();
+      } else {
+        setStatus("error");
+        setErrorMsg(data.error || "Hubo un error al enviar. Probá de nuevo.");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMsg("Hubo un error de conexión. Probá de nuevo.");
+    } finally {
+      // Reinicia el captcha para permitir un nuevo envío
+      window.turnstile?.reset(widgetRef.current ?? undefined);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className={formClassName}>
+      <input type="hidden" name="subject" value={subject} />
+
+      <InputField label="Nombre Completo" name="nombre" placeholder="Ej: Juan Pérez" required />
+      <div className="grid grid-cols-2 gap-4">
+        <InputField label="Provincia" name="provincia" placeholder="Ej: Santa Fe" />
+        <InputField label="Localidad" name="localidad" placeholder="Ej: Cañada Rosquín" />
+      </div>
+      <InputField label="Correo Electrónico" name="email" type="email" placeholder="juan@ejemplo.com" required />
+      <TextAreaField label="Mensaje" name="mensaje" placeholder="Escribí tu consulta aquí..." required />
+
+      {/* Honeypot anti-spam: invisible para personas, los bots lo completan */}
+      <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
+
+      {/* Captcha de Cloudflare Turnstile */}
+      <div className="flex justify-center pt-1">
+        <div ref={widgetRef} className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY}></div>
+      </div>
+
+      <SubmitButton
+        label={status === "submitting" ? "ENVIANDO..." : "ENVIAR CONSULTA"}
+        disabled={status === "submitting"}
+      />
+
+      {status === "success" && (
+        <p className="text-center text-green-400 font-montserrat text-sm font-bold pt-1">
+          ✓ ¡Mensaje enviado! Te responderemos a la brevedad.
+        </p>
+      )}
+      {status === "error" && (
+        <p className="text-center text-red-200 font-montserrat text-sm font-bold pt-1">
+          {errorMsg}
+        </p>
+      )}
+    </form>
+  );
+};
 
 interface ContactInfoCardProps {
   icon: React.ReactNode;
@@ -133,8 +212,8 @@ const ContactInfoCard = ({ icon, title, value, link }: ContactInfoCardProps) => 
     <div className="relative z-10 mb-4 transform group-hover:scale-110 transition-transform duration-500">
       {icon}
     </div>
-    <h4 className="relative z-10 font-montserrat font-bold text-redros text-sm md:text-base tracking-widest mb-2">{title}</h4>
-    <p className="relative z-10 font-montserrat text-darkros text-center text-sm md:text-base font-bold">{value}</p>
+    <h4 className="relative z-10 font-montserrat font-bold text-goldenros text-sm md:text-base tracking-widest mb-2">{title}</h4>
+    <p className="relative z-10 font-montserrat text-white text-center text-sm md:text-base font-bold">{value}</p>
   </a>
 );
 
@@ -142,13 +221,17 @@ interface InputFieldProps {
   label: string;
   type?: string;
   placeholder: string;
+  name: string;
+  required?: boolean;
 }
 
-const InputField = ({ label, type = "text", placeholder }: InputFieldProps) => (
+const InputField = ({ label, type = "text", placeholder, name, required }: InputFieldProps) => (
   <div className="flex flex-col space-y-2">
     <label className="text-xs font-bold uppercase tracking-widest text-white ml-1">{label}</label>
     <input
       type={type}
+      name={name}
+      required={required}
       placeholder={placeholder}
       className="bg-white border border-darkros/30 px-4 py-3 text-darkros font-montserrat focus:outline-none focus:border-goldenros/60 transition-colors placeholder:text-darkros/50"
     />
@@ -158,13 +241,17 @@ const InputField = ({ label, type = "text", placeholder }: InputFieldProps) => (
 interface TextAreaFieldProps {
   label: string;
   placeholder: string;
+  name: string;
+  required?: boolean;
 }
 
-const TextAreaField = ({ label, placeholder }: TextAreaFieldProps) => (
+const TextAreaField = ({ label, placeholder, name, required }: TextAreaFieldProps) => (
   <div className="flex flex-col space-y-2">
     <label className="text-xs font-bold uppercase tracking-widest text-white ml-1">{label}</label>
     <textarea
       rows={4}
+      name={name}
+      required={required}
       placeholder={placeholder}
       className="bg-white border border-darkros/30 px-4 py-3 text-darkros font-montserrat focus:outline-none focus:border-goldenros/60 transition-colors resize-none placeholder:text-darkros/50"
     />
@@ -174,11 +261,12 @@ const TextAreaField = ({ label, placeholder }: TextAreaFieldProps) => (
 interface SubmitButtonProps {
   label: string;
   variant?: "gold" | "red";
+  disabled?: boolean;
 }
 
-const SubmitButton = ({ label, variant = "gold" }: SubmitButtonProps) => (
+const SubmitButton = ({ label, variant = "gold", disabled }: SubmitButtonProps) => (
   <div className="flex justify-center w-full pt-4">
-    <BadgeButton dark={variant === 'red'} className="w-full sm:w-auto">
+    <BadgeButton dark={variant === 'red'} type="submit" disabled={disabled} className="w-full sm:w-auto">
       <div className="flex items-center justify-center space-x-2">
         <span>{label}</span>
         <Send className="w-4 h-4 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

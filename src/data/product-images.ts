@@ -21,10 +21,10 @@ export const lineaNameToSlug: Record<string, LineaSlug> = {
 };
 
 export const lineaBgImages: Record<LineaSlug, string> = {
-  secos: '/products-onlys/imagenes-stock/salame-feteado-queso-crackers.jpg',
-  maduracion: '/products-onlys/imagenes-stock/bondiola-tabla-quesos-vertical.jpg',
-  fiambres: '/products-onlys/imagenes-stock/jamon-cocido-feteado-tabla.jpg',
-  tradicion: '/products-onlys/imagenes-stock/chorizos-parrilla-fuego.jpg',
+  secos: '/material-definitivo/productos-seccion/lineas/grid/grid-linea-secos.png',
+  maduracion: '/material-definitivo/productos-seccion/lineas/grid/grid-linea-maduracion.png',
+  fiambres: '/material-definitivo/productos-seccion/lineas/grid/grid-linea-fiambres.png',
+  tradicion: '/material-definitivo/productos-seccion/lineas/grid/grid-linea-tradicion.png',
 };
 
 export const lineaDescripciones: Record<LineaSlug, string> = {
@@ -162,4 +162,72 @@ export const productImages: Record<string, ProductImages> = {
     nameWithStyle: '/name-with-styles/morcilla-parrillera-horizontal.png',
     seal: '/name-with-styles/sello-envasado-al-vacio-grande.png',
   },
+};
+
+// ── Imágenes nuevas (material-definitivo) por producto ──────────────────────
+// num  = número de imagen en grid-productos / foto-de-producto-id (verificado por etiqueta)
+// banner = nombre del archivo en foto-fondo-id (foto lifestyle apaisada del banner del detalle)
+type ProductMedia = { linea: LineaSlug; num: number; banner: string };
+
+const productMedia: Record<string, ProductMedia> = {
+  // SECOS
+  'salame-colono-grueso': { linea: 'secos', num: 1, banner: 'colono' },
+  'salame-colono-mano-grueso': { linea: 'secos', num: 2, banner: 'colono-tradicion' },
+  'salame-metro-grueso': { linea: 'secos', num: 3, banner: 'metro' },
+  'salame-baston-grueso': { linea: 'secos', num: 4, banner: 'baston' },
+  'salame-crespon-grueso': { linea: 'secos', num: 5, banner: 'crespon' },
+  'salame-queso-grueso': { linea: 'secos', num: 6, banner: 'con-queso' },
+  'salame-baston-queso-grueso': { linea: 'secos', num: 7, banner: 'baston-con-queso' },
+  'salame-milan-fino': { linea: 'secos', num: 8, banner: 'milan' },
+  'salamin-fino': { linea: 'secos', num: 9, banner: 'salmin-picado-fino' },
+  'salame-grasa-grueso-vacio': { linea: 'secos', num: 10, banner: 'grasa' },
+  'salame-colono-grueso-vacio': { linea: 'secos', num: 11, banner: 'colono-vacio' },
+  // MADURACIÓN
+  'panceta-salada-arrollada': { linea: 'maduracion', num: 1, banner: 'panceta-arrollada' },
+  'panceta-plancha-vacio': { linea: 'maduracion', num: 2, banner: 'panceta-plancha' },
+  'dados-panceta-bacon-vacio': { linea: 'maduracion', num: 3, banner: 'panceta-dados' },
+  'jamon-crudo-vacio': { linea: 'maduracion', num: 4, banner: 'jamon-crudo' },
+  'bondiola-premium': { linea: 'maduracion', num: 5, banner: 'bondiola' },
+  'bondiola-arrollada-premium-vacio': { linea: 'maduracion', num: 6, banner: 'bondiola-vacio' },
+  // FIAMBRES
+  'jamon-cocido-tradicion': { linea: 'fiambres', num: 1, banner: 'jamon-cocido-tradicon' },
+  'fiambre-pata-cerdo': { linea: 'fiambres', num: 2, banner: 'fiambre-cerdo' },
+  'fiambre-pollo-cerdo': { linea: 'fiambres', num: 3, banner: 'fiambre-pollo-y-cerdo' },
+  // TRADICIÓN (los nº 1 y 2 van invertidos respecto al orden del código)
+  'queso-cerdo-tradicion-vacio': { linea: 'tradicion', num: 1, banner: 'queso-cerdo-tradicion' },
+  'queso-cerdo-familiar': { linea: 'tradicion', num: 2, banner: 'ques-cerdo-familiar' },
+  'chorizo-parrillero': { linea: 'tradicion', num: 3, banner: 'chorizo-parrillero' },
+  'chorizos-frescos-1kg-vacio': { linea: 'tradicion', num: 4, banner: 'chorizo-parrillero-vacio' },
+  'chorizos-frescos-400gr-vacio': { linea: 'tradicion', num: 5, banner: 'chorizo-parrillero-vacio' },
+  'morcilla-rosca': { linea: 'tradicion', num: 6, banner: 'morcilla-rosca' },
+  'morcilla-parrillera': { linea: 'tradicion', num: 7, banner: 'morcilla-parrillera' },
+  'morcilla-parrillera-vacio': { linea: 'tradicion', num: 8, banner: 'morcilla-parrillera-vacio' },
+};
+
+const MD_BASE = '/material-definitivo/productos-seccion';
+
+/** Producto recortado para el GRID de la línea. */
+export function getProductGridImage(id: string): string | undefined {
+  const m = productMedia[id];
+  return m ? `${MD_BASE}/grid-productos/grid-productos-${m.linea}/${m.num}.png` : undefined;
+}
+
+/** Producto recortado para el DETALLE (otra medida). */
+export function getProductDetailImage(id: string): string | undefined {
+  const m = productMedia[id];
+  return m ? `${MD_BASE}/foto-de-producto-id/${m.linea}-productos-id/${m.num}.png` : undefined;
+}
+
+/** Foto lifestyle apaisada para el BANNER del detalle. */
+export function getProductBannerImage(id: string): string | undefined {
+  const m = productMedia[id];
+  return m ? `${MD_BASE}/foto-fondo-id/foto-fondo-id-${m.linea}/${m.banner}.png` : undefined;
+}
+
+/** Banner apaisado por línea (encabezado de la página de línea). */
+export const lineaBannerImages: Record<LineaSlug, string> = {
+  secos: `${MD_BASE}/lineas/banners/secos.png`,
+  maduracion: `${MD_BASE}/lineas/banners/maduracion.png`,
+  fiambres: `${MD_BASE}/lineas/banners/fiambres.png`,
+  tradicion: `${MD_BASE}/lineas/banners/tradicion.png`,
 };
