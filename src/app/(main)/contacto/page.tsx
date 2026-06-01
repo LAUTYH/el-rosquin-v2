@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef } from "react";
 import Script from "next/script";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { MapPin, Phone, Send, Mail, ShoppingCart, Briefcase } from "lucide-react";
 import BadgeButton from "@/components/BadgeButton";
 import FadeIn from "@/components/FadeIn";
 
@@ -32,66 +32,76 @@ export default function ContactoPage() {
           </h2>
         </FadeIn>
 
-        {/* MEDIOS DE CONTACTO - GRID SUPERIOR */}
-        <FadeIn className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24" delay={0.2}>
-          <ContactInfoCard
-            icon={<Mail className="w-8 h-8 text-goldenros" />}
-            title="Correo electrónico"
-            value="contacto@elrosquin.com.ar"
-            link="mailto:contacto@elrosquin.com.ar"
-          />
+        {/* ── CANALES DE CONTACTO (info detallada, sin formulario) ── */}
+        <FadeIn className="mb-12" delay={0.2}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <ContactInfoCard
+              icon={<Mail className="w-8 h-8 text-goldenros" />}
+              title="Clientes / Administración"
+              lines={[
+                { value: "administracion@elrosquin.com.ar", link: "mailto:administracion@elrosquin.com.ar" },
+                { value: "+54 9 3401 64-2702", link: "tel:+5493401642702" },
+              ]}
+            />
+            <ContactInfoCard
+              icon={<ShoppingCart className="w-8 h-8 text-goldenros" />}
+              title="Proveedores / Compras"
+              lines={[
+                { value: "compras@elrosquin.com.ar", link: "mailto:compras@elrosquin.com.ar" },
+                { value: "+54 9 3401 50-4652", link: "tel:+5493401504652" },
+              ]}
+            />
+            <ContactInfoCard
+              icon={<Briefcase className="w-8 h-8 text-goldenros" />}
+              title="Trabajá con nosotros"
+              lines={[
+                { value: "Enviá tu CV", link: "mailto:cv@elrosquin.com.ar" },
+                { value: "cv@elrosquin.com.ar", link: "mailto:cv@elrosquin.com.ar" },
+              ]}
+            />
+          </div>
+        </FadeIn>
+
+        {/* Ubicación + teléfono oficial */}
+        <FadeIn className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24" delay={0.25}>
           <ContactInfoCard
             icon={<MapPin className="w-8 h-8 text-goldenros" />}
             title="Ubicación"
-            value="Chacabuco 700, Cañada Rosquín, Santa Fe."
-            link="https://www.google.com/maps/place/EL+ROSQUIN+S.A./@-32.0561866,-61.6004609,933m/data=!3m2!1e3!4b1!4m6!3m5!1s0x95ca6edab01a72d1:0x6f2f1fb5bcd4380b!8m2!3d-32.0561912!4d-61.597886!16s%2Fg%2F11bymtfq3l?entry=ttu&g_ep=EgoyMDI2MDUyNS4wIKXMDSoASAFQAw%3D%3D"
+            lines={[
+              {
+                value: "Chacabuco 700, Cañada Rosquín, Santa Fe.",
+                link: "https://www.google.com/maps/place/EL+ROSQUIN+S.A./@-32.0561866,-61.6004609,933m/data=!3m2!1e3!4b1!4m6!3m5!1s0x95ca6edab01a72d1:0x6f2f1fb5bcd4380b!8m2!3d-32.0561912!4d-61.597886!16s%2Fg%2F11bymtfq3l?entry=ttu&g_ep=EgoyMDI2MDUyNS4wIKXMDSoASAFQAw%3D%3D",
+              },
+            ]}
           />
           <ContactInfoCard
             icon={<Phone className="w-8 h-8 text-goldenros" />}
             title="Teléfono Oficial"
-            value="+54 (3492) 15 664-568"
-            link="https://wa.link/6uhiwy"
+            lines={[{ value: "+54 (3492) 15 664-568", link: "https://wa.link/6uhiwy" }]}
           />
         </FadeIn>
 
-        {/* SECCIÓN DE FORMULARIOS */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        {/* ── FORMULARIO ÚNICO: ATENCIÓN COMERCIAL ── */}
+        <FadeIn delay={0.3} className="max-w-2xl mx-auto">
 
-          {/* FORMULARIO COMERCIAL */}
-          <FadeIn className="space-y-8" delay={0.3}>
-            <div className="space-y-4">
-              <h3 className="font-bodoni font-bold text-3xl text-redros uppercase tracking-wider text-center">
-                Atención <br />Comercial
-              </h3>
-              <p className="font-montserrat text-center text-white/70 leading-relaxed italic">
-                Te interesa comercializar nuestros productos <br />comunicate con nosotros.
-              </p>
-            </div>
+          {/* Encabezado arriba del formulario */}
+          <div className="text-center mb-10">
+            <h3 className="font-bodoni font-bold text-3xl md:text-4xl text-goldenros uppercase tracking-wider mb-4">
+              Atención Comercial
+            </h3>
+            <p className="font-montserrat text-white/85 leading-relaxed">
+              Este formulario es <strong className="text-goldenros">exclusivo para quienes quieran comercializar nuestros productos:</strong> mayoristas, distribuidores, vendedores y supermercados.
+            </p>
+          </div>
 
+          {/* Formulario */}
+          <div className="bg-redros p-8 md:p-10 border border-goldenros/20 backdrop-blur-sm">
             <ContactForm
               subject="Consulta Comercial - Web El Rosquín"
-              formClassName="space-y-5 bg-redros p-8 border border-darkros/20 backdrop-blur-sm"
+              formClassName="space-y-5"
             />
-          </FadeIn>
-
-          {/* FORMULARIO ATENCIÓN AL CLIENTE */}
-          <FadeIn className="space-y-8" delay={0.4}>
-            <div className="space-y-4">
-              <h3 className="font-bodoni font-bold text-3xl text-goldenros text-center uppercase tracking-wider">
-                Atención <br />al Cliente
-              </h3>
-              <p className="font-montserrat text-center text-white/70 leading-relaxed italic">
-                Si tenés una consulta <br />comunicate con nosotros.
-              </p>
-            </div>
-
-            <ContactForm
-              subject="Atención al Cliente - Web El Rosquín"
-              formClassName="space-y-5 bg-darkros p-8 border border-goldenros/20 backdrop-blur-sm"
-            />
-          </FadeIn>
-
-        </div>
+          </div>
+        </FadeIn>
       </div>
 
       {/* Script de Cloudflare Turnstile: se carga una vez para toda la página */}
@@ -101,6 +111,9 @@ export default function ContactoPage() {
 }
 
 // COMPONENTES AUXILIARES PARA ESTA PÁGINA
+
+// Opciones del desplegable "Tipo de comercio". Editá libremente esta lista.
+const TIPOS_COMERCIO = ["Mayorista", "Distribuidor", "Vendedor", "Supermercado / Comercio", "Otro"];
 
 interface ContactFormProps {
   subject: string;
@@ -149,13 +162,16 @@ const ContactForm = ({ subject, formClassName }: ContactFormProps) => {
     <form onSubmit={handleSubmit} className={formClassName}>
       <input type="hidden" name="subject" value={subject} />
 
-      <InputField label="Nombre Completo" name="nombre" placeholder="Ej: Juan Pérez" required />
+      <InputField label="Nombre y Apellido" name="nombre" placeholder="Ej: Juan Pérez" required />
+      <InputField label="Empresa / Negocio" name="empresa" placeholder="Ej: Distribuidora del Centro" />
+      <SelectField label="Tipo de comercio" name="tipo" options={TIPOS_COMERCIO} required />
+      <InputField label="Correo Electrónico" name="email" type="email" placeholder="juan@ejemplo.com" required />
+      <InputField label="Teléfono / WhatsApp" name="telefono" type="tel" placeholder="Ej: +54 9 3401 ..." />
       <div className="grid grid-cols-2 gap-4">
         <InputField label="Provincia" name="provincia" placeholder="Ej: Santa Fe" />
         <InputField label="Localidad" name="localidad" placeholder="Ej: Cañada Rosquín" />
       </div>
-      <InputField label="Correo Electrónico" name="email" type="email" placeholder="juan@ejemplo.com" required />
-      <TextAreaField label="Mensaje" name="mensaje" placeholder="Escribí tu consulta aquí..." required />
+      <TextAreaField label="Mensaje" name="mensaje" placeholder="Contanos qué productos te interesan, volúmenes, etc." required />
 
       {/* Honeypot anti-spam: invisible para personas, los bots lo completan */}
       <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
@@ -171,12 +187,12 @@ const ContactForm = ({ subject, formClassName }: ContactFormProps) => {
       />
 
       {status === "success" && (
-        <p className="text-center text-green-400 font-montserrat text-sm font-bold pt-1">
+        <p className="text-center text-green-300 font-montserrat text-sm font-bold pt-1">
           ✓ ¡Mensaje enviado! Te responderemos a la brevedad.
         </p>
       )}
       {status === "error" && (
-        <p className="text-center text-red-200 font-montserrat text-sm font-bold pt-1">
+        <p className="text-center text-white font-montserrat text-sm font-bold pt-1">
           {errorMsg}
         </p>
       )}
@@ -187,17 +203,11 @@ const ContactForm = ({ subject, formClassName }: ContactFormProps) => {
 interface ContactInfoCardProps {
   icon: React.ReactNode;
   title: string;
-  value: string;
-  link: string;
+  lines: { value: string; link?: string }[];
 }
 
-const ContactInfoCard = ({ icon, title, value, link }: ContactInfoCardProps) => (
-  <a
-    href={link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="group relative flex flex-col items-center p-8 drop-shadow-md transition-all duration-500 hover:-translate-y-2 cursor-pointer h-full"
-  >
+const ContactInfoCard = ({ icon, title, lines }: ContactInfoCardProps) => (
+  <div className="group relative flex flex-col items-center p-8 drop-shadow-md transition-all duration-500 hover:-translate-y-2 h-full">
     {/* Bordes decorativos finos oscuros adentro que forman la figura */}
     <div className="absolute top-0 left-[12px] right-[12px] h-[3px] bg-goldenros z-10 transition-colors duration-500 group-hover:bg-goldenros/80"></div>
     <div className="absolute bottom-0 left-[12px] right-[12px] h-[3px] bg-goldenros z-10 transition-colors duration-500 group-hover:bg-goldenros/80"></div>
@@ -212,9 +222,27 @@ const ContactInfoCard = ({ icon, title, value, link }: ContactInfoCardProps) => 
     <div className="relative z-10 mb-4 transform group-hover:scale-110 transition-transform duration-500">
       {icon}
     </div>
-    <h4 className="relative z-10 font-montserrat font-bold text-goldenros text-sm md:text-base tracking-widest mb-2">{title}</h4>
-    <p className="relative z-10 font-montserrat text-white text-center text-sm md:text-base font-bold">{value}</p>
-  </a>
+    <h4 className="relative z-10 font-montserrat font-bold text-goldenros text-sm md:text-base tracking-widest mb-3 text-center">{title}</h4>
+    <div className="relative z-10 flex flex-col items-center gap-1">
+      {lines.map((line, i) =>
+        line.link ? (
+          <a
+            key={i}
+            href={line.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-montserrat text-white text-center text-sm md:text-base font-bold hover:text-goldenros transition-colors break-all"
+          >
+            {line.value}
+          </a>
+        ) : (
+          <p key={i} className="font-montserrat text-white text-center text-sm md:text-base font-bold break-all">
+            {line.value}
+          </p>
+        )
+      )}
+    </div>
+  </div>
 );
 
 interface InputFieldProps {
@@ -235,6 +263,34 @@ const InputField = ({ label, type = "text", placeholder, name, required }: Input
       placeholder={placeholder}
       className="bg-white border border-darkros/30 px-4 py-3 text-darkros font-montserrat focus:outline-none focus:border-goldenros/60 transition-colors placeholder:text-darkros/50"
     />
+  </div>
+);
+
+interface SelectFieldProps {
+  label: string;
+  name: string;
+  options: string[];
+  required?: boolean;
+}
+
+const SelectField = ({ label, name, options, required }: SelectFieldProps) => (
+  <div className="flex flex-col space-y-2">
+    <label className="text-xs font-bold uppercase tracking-widest text-white ml-1">{label}</label>
+    <select
+      name={name}
+      required={required}
+      defaultValue=""
+      className="bg-white border border-darkros/30 px-4 py-3 text-darkros font-montserrat focus:outline-none focus:border-goldenros/60 transition-colors"
+    >
+      <option value="" disabled>
+        Seleccioná una opción
+      </option>
+      {options.map((opt) => (
+        <option key={opt} value={opt}>
+          {opt}
+        </option>
+      ))}
+    </select>
   </div>
 );
 

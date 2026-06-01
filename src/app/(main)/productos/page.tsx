@@ -1,9 +1,8 @@
-import DownloadButton from "@/components/DownloadButton";
 import Image from "next/image";
 import Link from "next/link";
 import { lineaBgImages, type LineaSlug } from "@/data/product-images";
 import FadeIn from "@/components/FadeIn";
-import ScrollExpandMedia from "@/components/ui/scroll-expansion-hero";
+import ScrollVideoHero from "@/components/ScrollVideoHero";
 
 const lineas: { slug: LineaSlug; nombre: string }[] = [
   { slug: 'secos', nombre: 'Secos' },
@@ -22,17 +21,16 @@ const iconosLineas: Record<LineaSlug, string> = {
 export default function ProductosPage() {
   return (
     <>
-      <ScrollExpandMedia
-        mediaType="video"
-        mediaSrc="/"
-        bgImageSrc="/products-onlys/imagenes-stock/picada-fiambres-cerveza-nachos.jpg"
-        titleLeft="NUESTRA LÍNEA"
-        titleRight="DE PRODUCTOS"
+      <ScrollVideoHero
+        srcDesktop="/videos/video-productos-inicio.mp4"
+        srcMobile="/videos/video-productos-inicio-mobile.mp4"
+        titleTop="NUESTRA LÍNEA"
+        titleBottom="DE PRODUCTOS"
         subtitle="Trabajamos con dedicación y pasión para ofrecer chacinados de alta calidad y un sabor único."
-        scrollToExpand="Deslizá para descubrir"
-      >
-        {/* ── Catálogo por Líneas ─────────────────────────────────────────── */}
-        <section id="lineas" className="bg-[url('/material-definitivo/productos-seccion/fondos/fondos-grid-lineas/fondo-grid-lineas-mobile.png')] md:bg-[url('/material-definitivo/productos-seccion/fondos/fondos-grid-lineas/fondo-grid-lineas.png')] bg-cover bg-center bg-no-repeat py-24 px-4">
+      />
+
+      {/* ── Catálogo por Líneas ─────────────────────────────────────────── */}
+      <section id="lineas" className="bg-[url('/material-definitivo/productos-seccion/fondos/fondos-grid-lineas/fondo-grid-lineas-mobile.png')] md:bg-[url('/material-definitivo/productos-seccion/fondos/fondos-grid-lineas/fondo-grid-lineas.png')] bg-cover bg-center bg-no-repeat py-24 px-4">
           <div className="max-w-6xl mx-auto">
 
             {/* Header */}
@@ -43,9 +41,7 @@ export default function ProductosPage() {
               <h2 className="font-bodoni text-redros text-5xl md:text-7xl font-bold leading-tight">
                 Nuestras Líneas
               </h2>
-              <p className="text-darkros mb:mt-2 mt-2 text-lg md:text-xl font-montserrat">
-                Trabajamos con dedicación y pasión para ofrecer <br className="hidden md:inline" />chacinados de alta calidad y un sabor único.
-              </p>
+
             </FadeIn>
 
             {/* Grid de líneas */}
@@ -78,7 +74,6 @@ export default function ProductosPage() {
 
           </div>
         </section>
-      </ScrollExpandMedia>
     </>
   );
 }

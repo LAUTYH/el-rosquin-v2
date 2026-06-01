@@ -29,28 +29,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '100',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, azúcar, pimienta blanca molida, nuez moscada, monohidrato de dextrosa. Estabilizante: INS 339II, INS 452II, INS 450III. Antioxidante: INS 316. Conservante: INS 250, INS 251.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '186 = 772',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '11',
+                'Grasas Totales (gr)': '16',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '689'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '9',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '14',
+                'Grasas Totales (gr)': '29',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '29'
             }
         }
     },
@@ -65,28 +65,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '101',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, azúcar, pimienta blanca molida, nuez moscada, monohidrato de dextrosa. Estabilizante: INS 339II, INS 452II, INS 450III. Antioxidante: INS 316. Conservante: INS 250, INS 251.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '186 = 772',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '11',
+                'Grasas Totales (gr)': '16',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '689'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '9',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '14',
+                'Grasas Totales (gr)': '29',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '29'
             }
         }
     },
@@ -101,28 +101,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '102',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, azúcar, pimienta blanca molida, nuez moscada, monohidrato de dextrosa. Estabilizante: INS 339II, INS 452II, INS 450III. Antioxidante: INS 316. Conservante: INS 250, INS 251.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '161 = 667',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '7',
+                'Grasas Totales (gr)': '15',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '664'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '8',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '10',
+                'Grasas Totales (gr)': '26',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '28'
             }
         }
     },
@@ -137,28 +137,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '103',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, azúcar, pimienta blanca molida, nuez moscada, monohidrato de dextrosa. Estabilizante: INS 339II, INS 452II, INS 450III. Antioxidante: INS 316. Conservante: INS 250, INS 251.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '161 = 667',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '7',
+                'Grasas Totales (gr)': '15',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '664'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '8',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '9',
+                'Grasas Totales (gr)': '26',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '28'
             }
         }
     },
@@ -173,28 +173,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '104',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, azúcar, pimienta blanca molida, nuez moscada, monohidrato de dextrosa. Estabilizante: INS 339II, INS 452II, INS 450III. Antioxidante: INS 316. Conservante: INS 250, INS 251.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '142 = 588',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '6',
+                'Grasas Totales (gr)': '13',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '665'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '7',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '9',
+                'Grasas Totales (gr)': '23',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '28'
             }
         }
     },
@@ -209,28 +209,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '105',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, queso tybo, tocino, sal, azúcar, pimienta blanca molida, nuez moscada, monohidrato de dextrosa. Estabilizante: INS 339II, INS 452II, INS 450III. Antioxidante: INS 316. Conservante: INS 250, INS 251. CONTIENE DERIVADOS DE LECHE.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '151 = 627',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '13',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '703'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '8',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '10',
+                'Grasas Totales (gr)': '24',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '29'
             }
         }
     },
@@ -245,28 +245,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '107',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, queso tybo, tocino, sal, azúcar, pimienta blanca molida, nuez moscada, monohidrato de dextrosa. Estabilizante: INS 339II, INS 452II, INS 450III. Antioxidante: INS 316. Conservante: INS 250, INS 251. CONTIENE DERIVADOS DE LECHE.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '151 = 627',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '13',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '703'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '8',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '10',
+                'Grasas Totales (gr)': '24',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '29'
             }
         }
     },
@@ -281,28 +281,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '108',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, tocino, sal, pimienta blanca molida, ajo, canela. Estabilizante: INS 452I, INS 450III. Regulador de Acidez: INS 331III. Conservante: INS 250, INS 251.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '114 = 473',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '9',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '467'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '6',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '11',
+                'Grasas Totales (gr)': '17',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '19'
             }
         }
     },
@@ -317,28 +317,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '--',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, azúcar, pimienta blanca molida, nuez moscada, monohidrato de dextrosa. Estabilizante: INS 339II, INS 452II, INS 450III. Antioxidante: INS 316. Conservante: INS 250, INS 251.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '148 = 611',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '2',
+                'Grasas Totales (gr)': '15,36',
+                'Grasas Saturadas (gr)': '11',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '2',
+                'Sodio (mg)': '262'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '7',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '3',
+                'Grasas Totales (gr)': '28',
+                'Grasas Saturadas (gr)': '49',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '8',
+                'Sodio (mg)': '11'
             }
         }
     },
@@ -353,28 +353,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '110',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, azúcar, pimienta blanca molida, nuez moscada, monohidrato de dextrosa. Estabilizante: INS 339II, INS 452II, INS 450III. Antioxidante: INS 316. Conservante: INS 250, INS 251.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '186 = 772',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '11',
+                'Grasas Totales (gr)': '16',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '689'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '9',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '14',
+                'Grasas Totales (gr)': '29',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '29'
             }
         }
     },
@@ -389,28 +389,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '111',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, azúcar, pimienta blanca molida, nuez moscada, monohidrato de dextrosa. Estabilizante: INS 339II, INS 452II, INS 450III. Antioxidante: INS 316. Conservante: INS 250, INS 251.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '186 = 772',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '11',
+                'Grasas Totales (gr)': '16',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '689'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '9',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '14',
+                'Grasas Totales (gr)': '29',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '29'
             }
         }
     },
@@ -425,28 +425,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '201',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Panceta de cerdo, sal, pimienta, azúcar. Conservante: INS 250.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '133 = 552',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '11',
+                'Grasas Totales (gr)': '10',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '1551'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '7',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '15',
+                'Grasas Totales (gr)': '18',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '63'
             }
         }
     },
@@ -461,28 +461,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '202',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Panceta de cerdo, sal, pimienta, azúcar. Conservante: INS 250.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 3 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '133 = 552',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '11',
+                'Grasas Totales (gr)': '10',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '1551'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '7',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '15',
+                'Grasas Totales (gr)': '18',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '63'
             }
         }
     },
@@ -497,28 +497,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '205',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Panceta de cerdo, sal, pimienta, azúcar. Conservante: INS 250.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '133 = 552',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '11',
+                'Grasas Totales (gr)': '10',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '1551'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '7',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '15',
+                'Grasas Totales (gr)': '18',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '63'
             }
         }
     },
@@ -533,28 +533,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '203',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Pernil de cerdo, sal, azúcar. Conservante: INS 251.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '111 = 465',
+                'Carbohidratos (gr)': '3',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '8',
+                'Grasas Saturadas (gr)': '3',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '678'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '6',
+                'Carbohidratos (gr)': '1',
+                'Proteínas (gr)': '10',
+                'Grasas Totales (gr)': '14',
+                'Grasas Saturadas (gr)': '13',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '28'
             }
         }
     },
@@ -569,28 +569,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '204',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Bondiola de cerdo, sal, azúcar, pimienta blanca molida. Conservante: INS 250.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '127 = 529',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '9',
+                'Grasas Totales (gr)': '10',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '1484'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '6',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '12',
+                'Grasas Totales (gr)': '18',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '62'
             }
         }
     },
@@ -605,28 +605,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '206',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Bondiola de cerdo, sal, azúcar, pimienta blanca molida. Conservante: INS 250.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '127 = 529',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '9',
+                'Grasas Totales (gr)': '10',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '1484'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '6',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '12',
+                'Grasas Totales (gr)': '18',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '62'
             }
         }
     },
@@ -641,28 +641,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '300',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Pernil de cerdo, sal, azúcar, pimienta, clavo de olor. Estabilizante: INS 452ii. Conservante: INS 251, INS 252.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 3 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '40 = 167',
+                'Carbohidratos (gr)': '4',
+                'Proteínas (gr)': '4',
+                'Grasas Totales (gr)': '1',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '339'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '2',
+                'Carbohidratos (gr)': '1',
+                'Proteínas (gr)': '5',
+                'Grasas Totales (gr)': '2',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '14'
             }
         }
     },
@@ -677,28 +677,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '302',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Pernil de cerdo, agua, almidón, sal fina, proteína aislada de soja (2%), azúcar, dextrosa, saborizante. Emulsionante: INS 452 I. Antioxidante: INS 316. Conservadores: INS 250 - 251. Colorante: INS 120. CONTIENE DERIVADOS DE TRIGO. CONTIENE DERIVADOS DE SOJA.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '42 = 176',
+                'Carbohidratos (gr)': '3',
+                'Proteínas (gr)': '5',
+                'Grasas Totales (gr)': '1',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '472'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '2',
+                'Carbohidratos (gr)': '1',
+                'Proteínas (gr)': '7',
+                'Grasas Totales (gr)': '2',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '20'
             }
         }
     },
@@ -713,28 +713,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '303',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne de pollo, agua, carne de cerdo, almidón, sal, azúcar, proteína aislada de soja (2%), dextrosa, saborizante. Estabilizante: INS 452 I. Antioxidante: INS 316. Conservadores: INS 250 - 251. Colorante: INS 120. CONTIENE DERIVADOS DE TRIGO. CONTIENE DERIVADOS DE SOJA.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '40 grs = 2 Fetas',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '44 = 185',
+                'Carbohidratos (gr)': '7',
+                'Proteínas (gr)': '3',
+                'Grasas Totales (gr)': '1',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '107'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '2',
+                'Carbohidratos (gr)': '2',
+                'Proteínas (gr)': '5',
+                'Grasas Totales (gr)': '0',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '4'
             }
         }
     },
@@ -749,28 +749,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '306',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Cabeza de cerdo, quijada vacuna, lengua vacuna, sal, pimienta blanca molida, ají molido, nuez moscada. Estabilizante: INS 452i.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '50 grs = 1/2 Unidad',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '73 = 307',
+                'Carbohidratos (gr)': '4',
+                'Proteínas (gr)': '6',
+                'Grasas Totales (gr)': '0',
+                'Grasas Saturadas (gr)': '3',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '555'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '4',
+                'Carbohidratos (gr)': '1',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '0',
+                'Grasas Saturadas (gr)': '12',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '23'
             }
         }
     },
@@ -785,28 +785,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '304',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Cabeza de cerdo, quijada vacuna, lengua vacuna, sal, pimienta blanca molida, ají molido, nuez moscada. Estabilizante: INS 452i.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '50 grs = 1/2 Unidad',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '73 = 307',
+                'Carbohidratos (gr)': '4',
+                'Proteínas (gr)': '6',
+                'Grasas Totales (gr)': '0',
+                'Grasas Saturadas (gr)': '3',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '555'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '4',
+                'Carbohidratos (gr)': '1',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '0',
+                'Grasas Saturadas (gr)': '12',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '23'
             }
         }
     },
@@ -821,28 +821,28 @@ export const productos: Producto[] = [
         venta: 'Elaboración a pedido / Venta al peso',
         codigo: '401',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, dextrosa, pimienta blanca, nuez moscada. Estabilizante: INS 452i. Acidulante: INS 330. Antioxidante: INS 300. Conservante: INS 250.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '50 grs = 1/2 Unidad',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '94 = 390',
+                'Carbohidratos (gr)': '1',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '7',
+                'Grasas Saturadas (gr)': '3',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '391'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '5',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '10',
+                'Grasas Totales (gr)': '10',
+                'Grasas Saturadas (gr)': '12',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '16'
             }
         }
     },
@@ -857,28 +857,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '402',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, dextrosa, pimienta blanca, nuez moscada. Estabilizante: INS 452i. Acidulante: INS 330. Antioxidante: INS 300. Conservante: INS 250.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '50 grs = 1/2 Unidad',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '94 = 390',
+                'Carbohidratos (gr)': '1',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '7',
+                'Grasas Saturadas (gr)': '3',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '391'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '5',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '10',
+                'Grasas Totales (gr)': '10',
+                'Grasas Saturadas (gr)': '12',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '16'
             }
         }
     },
@@ -893,28 +893,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '402',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, dextrosa, pimienta blanca, nuez moscada. Estabilizante: INS 452i. Acidulante: INS 330. Antioxidante: INS 300. Conservante: INS 250.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '50 grs = 1/2 Unidad',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '94 = 390',
+                'Carbohidratos (gr)': '1',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '7',
+                'Grasas Saturadas (gr)': '3',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '391'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '5',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '10',
+                'Grasas Totales (gr)': '10',
+                'Grasas Saturadas (gr)': '12',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '16'
             }
         }
     },
@@ -929,28 +929,28 @@ export const productos: Producto[] = [
         venta: 'Elaboración a pedido / Venta al peso',
         codigo: '403',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Sangre porcina desfibrinada, cuero de cerdo, carne de cerdo, cebolla de verdeo, carne vacuna, sal, pimienta blanca, nuez moscada, clavo de olor.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '50 grs = 1/6 Unidad',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '144 = 602',
+                'Carbohidratos (gr)': '1',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '12',
+                'Grasas Saturadas (gr)': '10',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '1',
+                'Sodio (mg)': '257'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '7',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '11',
+                'Grasas Totales (gr)': '22',
+                'Grasas Saturadas (gr)': '45',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '4',
+                'Sodio (mg)': '11'
             }
         }
     },
@@ -965,28 +965,28 @@ export const productos: Producto[] = [
         venta: 'Elaboración a pedido / Venta al peso',
         codigo: '404',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Sangre porcina desfibrinada, cuero de cerdo, carne de cerdo, cebolla de verdeo, carne vacuna, sal, pimienta blanca, nuez moscada, clavo de olor.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '50 grs = 1/6 Unidad',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '144 = 602',
+                'Carbohidratos (gr)': '1',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '12',
+                'Grasas Saturadas (gr)': '10',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '1',
+                'Sodio (mg)': '257'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '7',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '11',
+                'Grasas Totales (gr)': '22',
+                'Grasas Saturadas (gr)': '45',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '4',
+                'Sodio (mg)': '11'
             }
         }
     },
@@ -1001,28 +1001,28 @@ export const productos: Producto[] = [
         venta: 'Venta al peso',
         codigo: '405',
         banner: '/id-productos-page-img/imagen-banner-id-img.png',
-        ingredientes: 'Carne vacuna, carne de cerdo, tocino, queso tybo, sal, dextrosa, saborizante y especias. Antioxidante: ácido cítrico y ácido ascórbico. Emulsionante: polifosfato de sodio. Conservador: nitrato de sodio.',
+        ingredientes: 'Sangre porcina desfibrinada, cuero de cerdo, carne de cerdo, cebolla de verdeo, carne vacuna, sal, pimienta blanca, nuez moscada, clavo de olor.',
         informacionNutricional: {
-            porcion: '-- -- | Medida Casera',
+            porcion: '50 grs = 1/6 Unidad',
             valores: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '144 = 602',
+                'Carbohidratos (gr)': '1',
+                'Proteínas (gr)': '8',
+                'Grasas Totales (gr)': '12',
+                'Grasas Saturadas (gr)': '10',
+                'Grasas Trans (gr)': '0',
+                'Fibra Alimentaria (gr)': '1',
+                'Sodio (mg)': '257'
             },
             porcentajes: {
-                'Valor Energético (Kcal = Kj)': '--',
-                'Carbohidratos (gr)': '--',
-                'Proteínas (gr)': '--',
-                'Grasas Totales (gr)': '--',
-                'Grasas Saturadas (gr)': '--',
-                'Grasas Trans (gr)': '--',
-                'Fibra Alimentaria (gr)': '--',
-                'Sodio (mg)': '--'
+                'Valor Energético (Kcal = Kj)': '7',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '11',
+                'Grasas Totales (gr)': '22',
+                'Grasas Saturadas (gr)': '45',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '4',
+                'Sodio (mg)': '11'
             }
         }
     }

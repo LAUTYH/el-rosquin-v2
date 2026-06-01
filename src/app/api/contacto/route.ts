@@ -68,15 +68,22 @@ export async function POST(request: Request) {
     }
 
     // 2) Enviar el email con Resend
-    const subject = String(formData.get("subject") || "Consulta - Web El Rosquín");
+    const baseSubject = String(formData.get("subject") || "Consulta Comercial - Web El Rosquín");
+    const tipoRaw = formData.get("tipo");
+    const tipo = typeof tipoRaw === "string" ? tipoRaw : "";
+    // El tipo de comercio va también en el asunto para identificar el lead de un vistazo.
+    const subject = tipo ? `${baseSubject} · ${tipo}` : baseSubject;
     const email = formData.get("email");
     const html = `
       <h2 style="font-family:sans-serif">${esc(subject)}</h2>
       <table style="font-family:sans-serif;font-size:14px;border-collapse:collapse">
         <tr><td style="padding:4px 8px"><strong>Nombre</strong></td><td style="padding:4px 8px">${esc(formData.get("nombre"))}</td></tr>
+        <tr><td style="padding:4px 8px"><strong>Empresa</strong></td><td style="padding:4px 8px">${esc(formData.get("empresa"))}</td></tr>
+        <tr><td style="padding:4px 8px"><strong>Tipo de comercio</strong></td><td style="padding:4px 8px">${esc(tipo)}</td></tr>
+        <tr><td style="padding:4px 8px"><strong>Email</strong></td><td style="padding:4px 8px">${esc(email)}</td></tr>
+        <tr><td style="padding:4px 8px"><strong>Teléfono</strong></td><td style="padding:4px 8px">${esc(formData.get("telefono"))}</td></tr>
         <tr><td style="padding:4px 8px"><strong>Provincia</strong></td><td style="padding:4px 8px">${esc(formData.get("provincia"))}</td></tr>
         <tr><td style="padding:4px 8px"><strong>Localidad</strong></td><td style="padding:4px 8px">${esc(formData.get("localidad"))}</td></tr>
-        <tr><td style="padding:4px 8px"><strong>Email</strong></td><td style="padding:4px 8px">${esc(email)}</td></tr>
       </table>
       <p style="font-family:sans-serif;font-size:14px"><strong>Mensaje:</strong><br>${esc(formData.get("mensaje")).replace(/\n/g, "<br>")}</p>
     `;

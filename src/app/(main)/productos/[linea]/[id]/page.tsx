@@ -70,7 +70,7 @@ export default async function ProductoPage({
             {/* Columna Izquierda: Imagen del producto */}
             <div className="relative flex justify-center">
               {detailImg ? (
-                <div className="relative w-[80%] max-w-[300px] h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px]">
+                <div className="relative w-[80%] max-w-[300px] md:max-w-[420px] lg:max-w-[500px] h-[400px] sm:h-[500px] md:h-[640px] lg:h-[740px]">
                   <Image
                     src={detailImg}
                     alt={producto.nombre}
@@ -85,7 +85,7 @@ export default async function ProductoPage({
                   )}
                 </div>
               ) : (
-                <div className="w-[80%] max-w-[300px] h-[400px] md:h-[600px] bg-darkros/20 rounded-xl" />
+                <div className="w-[80%] max-w-[300px] md:max-w-[420px] lg:max-w-[500px] h-[400px] md:h-[640px] lg:h-[740px] bg-darkros/20 rounded-xl" />
               )}
             </div>
 
@@ -173,7 +173,7 @@ export default async function ProductoPage({
               {producto.informacionNutricional && (
                 <div className="mt-4 text-center w-full max-w-md">
                   <p className="font-montserrat text-darkros text-sm md:text-base font-bold mb-6">
-                    Porción: {producto.informacionNutricional.porcion.split('|')[0].trim()} | Medida Casera
+                    Porción: {producto.informacionNutricional.porcion}
                   </p>
 
                   <div className="w-full border-t-[3px] border-darkros pt-2">
