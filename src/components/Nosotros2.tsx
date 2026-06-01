@@ -3,7 +3,7 @@ import FadeIn from './FadeIn'
 
 const Nosotros2 = () => {
     return (
-        <section className='w-full min-h-[100vh] bg-[#fdf5cc] bg-[url("/material-definitivo/home-imagenes/nosotros2-fondo-mobile.png")] md:bg-[url("/material-definitivo/home-imagenes/nosotros2-fondo.png")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-center justify-center relative overflow-hidden py-12 md:py-20'>
+        <section className='w-full min-h-[100vh] bg-[#fdf5cc] bg-[url("/material-definitivo/home-imagenes/nosotros2-fondo.png")] md:bg-[url("/material-definitivo/home-imagenes/nosotros2-fondo.png")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-center justify-center relative overflow-hidden py-12 md:py-20'>
 
             {/* Capa de borde entre el background y el contenido (solo escritorio) */}
             <div className='absolute hidden md:flex items-center justify-center inset-0 w-full h-full p-4 md:p-10 lg:p-16 pointer-events-none z-0 pb-6 md:pb-10'>
@@ -28,7 +28,7 @@ const Nosotros2 = () => {
                     <img
                         src="/material-definitivo/home-imagenes/foto-nosotros2.png"
                         alt="Elaboración artesanal El Rosquín"
-                        className='w-[75%] md:w-[90%] max-w-[550px] h-auto object-contain drop-shadow-[0_6px_12px_rgba(0,0,0,0.2)]'
+                        className='w-[75%] md:w-[90%] max-w-[550px] h-auto object-contain'
                     />
                 </FadeIn>
 

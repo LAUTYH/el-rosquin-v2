@@ -6,7 +6,7 @@ const Nosotros3 = () => {
         <section className='w-full min-h-[100vh] bg-cover bg-center bg-no-repeat relative px-6 pt-20 md:pt-28 pb-20 flex items-start justify-center bg-[url("/material-definitivo/home-imagenes/nosotros3-fondo-mobile.png")] md:bg-[url("/material-definitivo/home-imagenes/nosotros3-fondo.png")]'>
 
             {/* Overlay oscuro para que el texto se lea sobre la foto */}
-            <div className='absolute inset-0 bg-black/40' />
+            <div className='absolute inset-0' />
 
             <div className='flex flex-col items-center w-full max-w-[760px] text-center space-y-6 md:space-y-8 relative z-10'>
 
