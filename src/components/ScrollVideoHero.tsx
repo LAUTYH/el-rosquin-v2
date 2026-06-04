@@ -71,6 +71,12 @@ export default function ScrollVideoHero({
           start: 'top top',
           end: 'bottom bottom',
           scrub: 0.5,
+          onRefresh: (self) => {
+            obj.time = self.progress * duration;
+            if (video.readyState >= 2) {
+              video.currentTime = obj.time;
+            }
+          },
         },
         onUpdate: () => {
           if (video.readyState >= 2) {
@@ -78,13 +84,6 @@ export default function ScrollVideoHero({
           }
         },
       });
-
-      // Forzar el primer frame para evitar pantalla negra al recargar
-      if (video.readyState >= 2) {
-        video.currentTime = 0;
-      } else {
-        video.addEventListener('canplay', () => { video.currentTime = 0; }, { once: true });
-      }
     };
 
     if (video.readyState >= 1 && video.duration) {
