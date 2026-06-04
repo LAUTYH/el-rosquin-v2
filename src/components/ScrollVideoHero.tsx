@@ -70,15 +70,21 @@ export default function ScrollVideoHero({
           trigger: container,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.5, // suaviza el seguimiento del scroll
+          scrub: 0.5,
         },
         onUpdate: () => {
-          // Sincronizar el frame del video con el scroll.
           if (video.readyState >= 2) {
             video.currentTime = obj.time;
           }
         },
       });
+
+      // Forzar el primer frame para evitar pantalla negra al recargar
+      if (video.readyState >= 2) {
+        video.currentTime = 0;
+      } else {
+        video.addEventListener('canplay', () => { video.currentTime = 0; }, { once: true });
+      }
     };
 
     if (video.readyState >= 1 && video.duration) {
