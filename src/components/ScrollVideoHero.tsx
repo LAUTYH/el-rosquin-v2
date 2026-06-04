@@ -77,12 +77,6 @@ export default function ScrollVideoHero({
           if (video.readyState >= 2) {
             video.currentTime = obj.time;
           }
-          // Fade del texto: full hasta el 40% del recorrido, luego se desvanece.
-          if (textRef.current) {
-            const p = obj.time / duration;
-            const fade = p < 0.4 ? 1 : Math.max(0, 1 - (p - 0.4) / 0.4);
-            textRef.current.style.opacity = String(fade);
-          }
         },
       });
     };
@@ -118,7 +112,7 @@ export default function ScrollVideoHero({
         {/* Capa oscura para legibilidad del texto */}
         <div className="absolute inset-0 bg-black/45" />
 
-        {/* Texto central con fade-in de entrada (el fade-out por scroll lo maneja textRef) */}
+        {/* Texto central con fade-in de entrada */}
         <motion.div
           className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-4 text-center"
           initial={{ opacity: 0, y: 24 }}
@@ -129,11 +123,12 @@ export default function ScrollVideoHero({
             <h2 className="font-bodoni text-4xl font-bold text-white md:text-6xl lg:text-7xl">
               {titleTop}
             </h2>
-            <h2 className="font-dirty-brush text-6xl leading-none text-goldenros drop-shadow-lg md:text-7xl lg:text-8xl">
+            <h2 className="font-dirty-brush text-6xl leading-none text-goldenros drop-shadow-[0_0_10px_rgba(30,30,30,0.6)] drop-shadow-gray-950/40 md:text-7xl lg:text-8xl">
               {titleBottom}
             </h2>
+
             {subtitle && (
-              <p className="mt-6 max-w-xl font-montserrat text-lg text-gray-300 md:text-xl">
+              <p className="mt-6 max-w-xl font-montserrat text-lg text-white md:text-xl">
                 {subtitle}
               </p>
             )}
