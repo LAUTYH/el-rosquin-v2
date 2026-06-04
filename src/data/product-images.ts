@@ -28,10 +28,10 @@ export const lineaBgImages: Record<LineaSlug, string> = {
 };
 
 export const lineaDescripciones: Record<LineaSlug, string> = {
-  secos: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
-  maduracion: 'Cortes seleccionados de cerdo sometidos a procesos estrictos de estacionamiento para lograr texturas y perfiles de sabor premium.',
-  fiambres: 'Fiambres cocidos orientados a la versatilidad diaria, elaborados con materia prima de alta calidad para sándwiches y preparaciones frías.',
-  tradicion: 'Embutidos y cortes clásicos argentinos enfocados específicamente en la experiencia de parrilla.',
+  secos: 'Elaboración artesanal, con especias naturales y el tiempo exacto de secado. El sabor clásico que no puede faltar en tus picadas.',
+  maduracion: 'Estacionamiento lento y natural, respetando los tiempos de cada pieza. Texturas y aromas inconfundibles para los paladares que saben elegir.',
+  fiambres: 'Frescura y cuidado familiar bajo los más altos estándares de calidad. Sabor auténtico para tus sándwiches y preparaciones de todos los días.',
+  tradicion: 'Recetas que se traspasan de generación en generación, homenajeando al sabor de nuestro pueblo. Los sabores de siempre, hechos para compartir, celebrar y disfrutar de cada momento.',
 };
 
 export const productImages: Record<string, ProductImages> = {

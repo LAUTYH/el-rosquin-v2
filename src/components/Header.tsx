@@ -53,7 +53,7 @@ export default function Header() {
     }, [isMenuOpen]);
 
     return (
-        <header className="relative w-full z-[100] fixed">
+        <header className="relative w-full z-[100]">
             <div className="bg-redros h-[100px] w-full flex justify-center items-center relative z-50">
 
                 {/* EL LOGO QUEDA A LA IZQUIERDA EN MOBILE Y EN SU POSICIÓN ORIGINAL EN DESKTOP */}
