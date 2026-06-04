@@ -2,7 +2,7 @@ import React from "react";
 
 const DownloadButton = () => (
   <a
-    href="/material-definitivo/catalogo-descarga/catalogo-comp.pdf"
+    href="/material-definitivo/catalogo-descarga/catalogo-comp-v2.pdf"
     download="Catalogo-El-Rosquin.pdf"
     className="relative inline-block whitespace-nowrap px-8 md:px-10 py-3 md:py-4 drop-shadow-md group cursor-pointer hover:scale-105 transition-transform duration-300"
   >

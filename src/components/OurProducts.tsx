@@ -103,7 +103,7 @@ const OurProducts = () => {
         </BadgeButton>
         <BadgeButton
           dark={true}
-          href="/material-definitivo/catalogo-descarga/catalogo-comp.pdf"
+          href="/material-definitivo/catalogo-descarga/catalogo-comp-v2.pdf"
           download="Catalogo-El-Rosquin.pdf"
         >
           DESCARGAR CATÁLOGO
