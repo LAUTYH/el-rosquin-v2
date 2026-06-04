@@ -59,7 +59,7 @@ export default function HorizontalCarousel() {
 
   return (
     <section ref={containerRef} className="w-full h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url('${BASE}/fondo-horizontal-carrousel${isMobile ? "-mobile" : ""}.png')` }}>
+      style={{ backgroundImage: `url('${BASE}/fondo-horizontal-carrousel${isMobile ? "-mobile" : ""}.webp')` }}>
       {/* Contenedor que centra verticalmente el carrusel */}
       <div className="h-full flex flex-col justify-center px-4 md:px-10">
         {/* <h2 className="text-4xl md:text-5xl font-bold font-montserrat text-redros mb-12 pl-4">
@@ -81,7 +81,9 @@ export default function HorizontalCarousel() {
                   alt={`Galería El Rosquín ${n}`}
                   fill
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 280px, 30vw"
+                  priority={n <= 2}
+                  loading={n <= 2 ? "eager" : "lazy"}
                 />
               )}
             </div>

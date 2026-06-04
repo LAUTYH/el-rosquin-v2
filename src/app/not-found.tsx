@@ -4,7 +4,7 @@ import BadgeButton from "@/components/BadgeButton";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen w-full bg-[url('/fondos-productos/fondo-2.png')] bg-cover bg-center flex flex-col items-center justify-center relative px-6 text-center select-none overflow-hidden">
+    <main className="min-h-screen w-full bg-[url('/fondos-productos/fondo-2.webp')] bg-cover bg-center flex flex-col items-center justify-center relative px-6 text-center select-none overflow-hidden">
       {/* Overlay a la textura para legibilidad */}
       <div className="absolute inset-0 bg-white/45 backdrop-blur-[2px] z-0"></div>
 

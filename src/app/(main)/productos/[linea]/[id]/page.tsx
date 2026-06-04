@@ -45,7 +45,7 @@ export default async function ProductoPage({
   return (
     <main className="bg-darkros min-h-screen">
       {/* ── SECCIÓN 1: Header/Info Básica ── */}
-      <section className="bg-[url('/fondos-productos/fondo-2.png')] bg-cover bg-center">
+      <section className="bg-[url('/fondos-productos/fondo-2.webp')] bg-cover bg-center">
         {/* ── Navegación ── */}
         <div className="max-w-6xl mx-auto px-4 pt-8 pb-0">
           <nav className="flex flex-wrap items-center justify-between gap-4 md:gap-6">
@@ -162,7 +162,7 @@ export default async function ProductoPage({
       )}
 
       {/* ── SECCIÓN 3: Información Nutricional e Ingredientes ── */}
-      <section className="bg-[url('/fondos-productos/fondo%20info.png')] bg-cover bg-center py-16 md:py-24">
+      <section className="bg-[url('/fondos-productos/fondo-info.webp')] bg-cover bg-center py-16 md:py-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-start">
 

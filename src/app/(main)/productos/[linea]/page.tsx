@@ -21,20 +21,20 @@ const iconosLineas: Record<LineaSlug, string> = {
 const renderProductName = (name: string) => {
   const regex = /(Tradici[óo]n|Familiar|Bacon|con queso)/i;
   const parts = name.split(regex);
-  
+
   return (
     <span className="inline-block">
       {parts.map((part, i) => {
         if (!part) return null;
         const lower = part.toLowerCase();
-        
+
         if (lower === 'tradición' || lower === 'tradicion' || lower === 'familiar' || lower === 'bacon') {
           const text = lower.startsWith('tradici') ? `"${part}"` : part;
           return <span key={i} className="block text-redros">{text}</span>;
         } else if (lower === 'con queso') {
           return <span key={i} className="block text-[#275389]">{part}</span>;
         }
-        
+
         return <span key={i}>{part}</span>;
       })}
     </span>
@@ -58,7 +58,7 @@ export default async function LineaPage({
   const lineaProductos = productos.filter((p) => p.linea === lineaNombre);
 
   return (
-    <main className="bg-[url('/material-definitivo/productos-seccion/fondos/linea-grid-productos/fondo-grid-productos-mobile.png')] md:bg-[url('/material-definitivo/productos-seccion/fondos/linea-grid-productos/fondo-grid-productos.png')] bg-cover bg-center bg-no-repeat min-h-screen">
+    <main className="bg-[url('/material-definitivo/productos-seccion/fondos/linea-grid-productos/fondo-grid-productos-mobile.webp')] md:bg-[url('/material-definitivo/productos-seccion/fondos/linea-grid-productos/fondo-grid-productos.webp')] bg-cover bg-center bg-no-repeat min-h-screen">
 
       {/* ── Banner de línea ── */}
       <div className="relative h-64 md:h-80 overflow-hidden">
@@ -104,7 +104,7 @@ export default async function LineaPage({
 
             const nameParts = producto.nombre.split(' - ');
             const mainName = nameParts[0];
-            
+
             const isEnvasadoVacio = producto.nombre.toLowerCase().includes('vacío') || producto.id.includes('vacio');
             const isAtadoMano = producto.id.includes('mano') || producto.nombre.toLowerCase().includes('mano');
 
@@ -116,7 +116,7 @@ export default async function LineaPage({
             if (subtitle && subtitle.toLowerCase().includes('vacío')) {
               subtitle = undefined; // Hide subtitle if it's just "Envasado al Vacío"
             }
-            
+
             return (
               <Link
                 key={producto.id}
@@ -124,16 +124,16 @@ export default async function LineaPage({
                 className="group cursor-pointer flex flex-col items-center text-center transition-all duration-300 relative"
               >
                 {/* Imagen */}
-                <div className="w-full h-48 md:h-64 flex items-center justify-center mb-4 relative">
+                <div className="w-full h-58 md:h-64 flex items-center justify-center mb-20 relative">
                   {/* Sellos */}
                   {sellos.length > 0 && (
-                    <div className="absolute top-2 right-2 flex flex-col gap-2 z-10 items-end">
+                    <div className="absolute top-0 right-[-6px] flex flex-col gap-2 z-10 items-end">
                       {sellos.map((sello, idx) => (
-                        <img 
-                          key={idx} 
-                          src={sello.url} 
-                          alt={sello.alt} 
-                          className="w-10 h-10 md:w-14 md:h-14 object-contain drop-shadow-sm transition-transform group-hover:scale-105" 
+                        <img
+                          key={idx}
+                          src={sello.url}
+                          alt={sello.alt}
+                          className="w-10 h-10 md:w-18 md:h-18 object-contain drop-shadow-sm transition-transform group-hover:scale-105"
                         />
                       ))}
                     </div>
