@@ -21,20 +21,20 @@ const OurProducts = () => {
   };
 
   return (
-    <section className="w-full min-h-[100vh] bg-[#3a3528] bg-[url('/fondos/PRODUCTOS.png')] bg-[length:100%_100%] bg-no-repeat bg-center flex flex-col items-center justify-center relative py-20 px-6 font-montserrat overflow-hidden">
+    <section className="w-full min-h-[100vh] md:h-screen bg-[#3a3528] bg-[url('/fondos/PRODUCTOS.png')] lg:bg-[url('/material-definitivo/home-imagenes/fondo-ourproducts-mobile.png')] mb:bg-[url('/material-definitivo/home-imagenes/fondo-ourproducts-mobile.png')] bg-[length:100%_100%] bg-no-repeat bg-center flex flex-col items-center justify-center relative py-20 md:py-6 px-6 font-montserrat overflow-hidden">
 
       {/* Título */}
-      <div className="text-center mb-10 mt-8">
+      <div className="text-center mb-6 md:mb-4 mt-8 md:mt-0">
         <h2 className="font-bodoni font-bold text-white text-[24px] md:text-[32px] tracking-widest uppercase mb-[-15px] md:mb-[-20px] relative z-10">
           Nuestra Línea
         </h2>
-        <h3 className="font-dirty-brush text-goldenros text-[50px] md:text-[75px] tracking-wider relative z-20">
+        <h3 className="font-dirty-brush text-goldenros text-[50px] md:text-[75px] tracking-wider relative z-20 [text-shadow:_0_2px_12px_rgba(0,0,0,0.5)]">
           DE PRODUCTOS
         </h3>
       </div>
 
       {/* Tabs / Botones SVG */}
-      <div className="grid grid-cols-2 gap-4 justify-items-center md:flex md:flex-wrap md:justify-center md:gap-8 mb-12 max-w-[1000px]">
+      <div className="grid grid-cols-2 gap-4 justify-items-center md:flex md:flex-wrap md:justify-center md:gap-8 mb-6 md:mb-4 max-w-[1000px]">
         {productsData.map((item, index) => (
           <button
             key={item.id}
@@ -45,17 +45,17 @@ const OurProducts = () => {
             <img
               src={item.svg}
               alt={item.id}
-              className="h-[70px] md:h-[100px] w-auto object-contain"
+              className="h-[70px] md:h-[90px] w-auto object-contain"
             />
           </button>
         ))}
       </div>
 
       {/* Imagen Principal y Flechas */}
-      <div className="flex flex-col items-center justify-center w-full max-w-[1200px] mb-12 relative">
+      <div className="flex flex-col items-center justify-center w-full max-w-[1200px] mb-6 md:mb-4 relative">
 
         {/* Contenedor de Imagen de Producto */}
-        <div className="flex justify-center items-center w-full h-[250px] md:h-[450px]">
+        <div className="flex justify-center items-center w-full h-[250px] md:h-[340px]">
           <img
             key={productsData[activeIndex].id}
             src={productsData[activeIndex].img}
@@ -87,7 +87,7 @@ const OurProducts = () => {
       </div>
 
       {/* Texto Descriptivo */}
-      <div className="text-center max-w-[850px] mb-12 px-4 space-y-3">
+      <div className="text-center max-w-[850px] mb-6 md:mb-4 px-4 space-y-2">
         <p className="text-white font-bold text-lg md:text-[22px] leading-snug">
           Producimos alimentos para ser los  protagonistas <br className="hidden md:block" />de tus mejores momentos.
         </p>
