@@ -133,7 +133,7 @@ export default async function LineaPage({
                           key={idx}
                           src={sello.url}
                           alt={sello.alt}
-                          className="w-10 h-10 md:w-18 md:h-18 object-contain drop-shadow-sm transition-transform group-hover:scale-105"
+                          className="w-14 h-14 md:w-18 md:h-18 object-contain drop-shadow-sm transition-transform group-hover:scale-105"
                         />
                       ))}
                     </div>
