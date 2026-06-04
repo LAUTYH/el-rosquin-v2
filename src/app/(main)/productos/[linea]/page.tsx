@@ -90,7 +90,9 @@ export default async function LineaPage({
               Productos
             </Link>
             <span>/</span>
-            <span className="font-bold capitalize">{lineaNombre}</span>
+            <Link href={`/productos/${slug}`} className="font-bold capitalize hover:underline cursor-pointer">
+              {lineaNombre}
+            </Link>
           </div>
           <BackButton />
         </nav>
