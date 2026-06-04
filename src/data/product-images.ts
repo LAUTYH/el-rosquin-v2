@@ -221,7 +221,7 @@ export function getProductDetailImage(id: string): string | undefined {
 /** Foto lifestyle apaisada para el BANNER del detalle. */
 export function getProductBannerImage(id: string): string | undefined {
   const m = productMedia[id];
-  return m ? `${MD_BASE}/foto-fondo-id/foto-fondo-id-${m.linea}/${m.banner}.png` : undefined;
+  return m ? `${MD_BASE}/foto-fondo-id/foto-fondo-id-${m.linea}/${m.banner}.webp` : undefined;
 }
 
 /** Banner apaisado por línea (encabezado de la página de línea). */

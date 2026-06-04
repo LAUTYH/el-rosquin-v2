@@ -30,7 +30,7 @@ export default function ProductosPage() {
       />
 
       {/* ── Catálogo por Líneas ─────────────────────────────────────────── */}
-      <section id="lineas" className="bg-[url('/material-definitivo/productos-seccion/fondos/fondos-grid-lineas/fondo-grid-lineas-mobile.png')] md:bg-[url('/material-definitivo/productos-seccion/fondos/fondos-grid-lineas/fondo-grid-lineas.png')] bg-cover bg-center bg-no-repeat py-24 px-4">
+      <section id="lineas" className="bg-[url('/material-definitivo/productos-seccion/fondos/fondos-grid-lineas/fondo-grid-lineas-mobile.webp')] md:bg-[url('/material-definitivo/productos-seccion/fondos/fondos-grid-lineas/fondo-grid-lineas.webp')] bg-cover bg-center bg-no-repeat py-24 px-4">
           <div className="max-w-6xl mx-auto">
 
             {/* Header */}

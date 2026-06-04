@@ -3,7 +3,7 @@ import FadeIn from './FadeIn'
 
 const Nosotros2 = () => {
     return (
-        <section className='w-full min-h-[100vh] bg-[#fdf5cc] bg-[url("/material-definitivo/home-imagenes/nosotros2-fondo.png")] md:bg-[url("/material-definitivo/home-imagenes/nosotros2-fondo.png")] lg:bg-[url("/material-definitivo/home-imagenes/nosotros2-fondo-mobile.png")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-center justify-center relative overflow-hidden py-12 md:py-20'>
+        <section className='w-full min-h-[100vh] bg-[#fdf5cc] bg-[url("/material-definitivo/home-imagenes/nosotros2-fondo.webp")] md:bg-[url("/material-definitivo/home-imagenes/nosotros2-fondo.webp")] lg:bg-[url("/material-definitivo/home-imagenes/nosotros2-fondo-mobile.webp")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-center justify-center relative overflow-hidden py-12 md:py-20'>
 
             {/* Capa de borde entre el background y el contenido (solo escritorio) */}
             <div className='absolute hidden md:flex items-center justify-center inset-0 w-full h-full p-4 md:p-10 lg:p-16 pointer-events-none z-0 pb-6 md:pb-10'>

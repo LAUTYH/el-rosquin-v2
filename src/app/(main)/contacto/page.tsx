@@ -19,7 +19,7 @@ declare global {
 
 export default function ContactoPage() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] bg-[url('/material-definitivo/fondos-contacto-opciones/fondo-contacto-3.png')] bg-cover bg-center bg-no-repeat pt-32 pb-20 px-6">
+    <div className="min-h-screen bg-[#0a0a0a] bg-[url('/material-definitivo/fondos-contacto-opciones/fondo-contacto-3.webp')] bg-cover bg-center bg-no-repeat pt-32 pb-20 px-6">
       <div className="container mx-auto max-w-6xl">
 
         {/* ENCABEZADO */}
