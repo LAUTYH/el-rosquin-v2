@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ChevronLeft } from "lucide-react";
 import BackButton from "@/components/BackButton";
 import NutritionalBadge from "@/components/NutritionalBadge";
+import ParallaxBanner from "@/components/ParallaxBanner";
 import { productos } from "@/data/products";
 import {
   productImages,
@@ -154,11 +155,7 @@ export default async function ProductoPage({
 
       {/* ── SECCIÓN 2: Banner Parallax ── */}
       {bannerImg && (
-        <section
-          className="w-full h-[300px] md:h-[500px] bg-scroll md:bg-fixed bg-center bg-cover relative"
-          style={{ backgroundImage: `url('${bannerImg}')` }}
-        >
-        </section>
+        <ParallaxBanner src={bannerImg} height={400} />
       )}
 
       {/* ── SECCIÓN 3: Información Nutricional e Ingredientes ── */}
