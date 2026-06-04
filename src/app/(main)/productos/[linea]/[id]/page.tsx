@@ -155,7 +155,7 @@ export default async function ProductoPage({
       {/* ── SECCIÓN 2: Banner Parallax ── */}
       {bannerImg && (
         <section
-          className="w-full h-[300px] md:h-[500px] bg-fixed bg-center bg-cover relative"
+          className="w-full h-[300px] md:h-[500px] bg-scroll md:bg-fixed bg-center bg-cover relative"
           style={{ backgroundImage: `url('${bannerImg}')` }}
         >
         </section>
