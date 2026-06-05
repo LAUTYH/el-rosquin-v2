@@ -1,31 +1,39 @@
 'use client';
 
-// Hero con video de fondo "scrubbed": el video NO se reproduce solo,
-// sino que avanza/retrocede su currentTime a medida que hacés scroll.
-//
-// Implementación sin GSAP a propósito: el progreso se recalcula en cada
-// scroll/resize y al montar a partir de getBoundingClientRect, así no hay
-// medidas "viejas" que queden mal al volver atrás o recargar (App Router).
-// Un póster (primer frame) evita el parpadeo negro mientras carga el video.
+// Hero "scrubbed" por SECUENCIA DE IMÁGENES (técnica tipo Apple).
+// En vez de buscar dentro de un <video> (que en mobile/iOS tironea al
+// decodificar), precargamos una serie de frames JPG y dibujamos el que
+// corresponde al scroll en un <canvas>. Como los frames ya están
+// decodificados, el scrubbing es perfectamente fluido.
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 
+interface FrameSet {
+  /** Carpeta pública con los frames, ej: "/videos/frames-productos/desktop" */
+  dir: string;
+  /** Cantidad de frames (frame-0001.jpg .. frame-NNNN.jpg) */
+  count: number;
+}
+
 interface ScrollVideoHeroProps {
-  srcDesktop: string;
-  srcMobile: string;
+  framesDesktop: FrameSet;
+  framesMobile: FrameSet;
   posterDesktop?: string;
   posterMobile?: string;
   titleTop: string;
   titleBottom: string;
   subtitle?: string;
-  /** Alto del "riel" de scroll. Más alto = el video tarda más en recorrerse. */
+  /** Alto del "riel" de scroll. Más alto = la secuencia tarda más en recorrerse. */
   trackHeight?: string;
 }
 
+const framePath = (dir: string, i: number) =>
+  `${dir}/frame-${String(i).padStart(4, '0')}.jpg`;
+
 export default function ScrollVideoHero({
-  srcDesktop,
-  srcMobile,
+  framesDesktop,
+  framesMobile,
   posterDesktop,
   posterMobile,
   titleTop,
@@ -34,36 +42,69 @@ export default function ScrollVideoHero({
   trackHeight = '300vh',
 }: ScrollVideoHeroProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  const textRef = useRef<HTMLDivElement | null>(null);
-  const [src, setSrc] = useState(srcDesktop);
-  const [poster, setPoster] = useState(posterDesktop);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Elegir el video/póster según el tamaño de pantalla (mobile vs escritorio).
+  // Elegir el set de frames según el tamaño de pantalla.
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)');
-    const apply = () => {
-      setSrc(mq.matches ? srcMobile : srcDesktop);
-      setPoster(mq.matches ? posterMobile : posterDesktop);
-    };
+    const apply = () => setIsMobile(mq.matches);
     apply();
     mq.addEventListener('change', apply);
     return () => mq.removeEventListener('change', apply);
-  }, [srcDesktop, srcMobile, posterDesktop, posterMobile]);
+  }, []);
 
-  // Atar el currentTime del video al progreso del scroll.
   useEffect(() => {
     const container = containerRef.current;
-    const video = videoRef.current;
-    if (!container || !video) return;
+    const canvas = canvasRef.current;
+    if (!container || !canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-    video.pause();
+    const { dir, count } = isMobile ? framesMobile : framesDesktop;
 
+    // Precargar todos los frames.
+    const images: HTMLImageElement[] = new Array(count);
+    for (let i = 1; i <= count; i++) {
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = framePath(dir, i);
+      images[i - 1] = img;
+    }
+
+    let drawnIndex = -1;
     let rafId = 0;
-    let target = 0; // currentTime objetivo según el scroll
-    let isSeeking = false; // evita encolar seeks en mobile (decodifica lento)
 
-    // Progreso 0..1 dentro del "riel" (parte sticky fija mientras scrolleás).
+    // Dibuja la imagen cubriendo el canvas (object-cover) respetando el DPR.
+    const drawCover = (img: HTMLImageElement) => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const cw = container.clientWidth;
+      const ch = window.innerHeight;
+      const wantW = Math.round(cw * dpr);
+      const wantH = Math.round(ch * dpr);
+      if (canvas.width !== wantW || canvas.height !== wantH) {
+        canvas.width = wantW;
+        canvas.height = wantH;
+      }
+      const W = canvas.width;
+      const H = canvas.height;
+      const ir = img.naturalWidth / img.naturalHeight;
+      const cr = W / H;
+      let dw: number, dh: number, dx: number, dy: number;
+      if (ir > cr) {
+        dh = H;
+        dw = H * ir;
+        dx = (W - dw) / 2;
+        dy = 0;
+      } else {
+        dw = W;
+        dh = W / ir;
+        dx = 0;
+        dy = (H - dh) / 2;
+      }
+      ctx.drawImage(img, dx, dy, dw, dh);
+    };
+
     const computeProgress = () => {
       const rect = container.getBoundingClientRect();
       const scrollable = rect.height - window.innerHeight;
@@ -72,87 +113,73 @@ export default function ScrollVideoHero({
       return scrolled / scrollable;
     };
 
-    const applyProgress = (snap = false) => {
-      const p = computeProgress();
-
-      const duration = video.duration;
-      if (duration && !Number.isNaN(duration)) {
-        target = p * duration;
-        // Al cargar/recargar fijamos el frame exacto sin interpolar.
-        if (snap && video.readyState >= 2) {
-          video.currentTime = target;
-        }
-      }
+    const indexFromProgress = (p: number) => {
+      const i = Math.round(p * (count - 1)) + 1; // 1..count
+      return Math.min(Math.max(i, 1), count);
     };
 
-    // Bucle: sigue al scroll, pero NO pide un nuevo frame hasta que el
-    // anterior terminó de decodificar (clave para que no salte en mobile).
-    // Con el video all-keyframe, cada seek es un único frame => fluido.
-    const tick = () => {
-      const duration = video.duration;
-      if (duration && !Number.isNaN(duration) && video.readyState >= 2 && !isSeeking) {
-        if (Math.abs(target - video.currentTime) > 0.02) {
-          video.currentTime = target;
+    const render = () => {
+      const idx = indexFromProgress(computeProgress());
+      if (idx !== drawnIndex) {
+        const img = images[idx - 1];
+        if (img && img.complete && img.naturalWidth) {
+          drawCover(img);
+          drawnIndex = idx;
         }
       }
-      rafId = requestAnimationFrame(tick);
+      rafId = requestAnimationFrame(render);
     };
 
-    const onLoaded = () => applyProgress(true);
-    const onScrollResize = () => applyProgress(false);
-    const onSeeking = () => { isSeeking = true; };
-    const onSeeked = () => { isSeeking = false; };
+    // Redibujar el frame actual al cambiar tamaño/orientación.
+    const onResize = () => {
+      const img = images[Math.max(drawnIndex - 1, 0)];
+      if (img && img.complete && img.naturalWidth) {
+        drawCover(img);
+      }
+    };
+    window.addEventListener('resize', onResize);
 
-    video.addEventListener('loadedmetadata', onLoaded);
-    video.addEventListener('loadeddata', onLoaded);
-    video.addEventListener('seeking', onSeeking);
-    video.addEventListener('seeked', onSeeked);
-    window.addEventListener('scroll', onScrollResize, { passive: true });
-    window.addEventListener('resize', onScrollResize);
-
-    // Arranque: si ya hay metadata, fijamos frame; si no, lo hará el listener.
-    if (video.readyState >= 1) applyProgress(true);
-    else applyProgress(false);
-    rafId = requestAnimationFrame(tick);
+    rafId = requestAnimationFrame(render);
 
     return () => {
       cancelAnimationFrame(rafId);
-      video.removeEventListener('loadedmetadata', onLoaded);
-      video.removeEventListener('loadeddata', onLoaded);
-      video.removeEventListener('seeking', onSeeking);
-      video.removeEventListener('seeked', onSeeked);
-      window.removeEventListener('scroll', onScrollResize);
-      window.removeEventListener('resize', onScrollResize);
+      window.removeEventListener('resize', onResize);
+      images.forEach((img) => {
+        img.onload = null;
+        img.src = '';
+      });
     };
-  }, [src]);
+  }, [isMobile, framesDesktop, framesMobile]);
+
+  const poster = isMobile ? posterMobile : posterDesktop;
 
   return (
     <div ref={containerRef} className="relative bg-black" style={{ height: trackHeight }}>
       <div className="sticky top-0 h-[100dvh] w-full overflow-hidden">
-        <video
-          ref={videoRef}
-          key={src}
-          src={src}
-          poster={poster}
-          muted
-          playsInline
-          preload="auto"
-          tabIndex={-1}
-          disablePictureInPicture
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        {/* Póster de fondo hasta que se dibuja el primer frame (evita el negro) */}
+        {poster && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={poster}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        )}
+
+        <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
 
         {/* Capa oscura para legibilidad del texto */}
         <div className="absolute inset-0 bg-black/45" />
 
-        {/* Texto central con fade-in de entrada */}
+        {/* Texto central con fade-in de entrada (no se desvanece al scrollear) */}
         <motion.div
           className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-4 text-center"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: 'easeOut' }}
         >
-          <div ref={textRef} className="flex flex-col items-center">
+          <div className="flex flex-col items-center">
             <h2 className="font-bodoni text-4xl font-bold text-white md:text-6xl lg:text-7xl">
               {titleTop}
             </h2>

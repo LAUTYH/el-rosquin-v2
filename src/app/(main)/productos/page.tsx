@@ -22,8 +22,8 @@ export default function ProductosPage() {
   return (
     <>
       <ScrollVideoHero
-        srcDesktop="/videos/video-productos-inicio-nuevo.mp4"
-        srcMobile="/videos/video-productos-inicio-mobile.mp4"
+        framesDesktop={{ dir: "/videos/frames-productos/desktop", count: 94 }}
+        framesMobile={{ dir: "/videos/frames-productos/mobile", count: 93 }}
         posterDesktop="/videos/poster-productos-inicio-nuevo.jpg"
         posterMobile="/videos/poster-productos-inicio-mobile.jpg"
         titleTop="NUESTRA LÍNEA"
