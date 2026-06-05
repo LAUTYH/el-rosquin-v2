@@ -61,6 +61,7 @@ export default function ScrollVideoHero({
 
     let rafId = 0;
     let target = 0; // currentTime objetivo según el scroll
+    let isSeeking = false; // evita encolar seeks en mobile (decodifica lento)
 
     // Progreso 0..1 dentro del "riel" (parte sticky fija mientras scrolleás).
     const computeProgress = () => {
@@ -84,13 +85,14 @@ export default function ScrollVideoHero({
       }
     };
 
-    // Bucle suave: acerca el currentTime al objetivo (evita saltos bruscos).
+    // Bucle: sigue al scroll, pero NO pide un nuevo frame hasta que el
+    // anterior terminó de decodificar (clave para que no salte en mobile).
+    // Con el video all-keyframe, cada seek es un único frame => fluido.
     const tick = () => {
       const duration = video.duration;
-      if (duration && !Number.isNaN(duration) && video.readyState >= 2) {
-        const diff = target - video.currentTime;
-        if (Math.abs(diff) > 0.01) {
-          video.currentTime += diff * 0.25;
+      if (duration && !Number.isNaN(duration) && video.readyState >= 2 && !isSeeking) {
+        if (Math.abs(target - video.currentTime) > 0.02) {
+          video.currentTime = target;
         }
       }
       rafId = requestAnimationFrame(tick);
@@ -98,9 +100,13 @@ export default function ScrollVideoHero({
 
     const onLoaded = () => applyProgress(true);
     const onScrollResize = () => applyProgress(false);
+    const onSeeking = () => { isSeeking = true; };
+    const onSeeked = () => { isSeeking = false; };
 
     video.addEventListener('loadedmetadata', onLoaded);
     video.addEventListener('loadeddata', onLoaded);
+    video.addEventListener('seeking', onSeeking);
+    video.addEventListener('seeked', onSeeked);
     window.addEventListener('scroll', onScrollResize, { passive: true });
     window.addEventListener('resize', onScrollResize);
 
@@ -113,6 +119,8 @@ export default function ScrollVideoHero({
       cancelAnimationFrame(rafId);
       video.removeEventListener('loadedmetadata', onLoaded);
       video.removeEventListener('loadeddata', onLoaded);
+      video.removeEventListener('seeking', onSeeking);
+      video.removeEventListener('seeked', onSeeked);
       window.removeEventListener('scroll', onScrollResize);
       window.removeEventListener('resize', onScrollResize);
     };
