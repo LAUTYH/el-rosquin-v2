@@ -2,21 +2,20 @@
 
 // Hero con video de fondo "scrubbed": el video NO se reproduce solo,
 // sino que avanza/retrocede su currentTime a medida que hacés scroll.
-// Usa GSAP ScrollTrigger (ya presente en el proyecto) para atar el scroll
-// al tiempo del video, y un texto central que hace fade-in y se desvanece.
+//
+// Implementación sin GSAP a propósito: el progreso se recalcula en cada
+// scroll/resize y al montar a partir de getBoundingClientRect, así no hay
+// medidas "viejas" que queden mal al volver atrás o recargar (App Router).
+// Un póster (primer frame) evita el parpadeo negro mientras carga el video.
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 interface ScrollVideoHeroProps {
   srcDesktop: string;
   srcMobile: string;
+  posterDesktop?: string;
+  posterMobile?: string;
   titleTop: string;
   titleBottom: string;
   subtitle?: string;
@@ -27,6 +26,8 @@ interface ScrollVideoHeroProps {
 export default function ScrollVideoHero({
   srcDesktop,
   srcMobile,
+  posterDesktop,
+  posterMobile,
   titleTop,
   titleBottom,
   subtitle,
@@ -36,15 +37,19 @@ export default function ScrollVideoHero({
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const textRef = useRef<HTMLDivElement | null>(null);
   const [src, setSrc] = useState(srcDesktop);
+  const [poster, setPoster] = useState(posterDesktop);
 
-  // Elegir el video según el tamaño de pantalla (mobile vs escritorio).
+  // Elegir el video/póster según el tamaño de pantalla (mobile vs escritorio).
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)');
-    const apply = () => setSrc(mq.matches ? srcMobile : srcDesktop);
+    const apply = () => {
+      setSrc(mq.matches ? srcMobile : srcDesktop);
+      setPoster(mq.matches ? posterMobile : posterDesktop);
+    };
     apply();
     mq.addEventListener('change', apply);
     return () => mq.removeEventListener('change', apply);
-  }, [srcDesktop, srcMobile]);
+  }, [srcDesktop, srcMobile, posterDesktop, posterMobile]);
 
   // Atar el currentTime del video al progreso del scroll.
   useEffect(() => {
@@ -54,48 +59,62 @@ export default function ScrollVideoHero({
 
     video.pause();
 
-    let tween: gsap.core.Tween | null = null;
+    let rafId = 0;
+    let target = 0; // currentTime objetivo según el scroll
 
-    const setup = () => {
-      const duration = video.duration;
-      if (!duration || Number.isNaN(duration)) return;
-
-      tween?.kill();
-
-      const obj = { time: 0 };
-      tween = gsap.to(obj, {
-        time: duration,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: container,
-          start: 'top top',
-          end: 'bottom bottom',
-          scrub: 0.5,
-          onRefresh: (self) => {
-            obj.time = self.progress * duration;
-            if (video.readyState >= 2) {
-              video.currentTime = obj.time;
-            }
-          },
-        },
-        onUpdate: () => {
-          if (video.readyState >= 2) {
-            video.currentTime = obj.time;
-          }
-        },
-      });
+    // Progreso 0..1 dentro del "riel" (parte sticky fija mientras scrolleás).
+    const computeProgress = () => {
+      const rect = container.getBoundingClientRect();
+      const scrollable = rect.height - window.innerHeight;
+      if (scrollable <= 0) return 0;
+      const scrolled = Math.min(Math.max(-rect.top, 0), scrollable);
+      return scrolled / scrollable;
     };
 
-    if (video.readyState >= 1 && video.duration) {
-      setup();
-    } else {
-      video.addEventListener('loadedmetadata', setup, { once: true });
-    }
+    const applyProgress = (snap = false) => {
+      const p = computeProgress();
+
+      const duration = video.duration;
+      if (duration && !Number.isNaN(duration)) {
+        target = p * duration;
+        // Al cargar/recargar fijamos el frame exacto sin interpolar.
+        if (snap && video.readyState >= 2) {
+          video.currentTime = target;
+        }
+      }
+    };
+
+    // Bucle suave: acerca el currentTime al objetivo (evita saltos bruscos).
+    const tick = () => {
+      const duration = video.duration;
+      if (duration && !Number.isNaN(duration) && video.readyState >= 2) {
+        const diff = target - video.currentTime;
+        if (Math.abs(diff) > 0.01) {
+          video.currentTime += diff * 0.25;
+        }
+      }
+      rafId = requestAnimationFrame(tick);
+    };
+
+    const onLoaded = () => applyProgress(true);
+    const onScrollResize = () => applyProgress(false);
+
+    video.addEventListener('loadedmetadata', onLoaded);
+    video.addEventListener('loadeddata', onLoaded);
+    window.addEventListener('scroll', onScrollResize, { passive: true });
+    window.addEventListener('resize', onScrollResize);
+
+    // Arranque: si ya hay metadata, fijamos frame; si no, lo hará el listener.
+    if (video.readyState >= 1) applyProgress(true);
+    else applyProgress(false);
+    rafId = requestAnimationFrame(tick);
 
     return () => {
-      video.removeEventListener('loadedmetadata', setup);
-      tween?.scrollTrigger?.kill();
-      tween?.kill();
+      cancelAnimationFrame(rafId);
+      video.removeEventListener('loadedmetadata', onLoaded);
+      video.removeEventListener('loadeddata', onLoaded);
+      window.removeEventListener('scroll', onScrollResize);
+      window.removeEventListener('resize', onScrollResize);
     };
   }, [src]);
 
@@ -106,6 +125,7 @@ export default function ScrollVideoHero({
           ref={videoRef}
           key={src}
           src={src}
+          poster={poster}
           muted
           playsInline
           preload="auto"

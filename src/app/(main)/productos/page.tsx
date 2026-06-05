@@ -24,6 +24,8 @@ export default function ProductosPage() {
       <ScrollVideoHero
         srcDesktop="/videos/video-productos-inicio-nuevo.mp4"
         srcMobile="/videos/video-productos-inicio-mobile.mp4"
+        posterDesktop="/videos/poster-productos-inicio-nuevo.jpg"
+        posterMobile="/videos/poster-productos-inicio-mobile.jpg"
         titleTop="NUESTRA LÍNEA"
         titleBottom="DE PRODUCTOS"
         subtitle="Trabajamos con dedicación y pasión para ofrecer chacinados de alta calidad y un sabor único."
