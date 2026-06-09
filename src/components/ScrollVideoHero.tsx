@@ -1,30 +1,35 @@
 'use client';
 
-// Hero "scrubbed" por SECUENCIA DE IMÁGENES (técnica tipo Apple).
-// En vez de buscar dentro de un <video> (que en mobile/iOS tironea al
-// decodificar), precargamos una serie de frames JPG y dibujamos el que
-// corresponde al scroll en un <canvas>. Como los frames ya están
-// decodificados, el scrubbing es perfectamente fluido.
+// Hero de la página de productos.
+// - MOBILE: "scrubbed" por SECUENCIA DE IMÁGENES (frames JPG dibujados en un
+//   <canvas> según el scroll), con un hint "deslizá hacia abajo". El scrubbing
+//   por frames es fluido en iOS (a diferencia de buscar dentro de un <video>).
+// - DESKTOP: SIN animación de scroll. Se reproduce el mismo video en LOOP.
 
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
 
 interface FrameSet {
-  /** Carpeta pública con los frames, ej: "/videos/frames-productos/desktop" */
+  /** Carpeta pública con los frames, ej: "/videos/frames-productos/mobile" */
   dir: string;
   /** Cantidad de frames (frame-0001.jpg .. frame-NNNN.jpg) */
   count: number;
 }
 
 interface ScrollVideoHeroProps {
-  framesDesktop: FrameSet;
+  /** Frames para el scrubbing en mobile. */
   framesMobile: FrameSet;
+  /** Video que se reproduce en loop en desktop. */
+  videoDesktop: string;
   posterDesktop?: string;
   posterMobile?: string;
   titleTop: string;
   titleBottom: string;
   subtitle?: string;
-  /** Alto del "riel" de scroll. Más alto = la secuencia tarda más en recorrerse. */
+  /** Texto del hint de scroll (solo mobile). */
+  scrollHint?: string;
+  /** Alto del "riel" de scroll en mobile. Más alto = la secuencia tarda más. */
   trackHeight?: string;
 }
 
@@ -32,20 +37,21 @@ const framePath = (dir: string, i: number) =>
   `${dir}/frame-${String(i).padStart(4, '0')}.jpg`;
 
 export default function ScrollVideoHero({
-  framesDesktop,
   framesMobile,
+  videoDesktop,
   posterDesktop,
   posterMobile,
   titleTop,
   titleBottom,
   subtitle,
+  scrollHint,
   trackHeight = '300vh',
 }: ScrollVideoHeroProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
+  // null = sin determinar todavía (primer render); evita cargar el asset equivocado.
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
-  // Elegir el set de frames según el tamaño de pantalla.
   useEffect(() => {
     const mq = window.matchMedia('(max-width: 768px)');
     const apply = () => setIsMobile(mq.matches);
@@ -54,14 +60,16 @@ export default function ScrollVideoHero({
     return () => mq.removeEventListener('change', apply);
   }, []);
 
+  // Scrubbing por frames: SOLO en mobile.
   useEffect(() => {
+    if (isMobile !== true) return;
     const container = containerRef.current;
     const canvas = canvasRef.current;
     if (!container || !canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const { dir, count } = isMobile ? framesMobile : framesDesktop;
+    const { dir, count } = framesMobile;
 
     // Precargar todos los frames.
     const images: HTMLImageElement[] = new Array(count);
@@ -130,7 +138,6 @@ export default function ScrollVideoHero({
       rafId = requestAnimationFrame(render);
     };
 
-    // Redibujar el frame actual al cambiar tamaño/orientación.
     const onResize = () => {
       const img = images[Math.max(drawnIndex - 1, 0)];
       if (img && img.complete && img.naturalWidth) {
@@ -149,14 +156,16 @@ export default function ScrollVideoHero({
         img.src = '';
       });
     };
-  }, [isMobile, framesDesktop, framesMobile]);
+  }, [isMobile, framesMobile]);
 
-  const poster = isMobile ? posterMobile : posterDesktop;
+  // Mobile usa el riel de 300vh (scroll); desktop/indeterminado, una sola pantalla.
+  const heroHeight = isMobile === true ? trackHeight : '100dvh';
+  const poster = isMobile === true ? posterMobile : posterDesktop;
 
   return (
-    <div ref={containerRef} className="relative bg-black" style={{ height: trackHeight }}>
+    <div ref={containerRef} className="relative bg-black" style={{ height: heroHeight }}>
       <div className="sticky top-0 h-[100dvh] w-full overflow-hidden">
-        {/* Póster de fondo hasta que se dibuja el primer frame (evita el negro) */}
+        {/* Póster de fondo (placeholder mientras carga / estado indeterminado) */}
         {poster && (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -167,12 +176,28 @@ export default function ScrollVideoHero({
           />
         )}
 
-        <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
+        {/* MOBILE: canvas con scrubbing por frames */}
+        {isMobile === true && (
+          <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
+        )}
+
+        {/* DESKTOP: video en loop (sin animación de scroll) */}
+        {isMobile === false && (
+          <video
+            src={videoDesktop}
+            poster={posterDesktop}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+        )}
 
         {/* Capa oscura para legibilidad del texto */}
         <div className="absolute inset-0 bg-black/45" />
 
-        {/* Texto central con fade-in de entrada (no se desvanece al scrollear) */}
+        {/* Texto central (más grande en desktop) */}
         <motion.div
           className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center px-4 text-center"
           initial={{ opacity: 0, y: 24 }}
@@ -180,20 +205,40 @@ export default function ScrollVideoHero({
           transition={{ duration: 1, ease: 'easeOut' }}
         >
           <div className="flex flex-col items-center">
-            <h2 className="font-bodoni text-4xl font-bold text-white md:text-6xl lg:text-7xl">
+            <h2 className="font-bodoni text-4xl font-bold text-white md:text-7xl lg:text-8xl">
               {titleTop}
             </h2>
-            <h2 className="font-dirty-brush text-6xl leading-none text-goldenros drop-shadow-[0_0_10px_rgba(30,30,30,0.6)] drop-shadow-gray-950/40 md:text-7xl lg:text-8xl">
+            <h2 className="font-dirty-brush text-6xl leading-none text-goldenros drop-shadow-[0_0_10px_rgba(30,30,30,0.6)] drop-shadow-gray-950/40 md:text-8xl lg:text-9xl">
               {titleBottom}
             </h2>
 
             {subtitle && (
-              <p className="mt-6 max-w-xl font-montserrat text-lg text-white md:text-xl">
+              <p className="mt-6 max-w-xl font-montserrat text-lg text-white md:max-w-2xl md:text-2xl lg:text-3xl">
                 {subtitle}
               </p>
             )}
           </div>
         </motion.div>
+
+        {/* MOBILE: hint de scroll */}
+        {isMobile === true && scrollHint && (
+          <motion.div
+            className="pointer-events-none absolute bottom-8 inset-x-0 flex flex-col items-center gap-2 px-6 text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+          >
+            <span className="font-montserrat text-sm font-semibold tracking-wide text-white/90">
+              {scrollHint}
+            </span>
+            <motion.span
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}
+            >
+              <ChevronDown className="h-6 w-6 text-goldenros" />
+            </motion.span>
+          </motion.div>
+        )}
       </div>
     </div>
   );

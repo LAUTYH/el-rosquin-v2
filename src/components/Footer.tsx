@@ -23,6 +23,30 @@ const Footer = () => {
                     <Link href="/contacto" className="hover:text-goldenros transition-colors">CONTACTO</Link>
                 </nav>
 
+                {/* Legales + Data Fiscal (AFIP) */}
+                <div className="w-full flex flex-col items-center gap-6 mb-10">
+                    <Link
+                        href="/politica-de-privacidad"
+                        className="text-white/80 text-xs md:text-sm font-bold tracking-wider hover:text-goldenros transition-colors"
+                    >
+                        POLÍTICA DE PRIVACIDAD
+                    </Link>
+                    <a
+                        href="http://qr.afip.gob.ar/?qr=KTwiSPCTiqI5YzbCNUBHeA,,"
+                        target="_F960AFIPInfo"
+                        rel="noopener noreferrer"
+                        className="inline-block"
+                        aria-label="Data Fiscal - AFIP"
+                    >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                            src="/afip-data-fiscal.jpg"
+                            alt="Data Fiscal - AFIP"
+                            className="h-[72px] w-auto"
+                        />
+                    </a>
+                </div>
+
                 {/* Línea Divisoria */}
                 <hr className="w-full border-t border-white/20 mb-6" />
 

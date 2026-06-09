@@ -21,7 +21,7 @@ const OurProducts = () => {
   };
 
   return (
-    <section className="w-full min-h-[100vh] md:h-screen bg-[#3a3528] bg-[url('/material-definitivo/home-imagenes/fondo-ourproducts-mobile.webp')] md:bg-[url('/fondos/PRODUCTOS.webp')] bg-[length:100%_100%] bg-no-repeat bg-center flex flex-col items-center justify-center relative py-20 md:py-6 px-6 font-montserrat overflow-hidden">
+    <section className="w-full min-h-[100vh] md:min-h-screen bg-[#3a3528] bg-[url('/material-definitivo/home-imagenes/fondo-ourproducts-mobile.webp')] md:bg-[url('/fondos/PRODUCTOS.webp')] bg-[length:100%_100%] bg-no-repeat bg-center flex flex-col items-center justify-center relative py-20 md:py-10 px-6 font-montserrat overflow-hidden">
 
       {/* Título */}
       <div className="text-center mb-6 md:mb-4 mt-8 md:mt-0">

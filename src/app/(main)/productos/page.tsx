@@ -22,13 +22,14 @@ export default function ProductosPage() {
   return (
     <>
       <ScrollVideoHero
-        framesDesktop={{ dir: "/videos/frames-productos/desktop", count: 94 }}
         framesMobile={{ dir: "/videos/frames-productos/mobile", count: 93 }}
+        videoDesktop="/videos/video-productos-loop.mp4"
         posterDesktop="/videos/poster-productos-inicio-nuevo.jpg"
         posterMobile="/videos/poster-productos-inicio-mobile.jpg"
         titleTop="NUESTRA LÍNEA"
         titleBottom="DE PRODUCTOS"
         subtitle="Trabajamos con dedicación y pasión para ofrecer chacinados de alta calidad y un sabor único."
+        scrollHint="Deslizá hacia abajo para armar la picada"
       />
 
       {/* ── Catálogo por Líneas ─────────────────────────────────────────── */}

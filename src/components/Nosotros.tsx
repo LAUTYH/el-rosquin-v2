@@ -32,7 +32,7 @@ const NosotrosSection = () => {
                     <img
                         src="/material-definitivo/home-imagenes/foto-nosotros.png"
                         alt="Familia El Rosquín"
-                        className='w-[80%] md:w-[90%] max-w-[620px] h-auto object-contain pointer-events-none drop-shadow-[0_6px_12px_rgba(0,0,0,0.2)]'
+                        className='w-[80%] md:w-[90%] max-w-[270px] md:max-w-[620px] h-auto object-contain pointer-events-none drop-shadow-[0_6px_12px_rgba(0,0,0,0.2)]'
                     />
                 </FadeIn>
 

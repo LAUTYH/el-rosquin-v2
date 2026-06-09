@@ -12,12 +12,12 @@ export default function Home() {
     <main className="w-full">
       <HeroSection />
 
-      <AnimatedPanelsWrapper>
-        <NosotrosSection />
-        <Nosotros2 />
-        <Nosotros3 />
-        <OurProducts />
-      </AnimatedPanelsWrapper>
+      {/* <AnimatedPanelsWrapper> */}
+      <NosotrosSection />
+      <Nosotros2 />
+      <Nosotros3 />
+      <OurProducts />
+      {/* </AnimatedPanelsWrapper> */}
 
       <HorizontalCarousel />
 

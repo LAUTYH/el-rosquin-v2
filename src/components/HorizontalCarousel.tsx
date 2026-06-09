@@ -1,96 +1,266 @@
 "use client";
 import { useRef, useState, useEffect } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
+import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 
 const BASE = "/material-definitivo/img-horizontal-carrousel";
-const TOTAL_IMAGENES = 8;
+
+// Fotos de la galería (usamos siempre las versiones verticales "-mobile").
+const FOTOS = [1, 2, 3, 4, 5, 6, 7, 8];
+
+// ── VIDEOS DE INSTAGRAM ───────────────────────────────────────────────
+// Dejá "thumbnail" en "" para que el fondo de la tarjeta quede NEGRO (provisorio).
+// Cuando tengas la portada de cada reel, poné la ruta de la imagen ahí.
+type VideoItem = { igUrl: string; thumbnail: string; titulo: string };
+const VIDEOS: VideoItem[] = [
+  { igUrl: "https://www.instagram.com/elrosquin/reel/DXPEI57jd_J/", thumbnail: `${BASE}/fondos-videos/bondiola-fondo-carrusel.png`, titulo: "Bondiola" },
+  { igUrl: "https://www.instagram.com/elrosquin/reel/DYFLRpvnNtd/", thumbnail: `${BASE}/fondos-videos/jamon-cocido-fondo-carrusel.png`, titulo: "Jamón Cocido" },
+  { igUrl: "https://www.instagram.com/elrosquin/reel/DWEZDcXiCDa/", thumbnail: `${BASE}/fondos-videos/salame-colono-fondo-carrusel.png`, titulo: "Salame Colono" },
+];
+
+// Lista unificada: primero los videos, después las fotos.
+type Item =
+  | { tipo: "video"; igUrl: string; thumbnail: string; alt: string }
+  | { tipo: "foto"; src: string; alt: string };
+
+const ITEMS: Item[] = [
+  ...VIDEOS.map((v): Item => ({ tipo: "video", igUrl: v.igUrl, thumbnail: v.thumbnail, alt: v.titulo })),
+  ...FOTOS.map((n): Item => ({ tipo: "foto", src: `${BASE}/${n}-mobile.png`, alt: `Galería El Rosquín ${n}` })),
+];
+
+// Triplicamos la lista para el LOOP INFINITO (mantenemos el scroll en la copia del medio).
+const LOOP: Item[] = [...ITEMS, ...ITEMS, ...ITEMS];
+
+const CARD_SIZE = "w-[82vw] sm:w-[330px] md:w-[400px] lg:w-[440px] aspect-[9/16] flex-shrink-0 snap-center";
 
 export default function HorizontalCarousel() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const scrollWrapperRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
-  // null mientras no se conoce el viewport: evita descargar el set equivocado
-  const [isMobile, setIsMobile] = useState<boolean | null>(null);
+  // Drag-to-scroll con el mouse (en táctil ya funciona el scroll nativo).
+  const drag = useRef({ active: false, startX: 0, startScroll: 0 });
+
+  // Ancho EXACTO de una copia, medido del DOM (offsetLeft) para que el loop no driftee.
+  const strideRef = useRef(0);
+  const scrollTimer = useRef<number | undefined>(undefined);
+
+  // Reacomoda el scroll dentro de la copia del medio. SOLO se llama con el scroll
+  // QUIETO (nunca en movimiento), así no pelea con el snap ni con el scroll suave
+  // → no titila ni se traba. El while soporta drift de varias copias.
+  const loopWrap = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const stride = strideRef.current;
+    if (!stride) return;
+    let x = el.scrollLeft;
+    while (x >= stride * 2) x -= stride;
+    while (x < stride) x += stride;
+    if (Math.abs(x - el.scrollLeft) > 0.5) el.scrollLeft = x;
+  };
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+    const el = scrollRef.current;
+    if (!el) return;
+    const compute = () => {
+      const first = el.children[0] as HTMLElement | undefined;
+      const next = el.children[ITEMS.length] as HTMLElement | undefined;
+      if (first && next) {
+        strideRef.current = next.offsetLeft - first.offsetLeft;
+        el.scrollLeft = strideRef.current; // arrancamos en la copia del medio
+      }
+    };
+    const id = requestAnimationFrame(compute);
+    window.addEventListener("resize", compute);
+    return () => {
+      cancelAnimationFrame(id);
+      window.removeEventListener("resize", compute);
+    };
   }, []);
 
-  useGSAP(
-    () => {
-      const scrollWrapper = scrollWrapperRef.current;
-      if (!scrollWrapper) return;
+  // Debounce: recién cuando el scroll se frena ~90ms, reacomodamos el loop.
+  const onScroll = () => {
+    if (scrollTimer.current) window.clearTimeout(scrollTimer.current);
+    scrollTimer.current = window.setTimeout(loopWrap, 90);
+  };
 
-      // Calculamos el desplazamiento necesario
-      const getScrollAmount = () => {
-        let scrollWidth = scrollWrapper.scrollWidth;
-        return -(scrollWidth - window.innerWidth);
-      };
+  const onPointerDown = (e: React.PointerEvent) => {
+    if (e.pointerType !== "mouse") return;
+    const el = scrollRef.current;
+    if (!el) return;
+    drag.current = { active: true, startX: e.clientX, startScroll: el.scrollLeft };
+  };
+  const onPointerMove = (e: React.PointerEvent) => {
+    if (!drag.current.active) return;
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollLeft = drag.current.startScroll - (e.clientX - drag.current.startX);
+  };
+  const endDrag = () => {
+    drag.current.active = false;
+    loopWrap();
+  };
 
-      // Animación GSAP que moverá el contenedor en el eje X
-      const tween = gsap.to(scrollWrapper, {
-        x: getScrollAmount,
-        ease: "none",
-      });
+  const scrollByCards = (dir: 1 | -1) => {
+    const el = scrollRef.current;
+    if (!el) return;
+    loopWrap(); // re-centramos ANTES de mover (evita drift por clicks repetidos)
+    const a = el.children[0] as HTMLElement | undefined;
+    const b = el.children[1] as HTMLElement | undefined;
+    const cardStep = a && b ? b.offsetLeft - a.offsetLeft : el.clientWidth;
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    // Desktop avanza de a 3 tarjetas; mobile de a 1 (cae justo en un snap).
+    el.scrollBy({ left: dir * cardStep * (isDesktop ? 3 : 1), behavior: "smooth" });
+  };
 
-      // ScrollTrigger que "pinea" la sección y enlaza el scroll con el desplazamiento horizontal
-      ScrollTrigger.create({
-        trigger: containerRef.current,
-        start: "top top",
-        end: () => `+=${scrollWrapper.scrollWidth - window.innerWidth}`,
-        pin: true,
-        animation: tween,
-        scrub: 1, // Un valor de 1 hace que el movimiento sea suave y siga al scroll natural
-        invalidateOnRefresh: true, // Recalcula los valores si se redimensiona la ventana
-      });
-    },
-    { scope: containerRef }
-  );
+  const openVideo = (igUrl: string) => {
+    if (!igUrl) return;
+    const match = igUrl.match(/instagram\.com\/(?:[^/]+\/)?(?:reel|p|tv)\/([^/?#]+)/);
+    if (!match) return;
+    setActiveVideo(`https://www.instagram.com/reel/${match[1]}/embed`);
+  };
+
+  const renderCard = (item: Item, key: string) =>
+    item.tipo === "video" ? (
+      <button
+        key={key}
+        onClick={() => openVideo(item.igUrl)}
+        className={`group relative ${CARD_SIZE} overflow-hidden rounded-lg shadow-lg border-2 border-white/20`}
+      >
+        {item.thumbnail ? (
+          <Image
+            src={item.thumbnail}
+            alt={item.alt}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            sizes="(max-width: 768px) 82vw, 440px"
+            draggable={false}
+          />
+        ) : (
+          <div className="absolute inset-0 bg-black" />
+        )}
+        <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/10" />
+
+        {/* Signo de recording: solo el punto rojo pulsante (sin texto) */}
+        <div className="absolute top-3 left-3">
+          <span className="relative flex w-3 h-3">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75 animate-ping" />
+            <span className="relative inline-flex w-3 h-3 rounded-full bg-red-500 shadow-[0_0_6px_rgba(0,0,0,0.7)]" />
+          </span>
+        </div>
+
+        {/* Botón de play central */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="flex items-center justify-center w-16 h-16 rounded-full bg-white/90 shadow-xl transition-transform duration-300 group-hover:scale-110">
+            <Play className="w-7 h-7 text-redros fill-redros ml-1" />
+          </div>
+        </div>
+      </button>
+    ) : (
+      <div
+        key={key}
+        className={`relative ${CARD_SIZE} overflow-hidden rounded-lg shadow-lg border-2 border-white/20 transition-transform hover:scale-[1.02]`}
+      >
+        <Image
+          src={item.src}
+          alt={item.alt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 82vw, 440px"
+          draggable={false}
+          loading="lazy"
+        />
+      </div>
+    );
 
   return (
-    <section ref={containerRef} className="w-full h-screen overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url('${BASE}/fondo-horizontal-carrousel${isMobile ? "-mobile" : ""}.webp')` }}>
-      {/* Contenedor que centra verticalmente el carrusel */}
-      <div className="h-full flex flex-col justify-center px-4 md:px-10">
-        {/* <h2 className="text-4xl md:text-5xl font-bold font-montserrat text-redros mb-12 pl-4">
-          Nuestra Galería
-        </h2> */}
+    <section className="relative w-full min-h-screen flex items-center py-16 bg-[url('/material-definitivo/img-horizontal-carrousel/fondo-horizontal-carrousel-mobile.webp')] md:bg-[url('/material-definitivo/img-horizontal-carrousel/fondo-horizontal-carrousel.webp')] bg-cover bg-center bg-no-repeat">
+      <div className="relative w-full max-w-[1700px] mx-auto px-4 md:px-8">
 
-        {/* El div que realmente se desplazará en el eje X */}
-        <div ref={scrollWrapperRef} className="flex gap-8 flex-nowrap w-max px-4">
+        {/* Fila: flecha izq (desktop) + riel + flecha der (desktop) */}
+        <div className="flex items-center gap-2 md:gap-4">
 
-          {/* Galería de Imágenes (material-definitivo, responsive mobile/escritorio) */}
-          {Array.from({ length: TOTAL_IMAGENES }, (_, i) => i + 1).map((n) => (
-            <div
-              key={n}
-              className="relative w-[280px] md:w-[30vw] aspect-[9/16] md:aspect-[4/5] flex-shrink-0 overflow-hidden shadow-lg border-2 border-white/20 transition-transform hover:scale-[1.02]"
-            >
-              {isMobile !== null && (
-                <Image
-                  src={`${BASE}/${isMobile ? `${n}-mobile` : n}.png`}
-                  alt={`Galería El Rosquín ${n}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 280px, 30vw"
-                  priority={n <= 2}
-                  loading={n <= 2 ? "eager" : "lazy"}
-                />
-              )}
-            </div>
-          ))}
+          {/* Flecha izquierda — solo desktop, al costado */}
+          <button
+            aria-label="Anterior"
+            onClick={() => scrollByCards(-1)}
+            className="hidden md:flex shrink-0 items-center justify-center w-12 h-12 rounded-full bg-redros text-white shadow-lg hover:bg-redros/80 transition-colors cursor-pointer"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
 
+          {/* Riel del carrusel: scroll horizontal (táctil + drag con mouse). */}
+          <div
+            ref={scrollRef}
+            onScroll={onScroll}
+            onPointerDown={onPointerDown}
+            onPointerMove={onPointerMove}
+            onPointerUp={endDrag}
+            onPointerLeave={endDrag}
+            className="flex-1 flex gap-4 md:gap-5 overflow-x-auto snap-x snap-mandatory md:snap-none select-none px-2 md:px-0 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing"
+          >
+            {LOOP.map((item, i) => renderCard(item, `c-${i}`))}
+          </div>
+
+          {/* Flecha derecha — solo desktop, al costado */}
+          <button
+            aria-label="Siguiente"
+            onClick={() => scrollByCards(1)}
+            className="hidden md:flex shrink-0 items-center justify-center w-12 h-12 rounded-full bg-redros text-white shadow-lg hover:bg-redros/80 transition-colors cursor-pointer"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Controles — solo mobile, debajo del carrusel */}
+        <div className="mt-6 flex md:hidden items-center justify-center gap-4">
+          <button
+            aria-label="Anterior"
+            onClick={() => scrollByCards(-1)}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-redros text-white shadow-lg hover:bg-redros/80 transition-colors cursor-pointer"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          <button
+            aria-label="Siguiente"
+            onClick={() => scrollByCards(1)}
+            className="flex items-center justify-center w-12 h-12 rounded-full bg-redros text-white shadow-lg hover:bg-redros/80 transition-colors cursor-pointer"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </div>
       </div>
+
+      {/* ── Modal de video a pantalla completa ── */}
+      {activeVideo && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setActiveVideo(null)}
+        >
+          <button
+            aria-label="Cerrar"
+            onClick={() => setActiveVideo(null)}
+            className="absolute top-4 right-4 z-10 flex items-center justify-center w-11 h-11 rounded-full bg-white/15 text-white hover:bg-white/30 transition-colors cursor-pointer"
+          >
+            <X className="w-6 h-6" />
+          </button>
+          <div
+            className="relative w-[min(92vw,380px)] h-[min(86vh,720px)] bg-black rounded-lg overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Dejamos el header (perfil) arriba y recortamos el footer
+                (likes/comentarios/"Ver más") clipeando la parte de abajo.
+                Si el footer asoma, bajá el 720px; si se corta el video, subilo. */}
+            <iframe
+              src={activeVideo}
+              title="Video El Rosquín"
+              className="absolute top-0 left-0 w-full border-0"
+              style={{ height: "1100px" }}
+              allow="autoplay; encrypted-media; clipboard-write; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
