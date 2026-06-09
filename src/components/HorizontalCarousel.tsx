@@ -124,7 +124,7 @@ export default function HorizontalCarousel() {
       <button
         key={key}
         onClick={() => openVideo(item.igUrl)}
-        className={`group relative ${CARD_SIZE} overflow-hidden rounded-lg shadow-lg border-2 border-white/20`}
+        className={`group relative ${CARD_SIZE} overflow-hidden `}
       >
         {item.thumbnail ? (
           <Image
@@ -158,7 +158,7 @@ export default function HorizontalCarousel() {
     ) : (
       <div
         key={key}
-        className={`relative ${CARD_SIZE} overflow-hidden rounded-lg shadow-lg border-2 border-white/20 transition-transform hover:scale-[1.02]`}
+        className={`relative ${CARD_SIZE} overflow-hidden  transition-transform hover:scale-[1.02]`}
       >
         <Image
           src={item.src}

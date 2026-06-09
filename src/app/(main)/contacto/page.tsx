@@ -1,8 +1,9 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
 import { MapPin, Phone, Send, Mail, ShoppingCart, Briefcase } from "lucide-react";
+import { motion } from "framer-motion";
 import BadgeButton from "@/components/BadgeButton";
 import FadeIn from "@/components/FadeIn";
 
@@ -41,6 +42,7 @@ export default function ContactoPage() {
             {/* Canales de contacto (info detallada, sin formulario) */}
             <div className="w-full max-w-md flex flex-col gap-3">
               <ContactInfoCard
+                id="tour-admin"
                 icon={<Mail className="w-7 h-7 text-goldenros" />}
                 title="Clientes / Administración"
                 lines={[
@@ -49,6 +51,7 @@ export default function ContactoPage() {
                 ]}
               />
               <ContactInfoCard
+                id="tour-compras"
                 icon={<ShoppingCart className="w-7 h-7 text-goldenros" />}
                 title="Proveedores / Compras"
                 lines={[
@@ -64,6 +67,7 @@ export default function ContactoPage() {
                 ]}
               />
               <ContactInfoCard
+                id="tour-ubicacion"
                 icon={<MapPin className="w-7 h-7 text-goldenros" />}
                 title="Ubicación"
                 lines={[
@@ -74,6 +78,7 @@ export default function ContactoPage() {
                 ]}
               />
               <ContactInfoCard
+                id="tour-telefono"
                 icon={<Phone className="w-7 h-7 text-goldenros" />}
                 title="Teléfono Oficial"
                 lines={[{ value: "+54 (3492) 15 664-568", link: "https://wa.link/6uhiwy", whatsapp: true }]}
@@ -94,7 +99,7 @@ export default function ContactoPage() {
             </div>
 
             {/* Formulario */}
-            <div className="bg-redros p-6 md:p-8 border border-goldenros/20 backdrop-blur-sm">
+            <div id="tour-form" className="bg-redros p-6 md:p-8 border border-goldenros/20 backdrop-blur-sm">
               <ContactForm
                 subject="Consulta Comercial - Web El Rosquín"
                 formClassName="space-y-4"
@@ -104,6 +109,9 @@ export default function ContactoPage() {
 
         </div>
       </div>
+
+      {/* Tour guiado: globos que aparecen de a uno apuntando a cada tarjeta */}
+      <ContactTour steps={TOUR_STEPS} />
 
       {/* Script de Cloudflare Turnstile: se carga una vez para toda la página */}
       <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
@@ -115,6 +123,178 @@ export default function ContactoPage() {
 
 // Opciones del desplegable "Tipo de comercio". Editá libremente esta lista.
 const TIPOS_COMERCIO = ["Mayorista", "Distribuidor", "Vendedor", "Supermercado / Comercio", "Otro"];
+
+// ── TOUR GUIADO ───────────────────────────────────────────────────────
+// Cada paso puede apuntar a UNA o VARIAS tarjetas (por sus ids) con un mensaje.
+type TourStep = { ids: string[]; text: string; variant?: "gold" | "whatsapp" };
+const TOUR_STEPS: TourStep[] = [
+  {
+    ids: ["tour-admin", "tour-compras", "tour-telefono"],
+    text: "Escribinos directo por WhatsApp a cualquiera de estos números.",
+    variant: "whatsapp",
+  },
+  {
+    ids: ["tour-ubicacion"],
+    text: "Te invitamos a ver nuestras reseñas en Google.",
+    variant: "gold",
+  },
+  {
+    ids: ["tour-form"],
+    text: "Si tenés una distribuidora de fiambres y lácteos o un negocio al público y querés comercializar nuestros productos, llená este formulario.",
+    variant: "gold",
+  },
+];
+
+const TOUR_STORAGE_KEY = "contacto-tour-visto";
+
+// Globo de tour que aparece de a uno, resaltando la(s) tarjeta(s) del paso actual,
+// con botón "Siguiente". Se posiciona con coordenadas reales (getBoundingClientRect)
+// así funciona en cualquier layout/breakpoint. Se muestra solo la PRIMERA vez.
+function ContactTour({ steps }: { steps: TourStep[] }) {
+  const [step, setStep] = useState(0);
+  const [open, setOpen] = useState(false);
+  const [rects, setRects] = useState<DOMRect[]>([]);
+
+  // Mostrar solo la primera vez (localStorage) y SOLO en desktop, tras un ratito.
+  useEffect(() => {
+    try {
+      if (localStorage.getItem(TOUR_STORAGE_KEY)) return;
+    } catch {}
+    if (!window.matchMedia("(min-width: 768px)").matches) return; // en mobile no se muestra
+    const t = setTimeout(() => setOpen(true), 800);
+    return () => clearTimeout(t);
+  }, []);
+
+  const close = () => {
+    setOpen(false);
+    try {
+      localStorage.setItem(TOUR_STORAGE_KEY, "1");
+    } catch {}
+  };
+
+  // Medimos la posición de las tarjetas del paso actual (re-medimos al scrollear/resize).
+  useEffect(() => {
+    if (!open) return;
+    const update = () => {
+      if (window.innerWidth < 768) {
+        setOpen(false);
+        return;
+      }
+      const rs = steps[step].ids
+        .map((id) => document.getElementById(id))
+        .filter((el): el is HTMLElement => !!el)
+        .map((el) => el.getBoundingClientRect());
+      setRects(rs);
+    };
+    update();
+    window.addEventListener("resize", update);
+    window.addEventListener("scroll", update, true);
+    return () => {
+      window.removeEventListener("resize", update);
+      window.removeEventListener("scroll", update, true);
+    };
+  }, [open, step, steps]);
+
+  if (!open || rects.length === 0) return null;
+
+  const cur = steps[step];
+  const isLast = step === steps.length - 1;
+  const isWa = cur.variant === "whatsapp";
+  const bg = isWa ? "bg-[#25D366]" : "bg-goldenros";
+  const tc = isWa ? "text-white" : "text-darkros";
+
+  // Caja que engloba todos los objetivos del paso (para ubicar el globo).
+  const uLeft = Math.min(...rects.map((r) => r.left));
+  const uRight = Math.max(...rects.map((r) => r.right));
+  const uTop = Math.min(...rects.map((r) => r.top));
+  const uBottom = Math.max(...rects.map((r) => r.bottom));
+  const uW = uRight - uLeft;
+  const uH = uBottom - uTop;
+
+  // Posición del globo: derecha → izquierda → arriba → abajo (lo que entre).
+  const BUBBLE_W = 240;
+  const GAP = 14;
+  let placement: "right" | "left" | "top" | "bottom";
+  if (uRight + BUBBLE_W + GAP <= window.innerWidth) placement = "right";
+  else if (uLeft - BUBBLE_W - GAP >= 0) placement = "left";
+  else if (uTop > 180) placement = "top";
+  else placement = "bottom";
+
+  const clampX = (x: number) =>
+    Math.min(Math.max(x, BUBBLE_W / 2 + 8), window.innerWidth - BUBBLE_W / 2 - 8);
+
+  const style: React.CSSProperties = { width: BUBBLE_W };
+  let arrowClass = "";
+  if (placement === "right") {
+    style.top = uTop + uH / 2;
+    style.left = uRight + GAP;
+    style.transform = "translateY(-50%)";
+    arrowClass = "left-[-5px] top-1/2 -translate-y-1/2";
+  } else if (placement === "left") {
+    style.top = uTop + uH / 2;
+    style.left = uLeft - GAP;
+    style.transform = "translate(-100%, -50%)";
+    arrowClass = "right-[-5px] top-1/2 -translate-y-1/2";
+  } else if (placement === "top") {
+    style.top = uTop - GAP;
+    style.left = clampX(uLeft + uW / 2);
+    style.transform = "translate(-50%, -100%)";
+    arrowClass = "bottom-[-5px] left-1/2 -translate-x-1/2";
+  } else {
+    style.top = uBottom + GAP;
+    style.left = clampX(uLeft + uW / 2);
+    style.transform = "translate(-50%, 0)";
+    arrowClass = "top-[-5px] left-1/2 -translate-x-1/2";
+  }
+
+  return (
+    <>
+      {/* Resaltado de cada tarjeta objetivo */}
+      {rects.map((r, i) => (
+        <div
+          key={i}
+          className="pointer-events-none fixed z-[60] rounded-lg ring-2 ring-white/70 transition-all duration-300"
+          style={{ top: r.top - 4, left: r.left - 4, width: r.width + 8, height: r.height + 8 }}
+        />
+      ))}
+
+      {/* Globo del paso actual */}
+      <motion.div
+        key={step}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.25, ease: "easeOut" }}
+        className="fixed z-[61]"
+        style={style}
+      >
+        <div className={`relative ${bg} ${tc} rounded-xl px-4 py-3 shadow-2xl`}>
+          <p className="font-montserrat text-sm font-bold leading-snug mb-3">{cur.text}</p>
+          <div className="flex items-center justify-between">
+            <span className="font-montserrat text-xs font-bold opacity-70">
+              {step + 1} / {steps.length}
+            </span>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={close}
+                className="font-montserrat text-xs font-semibold underline opacity-80 hover:opacity-100 cursor-pointer"
+              >
+                Saltar
+              </button>
+              <button
+                onClick={() => (isLast ? close() : setStep((s) => s + 1))}
+                className="font-montserrat text-xs font-bold rounded-full bg-black/20 hover:bg-black/30 px-3 py-1 transition-colors cursor-pointer"
+              >
+                {isLast ? "Listo" : "Siguiente"}
+              </button>
+            </div>
+          </div>
+          {/* Pico del globo */}
+          <div className={`absolute h-2.5 w-2.5 rotate-45 ${bg} ${arrowClass}`} />
+        </div>
+      </motion.div>
+    </>
+  );
+}
 
 interface ContactFormProps {
   subject: string;
@@ -224,6 +404,7 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 interface ContactInfoCardProps {
+  id?: string;
   icon: React.ReactNode;
   title: string;
   lines: { value: string; link?: string; whatsapp?: boolean }[];
@@ -231,8 +412,8 @@ interface ContactInfoCardProps {
 
 // Tarjeta de canal de contacto en formato HORIZONTAL y compacto (ícono a la
 // izquierda, datos a la derecha) para que entren varias en la columna lateral.
-const ContactInfoCard = ({ icon, title, lines }: ContactInfoCardProps) => (
-  <div className="group relative flex items-center gap-4 p-4 sm:p-5 drop-shadow-md transition-all duration-300 hover:-translate-y-1">
+const ContactInfoCard = ({ id, icon, title, lines }: ContactInfoCardProps) => (
+  <div id={id} className="group relative flex flex-col items-center text-center md:flex-row md:items-center md:text-left gap-2 md:gap-4 p-4 sm:p-5 drop-shadow-md transition-all duration-300 hover:-translate-y-1">
     {/* Bordes decorativos finos dorados que forman la figura */}
     <div className="absolute top-0 left-[12px] right-[12px] h-[3px] bg-goldenros z-10 transition-colors duration-300 group-hover:bg-goldenros/80"></div>
     <div className="absolute bottom-0 left-[12px] right-[12px] h-[3px] bg-goldenros z-10 transition-colors duration-300 group-hover:bg-goldenros/80"></div>
@@ -244,12 +425,17 @@ const ContactInfoCard = ({ icon, title, lines }: ContactInfoCardProps) => (
     <div className="absolute bottom-0 left-0 w-[12px] h-[12px] border-t-[3px] border-r-[3px] border-goldenros rounded-tr-full z-10 transition-colors duration-300 group-hover:border-goldenros/80"></div>
     <div className="absolute bottom-0 right-0 w-[12px] h-[12px] border-t-[3px] border-l-[3px] border-goldenros rounded-tl-full z-10 transition-colors duration-300 group-hover:border-goldenros/80"></div>
 
-    <div className="relative z-10 shrink-0 transform group-hover:scale-110 transition-transform duration-300">
+    {/* Ícono al costado izquierdo (solo desktop) */}
+    <div className="relative z-10 shrink-0 hidden md:block transform group-hover:scale-110 transition-transform duration-300">
       {icon}
     </div>
-    <div className="relative z-10 flex flex-col min-w-0">
-      <h4 className="font-montserrat font-bold text-goldenros text-xs md:text-sm tracking-widest mb-1">{title}</h4>
-      <div className="flex flex-col gap-0.5">
+    <div className="relative z-10 flex flex-col items-center text-center md:items-start md:text-left min-w-0">
+      {/* En mobile el ícono va al lado del título dorado */}
+      <div className="flex items-center gap-2 mb-1">
+        <span className="shrink-0 md:hidden [&>svg]:w-5 [&>svg]:h-5">{icon}</span>
+        <h4 className="font-montserrat font-bold text-goldenros text-xs md:text-sm tracking-widest">{title}</h4>
+      </div>
+      <div className="flex flex-col items-center md:items-start gap-2 md:gap-0.5">
         {lines.map((line, i) =>
           line.link ? (
             <a
