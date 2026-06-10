@@ -244,17 +244,20 @@ export default function HorizontalCarousel() {
             <X className="w-6 h-6" />
           </button>
           <div
-            className="relative w-[min(92vw,380px)] h-[min(86vh,720px)] bg-black rounded-lg overflow-hidden"
+            className="rounded-lg overflow-hidden bg-white shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Dejamos el header (perfil) arriba y recortamos el footer
-                (likes/comentarios/"Ver más") clipeando la parte de abajo.
-                Si el footer asoma, bajá el 720px; si se corta el video, subilo. */}
+            {/* Embed de IG tal cual viene (header + video + pie), sin recortes.
+                Ocupa el 90% de la altura de pantalla; el ancho se deriva para
+                que entre todo (54px header + media 4:5 + ~190px de pie). */}
             <iframe
               src={activeVideo}
               title="Video El Rosquín"
-              className="absolute top-0 left-0 w-full border-0"
-              style={{ height: "1100px" }}
+              className="border-0"
+              style={{
+                height: "90vh",
+                width: "min(92vw, calc((90vh - 244px) * 4 / 5))",
+              }}
               allow="autoplay; encrypted-media; clipboard-write; picture-in-picture"
               allowFullScreen
             />

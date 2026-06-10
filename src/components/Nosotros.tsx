@@ -2,7 +2,7 @@ import FadeIn from './FadeIn'
 
 const NosotrosSection = () => {
     return (
-        <section id="nosotros" className='w-full min-h-[100vh] bg-[#f4f4f4] bg-[url("/material-definitivo/home-imagenes/nosotros-fondo-mobile.webp")] md:bg-[url("/material-definitivo/home-imagenes/nosotros-fondo.webp")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-start md:items-center justify-center relative overflow-hidden pt-16 pb-8 md:py-20'>
+        <section id="nosotros" className='w-full min-h-[100vh] bg-[#f4f4f4] bg-[url("/nuevas-def/nosotros-1-mobile.webp")] md:bg-[url("/material-definitivo/home-imagenes/nosotros-fondo.webp")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-start md:items-center justify-center relative overflow-hidden pt-16 pb-8 md:py-20'>
             <div className='w-full max-w-[1300px] px-6 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 lg:gap-20 items-center'>
 
                 {/* Columna Izquierda: Texto */}
