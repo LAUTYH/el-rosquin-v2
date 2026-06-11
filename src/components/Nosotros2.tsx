@@ -3,7 +3,7 @@ import FadeIn from './FadeIn'
 
 const Nosotros2 = () => {
     return (
-        <section className='w-full min-h-[100vh] bg-[#fdf5cc] bg-[url("/nuevas-def/nosotros-2-mobile.webp")] md:bg-[url("/nuevas-def/nosotros-2.webp")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-center justify-center relative overflow-hidden py-12 md:py-20'>
+        <section className='w-full min-h-[100vh] bg-[#fdf5cc] bg-[url("/nuevas-def/nosotros-2-mobile.webp")] md:bg-[url("/nuevas-def/nosotros-2.webp")] bg-[length:100%_100%] bg-no-repeat bg-center flex items-start md:items-center justify-center relative overflow-hidden pt-16 pb-12 md:py-20'>
 
             {/* Capa de borde entre el background y el contenido (solo escritorio) */}
             <div className='absolute hidden md:flex items-center justify-center inset-0 w-full h-full p-4 md:p-10 lg:p-16 pointer-events-none z-0 pb-6 md:pb-10'>
@@ -24,7 +24,7 @@ const Nosotros2 = () => {
             <div className='w-full max-w-[1300px] px-6 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center relative z-10'>
 
                 {/* Columna Izquierda: Imagen Picada */}
-                <FadeIn className='flex justify-center md:justify-end items-center w-full' delay={0.2}>
+                <FadeIn className='flex justify-center md:justify-end items-center w-full order-2 md:order-1' delay={0.2}>
                     <img
                         src="/material-definitivo/home-imagenes/foto-nosotros2.png"
                         alt="Elaboración artesanal El Rosquín"
@@ -33,7 +33,7 @@ const Nosotros2 = () => {
                 </FadeIn>
 
                 {/* Columna Derecha: Texto */}
-                <FadeIn className='flex flex-col items-center md:items-start text-center md:text-left px-2 md:px-0' delay={0.4}>
+                <FadeIn className='flex flex-col items-center md:items-start text-center md:text-left px-2 md:px-0 order-1 md:order-2' delay={0.4}>
                     <h2 className='font-bodoni font-bold text-[22px] md:text-3xl lg:text-[38px] text-redros leading-tight max-w-[580px]'>
                         Hoy, treinta años después, llegamos a todo el país y nuestra filosofía sigue intacta.
                     </h2>
