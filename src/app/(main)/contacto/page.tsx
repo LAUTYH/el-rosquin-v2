@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
 import { MapPin, Phone, Send, Mail, ShoppingCart, Briefcase, ArrowUp } from "lucide-react";
@@ -14,7 +14,18 @@ const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 declare global {
   interface Window {
     turnstile?: {
-      reset: (container?: HTMLElement | string) => void;
+      render: (
+        container: HTMLElement | string,
+        params: {
+          sitekey: string;
+          theme?: "light" | "dark" | "auto";
+          callback?: (token: string) => void;
+          "error-callback"?: () => void;
+          "expired-callback"?: () => void;
+        }
+      ) => string;
+      reset: (widgetId?: string) => void;
+      remove: (widgetId?: string) => void;
     };
   }
 }
@@ -110,8 +121,8 @@ export default function ContactoPage() {
         </div>
       </div>
 
-      {/* Script de Cloudflare Turnstile: se carga una vez para toda la página */}
-      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" strategy="afterInteractive" />
+      {/* Script de Cloudflare Turnstile (modo explícito: lo montamos a mano desde el useEffect) */}
+      <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" strategy="afterInteractive" />
     </div>
   );
 }
@@ -131,19 +142,57 @@ const ContactForm = ({ subject, formClassName }: ContactFormProps) => {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const widgetRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+  const tokenRef = useRef<string>("");
+
+  // Render EXPLÍCITO del captcha. El modo implícito solo escanea el DOM cuando
+  // el script carga por primera vez; al navegar entre páginas (SPA) o por
+  // carreras de tiempo el widget no aparecía. Acá esperamos a que el script
+  // esté listo y lo montamos a mano, y lo limpiamos al desmontar para que
+  // vuelva a aparecer siempre.
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY) return;
+    let intervalId: number | undefined;
+
+    const tryRender = () => {
+      if (!window.turnstile || !widgetRef.current || widgetIdRef.current) return false;
+      widgetIdRef.current = window.turnstile.render(widgetRef.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        theme: "auto",
+        callback: (t) => { tokenRef.current = t; },
+        "error-callback": () => { tokenRef.current = ""; },
+        "expired-callback": () => { tokenRef.current = ""; },
+      });
+      return true;
+    };
+
+    if (!tryRender()) {
+      intervalId = window.setInterval(() => {
+        if (tryRender() && intervalId) window.clearInterval(intervalId);
+      }, 200);
+    }
+
+    return () => {
+      if (intervalId) window.clearInterval(intervalId);
+      if (widgetIdRef.current && window.turnstile) window.turnstile.remove(widgetIdRef.current);
+      widgetIdRef.current = null;
+      tokenRef.current = "";
+    };
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
 
-    // El widget de Turnstile inyecta este campo cuando el captcha se resuelve.
-    const token = formData.get("cf-turnstile-response");
+    // El token lo capturamos del callback del captcha (render explícito).
+    const token = tokenRef.current;
     if (!token) {
       setStatus("error");
       setErrorMsg("Completá la verificación de seguridad antes de enviar.");
       return;
     }
+    formData.set("cf-turnstile-response", token);
 
     setStatus("submitting");
     try {
@@ -164,7 +213,8 @@ const ContactForm = ({ subject, formClassName }: ContactFormProps) => {
       setErrorMsg("Hubo un error de conexión. Probá de nuevo.");
     } finally {
       // Reinicia el captcha para permitir un nuevo envío
-      window.turnstile?.reset(widgetRef.current ?? undefined);
+      tokenRef.current = "";
+      if (widgetIdRef.current) window.turnstile?.reset(widgetIdRef.current);
     }
   };
 
@@ -194,9 +244,9 @@ const ContactForm = ({ subject, formClassName }: ContactFormProps) => {
       {/* Honeypot anti-spam: invisible para personas, los bots lo completan */}
       <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} tabIndex={-1} autoComplete="off" />
 
-      {/* Captcha de Cloudflare Turnstile */}
+      {/* Captcha de Cloudflare Turnstile (render explícito desde el useEffect) */}
       <div className="flex justify-center pt-1">
-        <div ref={widgetRef} className="cf-turnstile" data-sitekey={TURNSTILE_SITE_KEY}></div>
+        <div ref={widgetRef}></div>
       </div>
 
       <SubmitButton
