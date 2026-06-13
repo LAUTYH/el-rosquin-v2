@@ -127,6 +127,42 @@ export const productos: Producto[] = [
         }
     },
     {
+        id: 'salame-metro-trozo-grueso-vacio',
+        nombre: 'Salame Tipo Metro en Trozo - Picado Grueso - Envasado al Vacío',
+        descripcion: 'Rellenar',
+        presentacion: '1 unidad apróx. 0,350 kg.',
+        caja: '32 unidades apróx. 12 kg.',
+        linea: 'Secos',
+        lineaDescripcion: 'Chacinados de curado tradicional elaborados con especias naturales, pensados para mantener el sabor clásico en picadas.',
+        venta: 'Venta al peso',
+        codigo: '112',
+        banner: '/id-productos-page-img/imagen-banner-id-img.png',
+        ingredientes: 'Carne vacuna, carne de cerdo, tocino, sal, azúcar, pimienta blanca molida, nuez moscada, monohidrato de dextrosa. Estabilizante: INS 339II, INS 452II, INS 450III. Antioxidante: INS 316. Conservante: INS 250, INS 251.',
+        informacionNutricional: {
+            porcion: '40 grs = 2 Fetas',
+            valores: {
+                'Valor Energético (Kcal = Kj)': '161 = 667',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '7',
+                'Grasas Totales (gr)': '15',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '-',
+                'Sodio (mg)': '664'
+            },
+            porcentajes: {
+                'Valor Energético (Kcal = Kj)': '8',
+                'Carbohidratos (gr)': '0',
+                'Proteínas (gr)': '10',
+                'Grasas Totales (gr)': '26',
+                'Grasas Saturadas (gr)': '0',
+                'Grasas Trans (gr)': '-',
+                'Fibra Alimentaria (gr)': '0',
+                'Sodio (mg)': '28'
+            }
+        }
+    },
+    {
         id: 'salame-baston-grueso',
         nombre: 'Salame Tipo Bastón - Picado Grueso',
         descripcion: 'Rellenar',

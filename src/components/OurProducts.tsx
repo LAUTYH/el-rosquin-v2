@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import BadgeButton from './BadgeButton'
 
 const productsData = [
-  { id: 'secos', svg: '/sellos/sello-secos.svg', img: '/material-definitivo/home-productos-img/secos.png' },
-  { id: 'maduracion', svg: '/sellos/sello-maduracion.svg', img: '/material-definitivo/home-productos-img/maduracion.png' },
+  { id: 'secos', svg: '/sellos/sello-secos.svg', img: '/material-definitivo/home-productos-img/secos-nuevo.webp' },
+  { id: 'maduracion', svg: '/sellos/sello-maduracion.svg', img: '/material-definitivo/home-productos-img/maduracion-nuevo.webp' },
   { id: 'fiambres', svg: '/sellos/sello-fiambres.svg', img: '/material-definitivo/home-productos-img/fiambres.png' },
   { id: 'tradicion', svg: '/sellos/sello-tradicion.svg', img: '/material-definitivo/home-productos-img/tradicion.png' },
 ];

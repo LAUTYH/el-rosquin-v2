@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 
 const BASE = "/material-definitivo/img-horizontal-carrousel";
+const PORT = "/portadas-videos-carrusel-restantes";
 
 // Fotos de la galería (usamos siempre las versiones verticales "-mobile").
 const FOTOS = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -13,20 +14,32 @@ const FOTOS = [1, 2, 3, 4, 5, 6, 7, 8];
 // Cuando tengas la portada de cada reel, poné la ruta de la imagen ahí.
 type VideoItem = { igUrl: string; thumbnail: string; titulo: string };
 const VIDEOS: VideoItem[] = [
-  { igUrl: "https://www.instagram.com/elrosquin/reel/DXPEI57jd_J/", thumbnail: `${BASE}/fondos-videos/bondiola-fondo-carrusel.png`, titulo: "Bondiola" },
-  { igUrl: "https://www.instagram.com/elrosquin/reel/DYFLRpvnNtd/", thumbnail: `${BASE}/fondos-videos/jamon-cocido-fondo-carrusel.png`, titulo: "Jamón Cocido" },
-  { igUrl: "https://www.instagram.com/elrosquin/reel/DWEZDcXiCDa/", thumbnail: `${BASE}/fondos-videos/salame-colono-fondo-carrusel.png`, titulo: "Salame Colono" },
+  { igUrl: "https://www.instagram.com/reel/DUa351Jj4iR/", thumbnail: `${PORT}/nuestro-producto-estrella.webp`, titulo: "Nuestro producto estrella" },
+  { igUrl: "https://www.instagram.com/reel/DTdenmPjZw2/", thumbnail: `${PORT}/jamon-cocido-tradicion.webp`, titulo: "Jamón Cocido Tradición" },
+  { igUrl: "https://www.instagram.com/reel/DTQoQnWgM0q/", thumbnail: `${PORT}/sabias-de-la-existencia-de-el-rosquin.webp`, titulo: "Sabías de El Rosquín" },
+  { igUrl: "https://www.instagram.com/reel/DXHVt1bgdFP/", thumbnail: `${PORT}/te-presentamos-nuestra-bondiola.webp`, titulo: "Te presentamos la Bondiola" },
+  { igUrl: "https://www.instagram.com/reel/DXZT0UXjQa4/", thumbnail: `${PORT}/veni-conocenos.webp`, titulo: "Vení conocenos" },
+  { igUrl: "https://www.instagram.com/reel/DXPEI57jd_J/", thumbnail: `${BASE}/fondos-videos/bondiola-fondo-carrusel.webp`, titulo: "Bondiola" },
+  { igUrl: "https://www.instagram.com/reel/DWEZDcXiCDa/", thumbnail: `${BASE}/fondos-videos/salame-colono-fondo-carrusel.webp`, titulo: "Salame Colono" },
+  { igUrl: "https://www.instagram.com/reel/DYPYfgXH6Rm/", thumbnail: `${PORT}/que-hace-que-un-embutido-sea-realmente-bueno.webp`, titulo: "¿Qué hace a un embutido bueno?" },
+  { igUrl: "https://www.instagram.com/reel/DYFLRpvnNtd/", thumbnail: `${BASE}/fondos-videos/jamon-cocido-fondo-carrusel.webp`, titulo: "Jamón Cocido" },
+  { igUrl: "https://www.instagram.com/reel/DT0TEJwEaKA/", thumbnail: `${PORT}/bienvenido-a-el-rosquin.webp`, titulo: "Bienvenidos" },
+  { igUrl: "https://www.instagram.com/reel/DYAjtgSlxYu/", thumbnail: `${PORT}/choripan.webp`, titulo: "Choripán" },
 ];
 
-// Lista unificada: primero los videos, después las fotos.
+// Lista unificada: intercalamos foto, video, foto, video… y lo que sobra va al final.
 type Item =
   | { tipo: "video"; igUrl: string; thumbnail: string; alt: string }
   | { tipo: "foto"; src: string; alt: string };
 
-const ITEMS: Item[] = [
-  ...VIDEOS.map((v): Item => ({ tipo: "video", igUrl: v.igUrl, thumbnail: v.thumbnail, alt: v.titulo })),
-  ...FOTOS.map((n): Item => ({ tipo: "foto", src: `${BASE}/${n}-mobile.png`, alt: `Galería El Rosquín ${n}` })),
-];
+const fotoItems: Item[] = FOTOS.map((n) => ({ tipo: "foto", src: `${BASE}/${n}-mobile.webp`, alt: `Galería El Rosquín ${n}` }));
+const videoItems: Item[] = VIDEOS.map((v) => ({ tipo: "video", igUrl: v.igUrl, thumbnail: v.thumbnail, alt: v.titulo }));
+
+const ITEMS: Item[] = [];
+for (let i = 0; i < Math.max(fotoItems.length, videoItems.length); i++) {
+  if (fotoItems[i]) ITEMS.push(fotoItems[i]);
+  if (videoItems[i]) ITEMS.push(videoItems[i]);
+}
 
 // Triplicamos la lista para el LOOP INFINITO (mantenemos el scroll en la copia del medio).
 const LOOP: Item[] = [...ITEMS, ...ITEMS, ...ITEMS];

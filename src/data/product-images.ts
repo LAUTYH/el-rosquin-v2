@@ -49,6 +49,11 @@ export const productImages: Record<string, ProductImages> = {
     product: '/products-onlys/secos/metro.png',
     nameWithStyle: '/name-with-styles/salame-metro-grueso.png',
   },
+  'salame-metro-trozo-grueso-vacio': {
+    product: '/products-onlys/secos/metro.png',
+    nameWithStyle: '/name-with-styles/salame-metro-trozo-grueso.webp',
+    seal: '/name-with-styles/sello-envasado-al-vacio-grande.png',
+  },
   'salame-baston-grueso': {
     product: '/products-onlys/secos/bast%C3%B3n.png',
     nameWithStyle: '/name-with-styles/salame-baston-grueso.png',
@@ -167,13 +172,16 @@ export const productImages: Record<string, ProductImages> = {
 // ── Imágenes nuevas (material-definitivo) por producto ──────────────────────
 // num  = número de imagen en grid-productos / foto-de-producto-id (verificado por etiqueta)
 // banner = nombre del archivo en foto-fondo-id (foto lifestyle apaisada del banner del detalle)
-type ProductMedia = { linea: LineaSlug; num: number; banner: string };
+// ext = extensión de las imágenes de grid/detalle (por defecto 'png'; los productos
+// nuevos se cargan en 'webp').
+type ProductMedia = { linea: LineaSlug; num: number; banner: string; ext?: 'png' | 'webp' };
 
 const productMedia: Record<string, ProductMedia> = {
   // SECOS
   'salame-colono-grueso': { linea: 'secos', num: 1, banner: 'colono' },
   'salame-colono-mano-grueso': { linea: 'secos', num: 2, banner: 'colono-tradicion' },
   'salame-metro-grueso': { linea: 'secos', num: 3, banner: 'metro' },
+  'salame-metro-trozo-grueso-vacio': { linea: 'secos', num: 12, banner: 'metro', ext: 'webp' },
   'salame-baston-grueso': { linea: 'secos', num: 4, banner: 'baston' },
   'salame-crespon-grueso': { linea: 'secos', num: 5, banner: 'crespon' },
   'salame-queso-grueso': { linea: 'secos', num: 6, banner: 'con-queso' },
@@ -209,13 +217,13 @@ const MD_BASE = '/material-definitivo/productos-seccion';
 /** Producto recortado para el GRID de la línea. */
 export function getProductGridImage(id: string): string | undefined {
   const m = productMedia[id];
-  return m ? `${MD_BASE}/grid-productos/grid-productos-${m.linea}/${m.num}.png` : undefined;
+  return m ? `${MD_BASE}/grid-productos/grid-productos-${m.linea}/${m.num}.${m.ext ?? 'png'}` : undefined;
 }
 
 /** Producto recortado para el DETALLE (otra medida). */
 export function getProductDetailImage(id: string): string | undefined {
   const m = productMedia[id];
-  return m ? `${MD_BASE}/foto-de-producto-id/${m.linea}-productos-id/${m.num}.png` : undefined;
+  return m ? `${MD_BASE}/foto-de-producto-id/${m.linea}-productos-id/${m.num}.${m.ext ?? 'png'}` : undefined;
 }
 
 /** Foto lifestyle apaisada para el BANNER del detalle. */

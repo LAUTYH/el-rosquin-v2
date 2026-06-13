@@ -19,7 +19,7 @@ const iconosLineas: Record<LineaSlug, string> = {
 };
 
 const renderProductName = (name: string) => {
-  const regex = /(Tradici[óo]n|Familiar|Bacon|con queso)/i;
+  const regex = /(Tradici[óo]n|Familiar|Bacon|con queso|en Trozo)/i;
   const parts = name.split(regex);
 
   return (
@@ -33,6 +33,8 @@ const renderProductName = (name: string) => {
           return <span key={i} className="block text-redros">{text}</span>;
         } else if (lower === 'con queso') {
           return <span key={i} className="block text-[#275389]">{part}</span>;
+        } else if (lower === 'en trozo') {
+          return <span key={i} className="block text-[#2e9e48]">{`"${part}"`}</span>;
         }
 
         return <span key={i}>{part}</span>;
