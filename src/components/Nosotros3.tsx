@@ -3,7 +3,7 @@ import FadeIn from './FadeIn'
 
 const Nosotros3 = () => {
     return (
-        <section className='w-full min-h-[100vh] bg-[length:100%_100%] bg-center bg-no-repeat relative px-6 pt-20 md:pt-28 pb-20 flex items-start justify-center bg-[url("/nuevas-def/nosotros-3-mobile.webp")] md:bg-[url("/nuevas-def/nosotros-3.webp")]'>
+        <section className='w-full min-h-[100vh] bg-cover bg-top bg-no-repeat relative px-6 pt-20 md:pt-28 pb-20 flex items-start justify-center bg-[url("/nuevas-def/nosotros-3-mobile.webp")] md:bg-[url("/nuevas-def/nosotros-3.webp")]'>
 
             {/* Overlay oscuro para que el texto se lea sobre la foto */}
             <div className='absolute inset-0' />
