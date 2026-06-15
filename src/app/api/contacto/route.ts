@@ -96,7 +96,12 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         from: `Web El Rosquín <${process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev"}>`,
-        to: [process.env.CONTACT_TO_EMAIL ?? ""],
+        // CONTACT_TO_EMAIL puede ser uno o varios destinatarios separados por
+        // coma (ej. "contacto@elrosquin.com.ar,lauolmos@outlook.es").
+        to: (process.env.CONTACT_TO_EMAIL ?? "")
+          .split(",")
+          .map((e) => e.trim())
+          .filter(Boolean),
         ...(typeof email === "string" && email ? { reply_to: email } : {}),
         subject,
         html,
