@@ -75,8 +75,8 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Meta Pixel */}
-        <Script id="meta-pixel" strategy="afterInteractive">
+        {/* Meta Pixel — beforeInteractive: Meta recomienda cargarlo lo antes posible (equivale al <head>) */}
+        <Script id="meta-pixel" strategy="beforeInteractive">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
