@@ -63,7 +63,7 @@ export default function ContactoPage() {
               />
               <ContactInfoCard
                 icon={<ShoppingCart className="w-7 h-7 text-goldenros" />}
-                title="Proveedores / Compras"
+                title="Proveedores"
                 lines={[
                   { value: "compras@elrosquin.com.ar", link: "mailto:compras@elrosquin.com.ar" },
                   { value: "+54 9 3401 50-4652", link: "https://wa.me/5493401504652", whatsapp: false },
