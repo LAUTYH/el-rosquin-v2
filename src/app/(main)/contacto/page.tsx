@@ -53,8 +53,9 @@ export default function ContactoPage() {
             {/* Canales de contacto (info detallada, sin formulario) */}
             <div className="w-full max-w-md flex flex-col gap-3">
               <ContactInfoCard
-                icon={<Mail className="w-7 h-7 text-goldenros" />}
-                title="Clientes / Administración"
+                highlight
+                icon={<Mail className="w-7 h-7 text-darkros" />}
+                title="Atención Comercial"
                 lines={[
                   { value: "administracion@elrosquin.com.ar", link: "mailto:administracion@elrosquin.com.ar" },
                   { value: "+54 9 3401 64-2702", link: "https://wa.me/5493401642702", whatsapp: false },
@@ -285,46 +286,100 @@ interface ContactInfoCardProps {
   lines: { value: string; link?: string; whatsapp?: boolean }[];
   /** Cartelito fijo (pildorita dorada con flechita) debajo de los datos. */
   hint?: string;
+  /** Destaca la tarjeta: borde/título/ícono en blanco y los datos en dorado. */
+  highlight?: boolean;
 }
 
 // Pildorita dorada con flechita animada que rebota, para guiar al usuario.
-const CardHint = ({ text }: { text: string }) => (
-  <div className="mt-2 inline-flex items-center gap-1.5 rounded-full border border-goldenros/50 bg-goldenros/10 px-2.5 py-1">
+// `dark` la pasa a darkros (para la tarjeta destacada de fondo dorado).
+const CardHint = ({ text, dark = false }: { text: string; dark?: boolean }) => (
+  <div
+    className={`mt-2 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 ${
+      dark ? "border-darkros/50 bg-darkros/10" : "border-goldenros/50 bg-goldenros/10"
+    }`}
+  >
     <motion.span
       animate={{ y: [0, -3, 0] }}
       transition={{ repeat: Infinity, duration: 1.3, ease: "easeInOut" }}
-      className="text-goldenros"
+      className={dark ? "text-darkros" : "text-goldenros"}
     >
       <ArrowUp className="w-3.5 h-3.5" />
     </motion.span>
-    <span className="font-montserrat text-[11px] font-bold leading-tight text-goldenros">{text}</span>
+    <span
+      className={`font-montserrat text-[11px] font-bold leading-tight ${
+        dark ? "text-darkros" : "text-goldenros"
+      }`}
+    >
+      {text}
+    </span>
   </div>
 );
 
 // Tarjeta de canal de contacto en formato HORIZONTAL y compacto (ícono a la
 // izquierda, datos a la derecha) para que entren varias en la columna lateral.
-const ContactInfoCard = ({ id, icon, title, lines, hint }: ContactInfoCardProps) => (
-  <div id={id} className="group relative flex flex-col items-center text-center md:flex-row md:items-center md:text-left gap-2 md:gap-4 p-4 sm:p-5 drop-shadow-md transition-all duration-300 hover:-translate-y-1">
-    {/* Bordes decorativos finos dorados que forman la figura */}
-    <div className="absolute top-0 left-[12px] right-[12px] h-[3px] bg-goldenros z-10 transition-colors duration-300 group-hover:bg-goldenros/80"></div>
-    <div className="absolute bottom-0 left-[12px] right-[12px] h-[3px] bg-goldenros z-10 transition-colors duration-300 group-hover:bg-goldenros/80"></div>
-    <div className="absolute left-0 top-[12px] bottom-[12px] w-[3px] bg-goldenros z-10 transition-colors duration-300 group-hover:bg-goldenros/80"></div>
-    <div className="absolute right-0 top-[12px] bottom-[12px] w-[3px] bg-goldenros z-10 transition-colors duration-300 group-hover:bg-goldenros/80"></div>
+// Máscara que recorta las 4 esquinas (mismo efecto "badge" que el botón Enviar).
+const badgeMask =
+  "radial-gradient(circle at 0 0, transparent 10px, black 11px), radial-gradient(circle at 100% 0, transparent 10px, black 11px), radial-gradient(circle at 0 100%, transparent 10px, black 11px), radial-gradient(circle at 100% 100%, transparent 10px, black 11px)";
 
-    <div className="absolute top-0 left-0 w-[12px] h-[12px] border-b-[3px] border-r-[3px] border-goldenros rounded-br-full z-10 transition-colors duration-300 group-hover:border-goldenros/80"></div>
-    <div className="absolute top-0 right-0 w-[12px] h-[12px] border-b-[3px] border-l-[3px] border-goldenros rounded-bl-full z-10 transition-colors duration-300 group-hover:border-goldenros/80"></div>
-    <div className="absolute bottom-0 left-0 w-[12px] h-[12px] border-t-[3px] border-r-[3px] border-goldenros rounded-tr-full z-10 transition-colors duration-300 group-hover:border-goldenros/80"></div>
-    <div className="absolute bottom-0 right-0 w-[12px] h-[12px] border-t-[3px] border-l-[3px] border-goldenros rounded-tl-full z-10 transition-colors duration-300 group-hover:border-goldenros/80"></div>
+const ContactInfoCard = ({ id, icon, title, lines, hint, highlight = false }: ContactInfoCardProps) => {
+  // Colores del contenido.
+  const titleColor = highlight ? "text-darkros" : "text-goldenros";
+  const linkColor = highlight ? "text-white hover:text-white/70" : "text-white hover:text-goldenros";
+  const textColor = "text-white";
+
+  return (
+  <div id={id} className="group relative flex flex-col items-center text-center md:flex-row md:items-center md:text-left gap-2 md:gap-4 p-4 sm:p-5 drop-shadow-md transition-all duration-300 hover:-translate-y-1">
+    {highlight ? (
+      <>
+        {/* Marco MACIZO dorado con esquinas recortadas (mismo estilo que el botón "Enviar consulta") */}
+        <div
+          className="absolute inset-0 z-0 transition-opacity duration-300 group-hover:opacity-90"
+          style={{
+            backgroundColor: "#CC9933",
+            WebkitMaskImage: badgeMask,
+            WebkitMaskSize: "51% 51%",
+            WebkitMaskRepeat: "no-repeat",
+            WebkitMaskPosition: "top left, top right, bottom left, bottom right",
+            maskImage: badgeMask,
+            maskSize: "51% 51%",
+            maskRepeat: "no-repeat",
+            maskPosition: "top left, top right, bottom left, bottom right",
+          }}
+        />
+        {/* Líneas decorativas finas oscuras adentro (igual que el botón) */}
+        <div className="absolute top-1 left-[14px] right-[14px] h-[1px] bg-darkros/30 z-10"></div>
+        <div className="absolute bottom-1 left-[14px] right-[14px] h-[1px] bg-darkros/30 z-10"></div>
+        <div className="absolute left-1 top-[14px] bottom-[14px] w-[1px] bg-darkros/30 z-10"></div>
+        <div className="absolute right-1 top-[14px] bottom-[14px] w-[1px] bg-darkros/30 z-10"></div>
+        <div className="absolute top-1 left-1 w-[10px] h-[10px] border-b-[1px] border-r-[1px] border-darkros/30 rounded-br-full z-10"></div>
+        <div className="absolute top-1 right-1 w-[10px] h-[10px] border-b-[1px] border-l-[1px] border-darkros/30 rounded-bl-full z-10"></div>
+        <div className="absolute bottom-1 left-1 w-[10px] h-[10px] border-t-[1px] border-r-[1px] border-darkros/30 rounded-tr-full z-10"></div>
+        <div className="absolute bottom-1 right-1 w-[10px] h-[10px] border-t-[1px] border-l-[1px] border-darkros/30 rounded-tl-full z-10"></div>
+      </>
+    ) : (
+      <>
+        {/* Bordes decorativos finos dorados que forman la figura */}
+        <div className="absolute top-0 left-[12px] right-[12px] h-[3px] bg-goldenros z-10 transition-colors duration-300 group-hover:bg-goldenros/80"></div>
+        <div className="absolute bottom-0 left-[12px] right-[12px] h-[3px] bg-goldenros z-10 transition-colors duration-300 group-hover:bg-goldenros/80"></div>
+        <div className="absolute left-0 top-[12px] bottom-[12px] w-[3px] bg-goldenros z-10 transition-colors duration-300 group-hover:bg-goldenros/80"></div>
+        <div className="absolute right-0 top-[12px] bottom-[12px] w-[3px] bg-goldenros z-10 transition-colors duration-300 group-hover:bg-goldenros/80"></div>
+
+        <div className="absolute top-0 left-0 w-[12px] h-[12px] border-b-[3px] border-r-[3px] border-goldenros rounded-br-full z-10 transition-colors duration-300 group-hover:border-goldenros/80"></div>
+        <div className="absolute top-0 right-0 w-[12px] h-[12px] border-b-[3px] border-l-[3px] border-goldenros rounded-bl-full z-10 transition-colors duration-300 group-hover:border-goldenros/80"></div>
+        <div className="absolute bottom-0 left-0 w-[12px] h-[12px] border-t-[3px] border-r-[3px] border-goldenros rounded-tr-full z-10 transition-colors duration-300 group-hover:border-goldenros/80"></div>
+        <div className="absolute bottom-0 right-0 w-[12px] h-[12px] border-t-[3px] border-l-[3px] border-goldenros rounded-tl-full z-10 transition-colors duration-300 group-hover:border-goldenros/80"></div>
+      </>
+    )}
 
     {/* Ícono al costado izquierdo (solo desktop) */}
     <div className="relative z-10 shrink-0 hidden md:block transform group-hover:scale-110 transition-transform duration-300">
       {icon}
     </div>
     <div className="relative z-10 flex flex-col items-center text-center md:items-start md:text-left min-w-0">
-      {/* En mobile el ícono va al lado del título dorado */}
+      {/* En mobile el ícono va al lado del título */}
       <div className="flex items-center gap-2 mb-1">
         <span className="shrink-0 md:hidden [&>svg]:w-5 [&>svg]:h-5">{icon}</span>
-        <h4 className="font-montserrat font-bold text-goldenros text-xs md:text-sm tracking-widest">{title}</h4>
+        <h4 className={`font-montserrat font-bold text-xs md:text-sm tracking-widest ${titleColor}`}>{title}</h4>
       </div>
       <div className="flex flex-col items-center md:items-start gap-2 md:gap-0.5">
         {lines.map((line, i) =>
@@ -334,22 +389,23 @@ const ContactInfoCard = ({ id, icon, title, lines, hint }: ContactInfoCardProps)
               href={line.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 font-montserrat text-white text-sm font-bold hover:text-goldenros transition-colors break-words"
+              className={`inline-flex items-center gap-1.5 font-montserrat text-sm font-bold transition-colors break-words ${linkColor}`}
             >
               {line.value}
               {line.whatsapp && <WhatsAppIcon className="w-4 h-4 shrink-0 text-[#25D366]" />}
             </a>
           ) : (
-            <p key={i} className="font-montserrat text-white text-sm font-bold break-words">
+            <p key={i} className={`font-montserrat text-sm font-bold break-words ${textColor}`}>
               {line.value}
             </p>
           )
         )}
       </div>
-      {hint && <CardHint text={hint} />}
+      {hint && <CardHint text={hint} dark={highlight} />}
     </div>
   </div>
-);
+  );
+};
 
 interface InputFieldProps {
   label: string;
