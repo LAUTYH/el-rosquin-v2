@@ -43,8 +43,31 @@ const dirtyBrush = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.elrosquin.com.ar"),
   title: "El Rosquin",
   description: "Disfrutá el Momento",
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    siteName: "El Rosquín",
+    title: "El Rosquin",
+    description: "Disfrutá el Momento",
+    images: [
+      {
+        url: "/og-el-rosquin.png",
+        width: 600,
+        height: 600,
+        type: "image/png",
+        alt: "Logo de El Rosquín",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "El Rosquin",
+    description: "Disfrutá el Momento",
+    images: [{ url: "/og-el-rosquin.png", alt: "Logo de El Rosquín" }],
+  },
   icons: {
     icon: "/temporal/logo-er.svg",
   },
